@@ -44,10 +44,11 @@ namespace LungPae.Scenes
                 Data.CurrentState = Data.Scenes.scene4;
                 Data.Plypos.Y = 720 - 80;
             }
+            Console.WriteLine(Data.Plypos);
             if (player.PlayerRec.Intersects(Data.TpRec2))
             {
                 Data.CurrentState = Data.Scenes.scene6;
-                Data.Plypos.Y = 0 + 10;
+                Data.Plypos.X=0 ;
             }
             for (int i = 0; i < Data.ScreenW / grass.Width; i++)
             {
