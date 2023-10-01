@@ -67,8 +67,10 @@ namespace LungPae.Model
             //{
                 Dek.DrawFrame(batch, DekPos, row);
                 DekLady.DrawFrame(batch, DekLadyPos, row);
-               dekRec = new Rectangle((int)DekPos.X, (int)DekPos.Y , (Dek.FrameWidth * (int)Scale) / 100, (Dek.FrameHeight * (int)Scale)/100);
-               dekLadyRec = new Rectangle((int)DekLadyPos.X, (int)DekLadyPos.Y + 7, (Dek.FrameWidth * (int)Scale) / 100, (Dek.FrameHeight * (int)Scale) / 100);
+               dekRec = new Rectangle((int)DekPos.X, (int)DekPos.Y +15 , (Dek.FrameWidth * (int)Scale) / 100, (Dek.FrameHeight * (int)Scale)/100);
+               dekLadyRec = new Rectangle((int)DekLadyPos.X, (int)DekLadyPos.Y+ 11  , (Dek.FrameWidth * (int)Scale) / 100 + 10, (Dek.FrameHeight * (int)Scale) / 100);
+            Console.WriteLine(dekLadyRec.ToString());
+            Console.WriteLine(dekRec.ToString());
             //}
         }
       

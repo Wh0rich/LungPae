@@ -102,6 +102,7 @@ namespace LungPae.Scenes
             {
                 Data.CurrentState = Data.Scenes.scene3;
                 Data.Plypos.Y = 720 - 80;
+                kid.row = 1;
             }
             if (Data.Q1Finish == true)
             {
@@ -109,6 +110,7 @@ namespace LungPae.Scenes
                 {
                     Data.CurrentState = Data.Scenes.scene5;
                     Data.Plypos.Y = 0 + 10;
+                    kid.row = 1;
                 }
             }
             // วาดเด็กถ้าเควสยังไม่เสด
