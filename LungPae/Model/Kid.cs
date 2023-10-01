@@ -189,7 +189,7 @@ namespace LungPae.Model
                     case 4:
                         dialogsad.ChangeDialog("Could you bring my panties back please");
                         dialogsad.Answer("Sure","Nah");
-                        dialogsad.DrawAns(batch);
+                        dialogsad.DrawAns2(batch);
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialogsad.Ans1Rec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Talk = false;

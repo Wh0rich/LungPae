@@ -58,19 +58,33 @@ namespace LungPae.Model
             spriteBatch.Draw(DialogBox, DialogPos, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.8f);
             spriteBatch.DrawString(Myfont, msg, new Vector2(DialogPos.X + 50, DialogPos.Y + 50), Color.Black, 0, Vector2.Zero, 1, SpriteEffects.None, 0.9f);
         }
-        internal void DrawAns(SpriteBatch spriteBatch)
+        internal void DrawAns2(SpriteBatch spriteBatch)
         {
 
             spriteBatch.DrawString(Myfont, ans1, Ans1Pos, Color.Black, 0, Vector2.Zero, 1, SpriteEffects.None, 0.9f);
             spriteBatch.DrawString(Myfont, ans2, Ans2Pos, Color.Black, 0, Vector2.Zero, 1, SpriteEffects.None, 0.9f);
+            
+            Ans1Pos = new Vector2(DialogPos.X - 100, DialogPos.Y + 200);
+            Ans2Pos = new Vector2(DialogPos.X - 100, DialogPos.Y + 230);
+            
+            Ans1Rec = new Rectangle((int)Ans1Pos.X, (int)Ans1Pos.Y, 30, 30);
+            Ans2Rec = new Rectangle((int)Ans2Pos.X, (int)Ans2Pos.Y, 30, 30);
+            
+
+
+        }
+        internal void DrawAns3(SpriteBatch spriteBatch)
+        {
+
+            spriteBatch.DrawString(Myfont, ans1, Ans1Pos, Color.Black, 0, Vector2.Zero, 1, SpriteEffects.None, 0.9f);
+            spriteBatch.DrawString(Myfont, ans2, Ans2Pos, Color.Black, 0, Vector2.Zero, 1, SpriteEffects.None, 0.9f);
+            spriteBatch.DrawString(Myfont, ans3, Ans3Pos, Color.Black, 0, Vector2.Zero, 1, SpriteEffects.None, 0.9f);
             Ans1Pos = new Vector2(DialogPos.X - 100, DialogPos.Y + 200);
             Ans2Pos = new Vector2(DialogPos.X - 100, DialogPos.Y + 230);
             Ans3Pos = new Vector2(DialogPos.X - 100, DialogPos.Y + 260);
             Ans1Rec = new Rectangle((int)Ans1Pos.X, (int)Ans1Pos.Y, 30, 30);
             Ans2Rec = new Rectangle((int)Ans2Pos.X, (int)Ans2Pos.Y, 30, 30);
             Ans3Rec = new Rectangle((int)Ans3Pos.X, (int)Ans3Pos.Y, 30, 30);
-
-
         }
         internal void ChangeDialog( String msg) //รับstringมาเปลี่ยนข้อความ
         {
