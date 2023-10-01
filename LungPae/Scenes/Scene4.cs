@@ -50,10 +50,11 @@ namespace LungPae.Scenes
             player.Update(gameTime);
 
             player.Collision(kid.dekRec);
+            player.Collision(kid.dekLadyRec);
             
             Data.ms = Mouse.GetState();
             Data.MRec = new Rectangle(Data.ms.X, Data.ms.Y, 1, 1);
-            if (player.PlayerRec.Intersects(kid.dekRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(kid.dekRec))
+            if (player.PlayerRec.Intersects(kid.dekRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(kid.dekRec)|| player.PlayerRec.Intersects(kid.dekLadyRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(kid.dekLadyRec))
             {
                 kid.Talk = true;
                 Data.CanControl = false;
@@ -73,14 +74,13 @@ namespace LungPae.Scenes
                 {
                     kid.row = 4;
                 }
-
+                Data.Oldms = Data.ms;
             }
-
-
-
+            
         }
         internal override void Draw(SpriteBatch _spriteBatch)
         {
+            Data.inv.Draw(_spriteBatch);
             // จุดเปลี่ยนแมพ
             Data.TpRec = new Rectangle(Data.ScreenW / 2, 0, 40, 5);
             Data.TpRec2 = new Rectangle(Data.ScreenW / 2, Data.ScreenH - 5, 40, 5);
@@ -108,7 +108,7 @@ namespace LungPae.Scenes
                 if (player.PlayerRec.Intersects(Data.TpRec2))
                 {
                     Data.CurrentState = Data.Scenes.scene5;
-                    Data.Plypos.X = 0 + 10;
+                    Data.Plypos.Y = 0 + 10;
                 }
             }
             // วาดเด็กถ้าเควสยังไม่เสด

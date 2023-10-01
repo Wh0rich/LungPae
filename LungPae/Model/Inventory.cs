@@ -68,8 +68,8 @@ namespace LungPae.Model
             for(int i = 0; i < Items.Count; i++)
             {
                 
-                //batch.Draw(Items[i], itempos[i],new Rectangle((int)itempos[i].X, (int)itempos[i].Y,480,450) ,Color.White,0,Vector2.Zero,0.2f,0,0.3f);
-                batch.Draw(Items[i], itempos[i], Color.White);
+                batch.Draw(Items[i], itempos[i],null ,Color.White,0,Vector2.Zero,1f,0,1f);
+                //batch.Draw(Items[i], itempos[i], Color.White);
             }
             
         }

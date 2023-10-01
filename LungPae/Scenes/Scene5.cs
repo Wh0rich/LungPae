@@ -34,19 +34,19 @@ namespace LungPae.Scenes
         }
         internal override void Draw(SpriteBatch _spriteBatch)
         {
-
+            Data.inv.Draw(_spriteBatch);
             Data.TpRec = new Rectangle(Data.ScreenW / 2, 0, 40, 5);
             
             Data.TpRec2 = new Rectangle(Data.ScreenW - 5, Data.ScreenH / 2, 5, 40);
 
             if (player.PlayerRec.Intersects(Data.TpRec))
             {
-                Data.CurrentState = Data.Scenes.scene3;
+                Data.CurrentState = Data.Scenes.scene4;
                 Data.Plypos.Y = 720 - 80;
             }
             if (player.PlayerRec.Intersects(Data.TpRec2))
             {
-                Data.CurrentState = Data.Scenes.scene5;
+                Data.CurrentState = Data.Scenes.scene6;
                 Data.Plypos.Y = 0 + 10;
             }
             for (int i = 0; i < Data.ScreenW / grass.Width; i++)

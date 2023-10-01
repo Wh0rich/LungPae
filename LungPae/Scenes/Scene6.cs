@@ -29,6 +29,7 @@ namespace LungPae.Scenes
         }
         internal override void Draw(SpriteBatch _spriteBatch)
         {
+            Data.inv.Draw(_spriteBatch);
             Data.TpRec = new Rectangle(Data.ScreenW / 2, 0, 5, 5);
             Data.TpRec2 = new Rectangle(0, Data.ScreenH/2 , 5, 5);
             if (player.PlayerRec.Intersects(Data.TpRec))

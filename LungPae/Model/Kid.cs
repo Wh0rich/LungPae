@@ -25,7 +25,7 @@ namespace LungPae.Model
 
         public Rectangle dekRec,dekLadyRec;
 
-        public int row = 1, rowlady = 1;
+        public int row = 1;
 
         private const int Frame = 1;
         private const int FramePerSec = 1;
@@ -37,8 +37,8 @@ namespace LungPae.Model
         public bool Talk,TalkLady;
         public Kid() 
         {
-            DekPos = new Vector2(Data.ScreenW/2,Data.ScreenH-70);
-            DekLadyPos = new Vector2(Data.ScreenW / 2+40, Data.ScreenH-70);
+            DekPos = new Vector2(Data.ScreenW/2,Data.ScreenH-60);
+            DekLadyPos = new Vector2(Data.ScreenW / 2+35, Data.ScreenH-55);
             Dek = new AnimatedTexture(Vector2.Zero,Rotation,Scale,Depth);
             DekLady = new AnimatedTexture(Vector2.Zero,Rotation,Scale,Depth);
             dialogsad = new Dialog();
@@ -66,7 +66,7 @@ namespace LungPae.Model
             //if(Data.Quest1 == true||Data.Panties == true)
             //{
                 Dek.DrawFrame(batch, DekPos, row);
-                DekLady.DrawFrame(batch, DekPos, row);
+                DekLady.DrawFrame(batch, DekLadyPos, row);
                dekRec = new Rectangle((int)DekPos.X, (int)DekPos.Y , (Dek.FrameWidth * (int)Scale) / 100, (Dek.FrameHeight * (int)Scale)/100);
                dekLadyRec = new Rectangle((int)DekLadyPos.X, (int)DekLadyPos.Y + 7, (Dek.FrameWidth * (int)Scale) / 100, (Dek.FrameHeight * (int)Scale) / 100);
             //}
@@ -82,7 +82,7 @@ namespace LungPae.Model
                 switch (Data.DialogCount)
                 {
                     case 0:
-                        dialoghappy.ChangeDialog("Thank you B R O T H E R");
+                        dialoghappy.ChangeDialog("you really got it back.");
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialoghappy.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
@@ -90,7 +90,7 @@ namespace LungPae.Model
                         Data.Oldms = Data.ms;
                         break;
                     case 1:
-                        dialoghappy.ChangeDialog("When we meet again, I will treat you a Laab.");
+                        dialoghappy.ChangeDialog("Thank you very much, Uncle.");
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialoghappy.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount = 0;
@@ -100,6 +100,8 @@ namespace LungPae.Model
                             Data.Q1Finish = true;
                             Data.Panties = false;
                             DekPos = new Vector2(Data.ScreenW - 500, Data.ScreenH);
+                            dekRec = new Rectangle(10000, 10000, 0, 0);
+                            dekLadyRec = new Rectangle(10000, 10000, 0, 0);
                             Data.inv.RemoveItem(Data.Pantie);
                         }
                         Data.Oldms = Data.ms;
@@ -153,14 +155,15 @@ namespace LungPae.Model
             //Give Quest
             if(Talk == true&&Data.Quest1 == false && Data.Panties == false)
             {
-                
+               
                 Data.ms = Mouse.GetState();
                 switch (Data.DialogCount)
                 {
                     case 0:
+                        
                         LadyBox.DrawPerson(batch, "DekYing");
                         LadyBox.ChangeDialog("My friend's stuff was stolen by a stranger.");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialoghappy.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(LadyBox.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
                         }
@@ -179,27 +182,76 @@ namespace LungPae.Model
                         }
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(LadyBox.Ans2Rec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
-                            TalkLady = false;
-                            Data.CanControl = true;
-                            Data.DialogCount = 8;
+                           
+                            
+                            Data.DialogCount = 7;
                         }
                         Data.Oldms = Data.ms;
                         break;
                     case 2:
-                        ladyH.DrawPerson(batch, "DekYing");
-                        LadyBox.ChangeDialog("Thanks, try talking to my friend.");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialoghappy.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        LadyHappy.DrawPerson(batch, "DekYing");
+                        LadyHappy.ChangeDialog("Thanks, try talking to my friend.");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(LadyHappy.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
-                            TalkLady = false;
-                            Data.CanControl = true;
-                            Data.Quest1 = true;
+                            
                             Data.DialogCount++;
                         }
                         Data.Oldms = Data.ms;
                         break;
                     case 3:
-                        LadyBox.DrawPerson(batch, "DekYing");
+                        dialogPae.Draw(batch);
+                        dialogPae.ChangeDialog("You went and talked to the boy.");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialogPae.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        {
+
+                            Data.DialogCount++;
+                        }
+                        Data.Oldms = Data.ms;
+                        break;
+                   
+                    case 4:
+                        dialogsad.DrawPerson(batch, "DekNoi");
+                        dialogsad.ChangeDialog("I had my pantie stolen by a stranger.");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialogsad.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        {
+                            Data.DialogCount++;
+                        }
+                        Data.Oldms = Data.ms;
+                        break;
+                    case 5:
+                        dialogPae.Draw(batch);
+                        dialogPae.ChangeDialog("What does that person look like?");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialogsad.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        {
+                            Data.DialogCount++;
+                        }
+                        Data.Oldms = Data.ms;
+                        break;
+                    case 6:
+                        dialogsad.DrawPerson(batch, "DekNoi");
+                        dialogsad.ChangeDialog("Tall, wearing a purple shirt");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialogsad.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        {
+                            Talk = false;
+                            Data.CanControl = true;
+                            Data.Quest1 = true;
+                            Data.DialogCount = 0;
+                        }
+                        Data.Oldms = Data.ms;
+                        break;
+                     case 7:
+                        LadyBox.DrawPerson(batch,"DekYing");
+                        LadyBox.ChangeDialog("Heartless, this brother is not a real man.");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(LadyBox.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        {
+                            Data.DialogCount=0;
+                            Talk = false;
+                            Data.CanControl = true;
+                        }
+                        Data.Oldms = Data.ms;
+                        break;
                 }
+
             }
 
 

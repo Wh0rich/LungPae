@@ -92,6 +92,7 @@ namespace LungPae.Scenes
         }
         internal override void Draw(SpriteBatch _spriteBatch)
         {
+            Data.inv.Draw(_spriteBatch);
             Data.TpRec = new Rectangle(Data.ScreenW / 2, 0, 40, 5);
             Data.TpRec2 = new Rectangle(Data.ScreenW / 2, Data.ScreenH - 5, 40, 15);
             for (int i = 0; i < Data.ScreenW / grass.Width; i++)
