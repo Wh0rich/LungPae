@@ -58,17 +58,17 @@ namespace LungPae.Model
                     Data.Plypos.X += speed;
                     row = 4;
                 }
-                if (ks.IsKeyDown(Keys.A))
+                else if (ks.IsKeyDown(Keys.A))
                 {
                     Data.Plypos.X -= speed;
                     row = 2;
                 }
-                if (ks.IsKeyDown(Keys.W))
+                else if (ks.IsKeyDown(Keys.W))
                 {
                     Data.Plypos.Y -= speed;
                     row = 3;
                 }
-                if (ks.IsKeyDown(Keys.S))
+                else if (ks.IsKeyDown(Keys.S))
                 {
                     Data.Plypos.Y += speed;
                     row = 1;

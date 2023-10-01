@@ -8,8 +8,6 @@ using System.Threading.Tasks;
 using LungPae.Core;
 using Microsoft.Xna.Framework.Content;
 using LungPae.Model;
-using Microsoft.Xna.Framework.Input;
-using System.Reflection.Metadata;
 
 
 namespace LungPae.Scenes
@@ -17,76 +15,40 @@ namespace LungPae.Scenes
     internal class Scene5 : Component
     {
         Player player;
-        Kid kid;
-        Dialog dialog;
-        Inventory inv;
-        Texture2D floor,grass;
-        Building sandbox;
+        Texture2D Floor, grass;
 
-
-        bool pickMelon= false;
-        Rectangle melonRec;
         public Scene5()
         {
-            sandbox = new Building(new Vector2(100,100),1);
             player = new Player();
-            kid = new Kid();
-            dialog = new Dialog();
-            inv = new Inventory();
         }
         internal override void LoadContent(ContentManager Content)
         {
             player.LoadContent(Content);
-            dialog.LoadContent(Content);
-            kid.Load(Content);
-            floor = Content.Load<Texture2D>("Floor");
+
+            Floor = Content.Load<Texture2D>("Floor");
             grass = Content.Load<Texture2D>("grass");
-            sandbox.Load(Content,"sandbox");
-            Data.Watermelon.Load(Content, "watermelon");
         }
         internal override void Update(GameTime gameTime)
         {
             player.Update(gameTime);
-            
-            player.Collision(kid.dekRec);
-            kid.Update(gameTime);
-            Data.ms = Mouse.GetState();
-            Data.MRec = new Rectangle(Data.ms.X, Data.ms.Y, 1, 1);
-            if (player.PlayerRec.Intersects(kid.dekRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(kid.dekRec))
-            {
-                kid.Talk = true;
-                Data.CanControl = false;
-                if (player.row == 1)
-                {
-                    kid.row = 3;
-                }
-                if (player.row == 2)
-                {
-                    kid.row = 2;
-                }
-                if (player.row == 3)
-                {
-                    kid.row = 1;
-                }
-                if (player.row == 4)
-                {
-                    kid.row = 4;
-                }
-
-            }
-           
-
-
-            }
+        }
         internal override void Draw(SpriteBatch _spriteBatch)
         {
-            // จุดเปลี่ยนแมพ
-            Data.TpRec = new Rectangle(Data.ScreenW / 2, 0, 40, 5);
-            Data.TpRec2 = new Rectangle(Data.ScreenW-5, Data.ScreenH/2 , 5, 40);
-           
 
-            _spriteBatch.Draw(floor, new Vector2(Data.ScreenW / 2, 0), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
-            _spriteBatch.Draw(floor, new Vector2(Data.ScreenW - floor.Width, Data.ScreenH / 2), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
+            Data.TpRec = new Rectangle(Data.ScreenW / 2, 0, 40, 5);
+            
+            Data.TpRec2 = new Rectangle(Data.ScreenW - 5, Data.ScreenH / 2, 5, 40);
+
+            if (player.PlayerRec.Intersects(Data.TpRec))
+            {
+                Data.CurrentState = Data.Scenes.scene3;
+                Data.Plypos.Y = 720 - 80;
+            }
+            if (player.PlayerRec.Intersects(Data.TpRec2))
+            {
+                Data.CurrentState = Data.Scenes.scene5;
+                Data.Plypos.Y = 0 + 10;
+            }
             for (int i = 0; i < Data.ScreenW / grass.Width; i++)
             {
                 for (int j = 0; j < Data.ScreenH / grass.Height; j++)
@@ -95,39 +57,9 @@ namespace LungPae.Scenes
                 }
 
             }
-            // npc1.Draw(_spriteBatch);
-            // npc1.Draw(_spriteBatch);
-            if (player.PlayerRec.Intersects(Data.TpRec))
-            {
-                Data.CurrentState = Data.Scenes.scene4;
-                Data.Plypos.Y = 720 - 80;
-            }
-            if (Data.Q1Finish == true)
-            {
-                if (player.PlayerRec.Intersects(Data.TpRec2))
-                {
-                    Data.CurrentState = Data.Scenes.scene6;
-                    Data.Plypos.X = 0 + 10;
-                }
-            }
-            // วาดเด็กถ้าเควสยังไม่เสด
-            if(Data.Q1Finish == false)
-            {
-                kid.Draw( _spriteBatch );
-            }
-            if(kid.Talk==true)
-            {
-                kid.DekDialog(_spriteBatch);
-            }
-
-           // if(pickMelon == false)
-           // {
-           //     melonRec = new Rectangle(50, 50, Data.Watermelon.item.Width, Data.Watermelon.item.Height);
-           //     _spriteBatch.Draw(Data.Watermelon.item,new Vector2(50,50), new Rectangle(0, 0, Data.Watermelon.item.Width, Data.Watermelon.item.Height), Color.White,0,Vector2.Zero,1,0,0.3f);
-           //}
-           sandbox.Draw( _spriteBatch );
+            _spriteBatch.Draw(Floor, new Vector2(Data.ScreenW - Floor.Width, Data.ScreenH / 2), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f); 
+            _spriteBatch.Draw(Floor, new Vector2(Data.ScreenW / 2, 0), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
             player.Draw(_spriteBatch);
-            Data.inv.Draw( _spriteBatch );
         }
     }
 }
