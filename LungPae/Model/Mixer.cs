@@ -40,14 +40,14 @@ namespace LungPae.Model
         internal void Load(ContentManager content)
         {
             mixer.Load(content, "MixerReal", 1, 4, 10);
-            dialog.LoadContent(content);
+            dialog.LoadContent(content,"MixerBox");
         }
         internal void Update(GameTime gameTime)
         {
             mixRec = new Rectangle((int)mixPos.X, (int)mixPos.Y +30, mixer.FrameWidth * (int)Scale / 100, mixer.FrameHeight * (int)Scale / 100+10);
             mixRecTop = new Rectangle((int)mixPos.X, (int)mixPos.Y, mixer.FrameWidth * (int)Scale / 100, (mixer.FrameHeight * (int)Scale / 100) -40 );
             mixRecTalk = new Rectangle((int)mixPos.X, (int)mixPos.Y , mixer.FrameWidth * (int)Scale / 100, mixer.FrameHeight * (int)Scale / 100);
-            dialog.Update(gameTime);
+            
             if (checkCollision == true)
             {
                 mixer.Depth = 0.6f;
@@ -65,7 +65,7 @@ namespace LungPae.Model
             mixer.DrawFrame(batch, mixPos, row);
             if (Talk == true && Data.Minigame1 == false)
             {
-                dialog.Draw(batch);
+                dialog.DrawPerson(batch,"Mixer");
                 switch (Data.DialogCount)
                 {
                     case 0:

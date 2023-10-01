@@ -18,7 +18,7 @@ namespace LungPae.Model
     {
         AnimatedTexture Dek;
         Texture2D Deksad;
-        Dialog dialog;
+        Dialog dialogsad,dialoghappy,dialogPae;
         Vector2 DekPos;
 
         public Rectangle dekRec;
@@ -37,7 +37,9 @@ namespace LungPae.Model
         {
             DekPos = new Vector2(1245,345);
             Dek = new AnimatedTexture(Vector2.Zero,Rotation,Scale,Depth);
-            dialog = new Dialog();
+            dialogsad = new Dialog();
+            dialoghappy = new Dialog();
+            dialogPae = new Dialog();
         }
 
         public void Load(ContentManager content)
@@ -45,14 +47,16 @@ namespace LungPae.Model
             
             Dek.Load(content,"Kid1",Frame,FrameRow,FramePerSec);
             Deksad = content.Load<Texture2D>("Kid1_Sad");
-            dialog.LoadContent(content);
+            dialogsad.LoadContent(content,"Kid1Box_Sad");
+            dialoghappy.LoadContent(content, "Kid1Box_Happy");
+            dialogPae.LoadContent(content);
         }
         public void Update(GameTime gameTime)
         {
             dekRec = new Rectangle((int)DekPos.X, (int)DekPos.Y+7, Dek.FrameWidth, Dek.FrameHeight-7);
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
            
-            dialog.Update(gameTime);
+            
             
         }
         public void Draw(SpriteBatch batch) 
@@ -61,29 +65,27 @@ namespace LungPae.Model
             //{
                 Dek.DrawFrame(batch, DekPos, row);
             //}
-            
-            
         }
         public void DekDialog(SpriteBatch batch)
         {
             //finish quest
-            if(Talk == true && Data.Panties == true)
+            if (Talk == true && Data.Panties == true)
             {
-                dialog.Draw(batch);
+                dialoghappy.DrawPerson(batch, "DekNoi");
                 Data.ms = Mouse.GetState();
                 switch (Data.DialogCount)
-                { 
+                {
                     case 0:
-                        dialog.ChangeDialog("Thank you B R O T H E R");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        dialoghappy.ChangeDialog("Thank you B R O T H E R");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialoghappy.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
                         }
                         Data.Oldms = Data.ms;
                         break;
                     case 1:
-                        dialog.ChangeDialog("When we meet again, I will treat you a Laab.");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        dialoghappy.ChangeDialog("When we meet again, I will treat you a Laab.");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialoghappy.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount = 0;
                             Talk = false;
@@ -91,46 +93,75 @@ namespace LungPae.Model
                             Data.CanControl = true;
                             Data.Q1Finish = true;
                             Data.Panties = false;
-                            DekPos = new Vector2(Data.ScreenW-500,Data.ScreenH);
+                            DekPos = new Vector2(Data.ScreenW - 500, Data.ScreenH);
                             Data.inv.RemoveItem(Data.Pantie);
                         }
                         Data.Oldms = Data.ms;
-                        break; 
+                        break;
                 }
             }
 
             // quest no finish
-            if (Talk == true && Data.Quest1 == true && Data.Panties == false )
+            if (Talk == true && Data.Quest1 == true && Data.Panties == false)
             {
-                dialog.Draw(batch);
+                
                 Data.ms = Mouse.GetState();
-                dialog.ChangeDialog("The villain wore a purple shirt and jeans");
-                    if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
-                    {
-                    Talk = false;
-                    Data.CanControl = true;
-                    }
-                    Data.Oldms = Data.ms;
-                    
-                }
-            //Give Quest
-            if(Talk == true&&Data.Quest1 == false && Data.Panties == false)
-            {
-                dialog.Draw(batch);
-                Data.ms = Mouse.GetState();
+              
                 switch (Data.DialogCount)
                 {
                     case 0:
-                        dialog.ChangeDialog("Im sadd");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        dialogsad.DrawPerson(batch, "DekNoi");
+                        dialogsad.ChangeDialog("I had my pantie stolen by a stranger.");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialogsad.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
                         }
                         Data.Oldms = Data.ms;
                         break;
                     case 1:
-                        dialog.ChangeDialog("My panties were stolen.");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        dialogPae.Draw(batch);
+                        dialogPae.ChangeDialog("What does that person look like?");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialogsad.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        {
+                            Data.DialogCount++;
+                        }
+                        Data.Oldms = Data.ms;
+                        break;
+                    case 2:
+                        dialogsad.DrawPerson(batch, "DekNoi");
+                        dialogsad.ChangeDialog("Tall, wearing a purple shirt");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialogsad.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        {
+                            Talk = false;
+                            Data.CanControl = true;
+                            Data.DialogCount=0;
+                        }
+                        Data.Oldms = Data.ms;
+                        break;
+
+                }
+                
+
+            }
+
+            //Give Quest
+            if(Talk == true&&Data.Quest1 == false && Data.Panties == false)
+            {
+                dialogsad.DrawPerson(batch,"DekNoi");
+                Data.ms = Mouse.GetState();
+                switch (Data.DialogCount)
+                {
+                    case 0:
+                        dialogsad.ChangeDialog("Im sadd");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialogsad.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        {
+                            Data.DialogCount++;
+                        }
+                        Data.Oldms = Data.ms;
+                        break;
+                    case 1:
+                        dialogsad.ChangeDialog("My panties were stolen.");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialogsad.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
                             
@@ -139,8 +170,8 @@ namespace LungPae.Model
                         break;
                     case 2:
                         
-                        dialog.ChangeDialog("I can't go home without my pantie");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        dialogsad.ChangeDialog("I can't go home without my pantie");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialogsad.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
                         }
@@ -148,25 +179,25 @@ namespace LungPae.Model
                         break;
                     case 3:
                         
-                        dialog.ChangeDialog("The villain wore a purple shirt and jeans");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        dialogsad.ChangeDialog("The villain wore a purple shirt and jeans");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialogsad.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
                         }
                         Data.Oldms = Data.ms;
                         break;
                     case 4:
-                        dialog.ChangeDialog("Could you bring my panties back please");
-                        dialog.Answer("Sure","Nah");
-                        dialog.DrawAns(batch);
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.Ans1Rec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        dialogsad.ChangeDialog("Could you bring my panties back please");
+                        dialogsad.Answer("Sure","Nah");
+                        dialogsad.DrawAns(batch);
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialogsad.Ans1Rec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Talk = false;
                             Data.CanControl = true;
                             Data.Quest1 = true;
                             Data.DialogCount = 0;
                         }
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.Ans2Rec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialogsad.Ans2Rec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Talk = false;
                             Data.CanControl = true;

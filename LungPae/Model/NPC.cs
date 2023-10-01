@@ -51,10 +51,7 @@ namespace LungPae.Model
             NpcRecTop = new Rectangle((int)Pos.X, (int)Pos.Y, npc.FrameWidth * (int)scale / 100, (npc.FrameHeight * (int)scale / 100) - 75);
             NpcRecTalk = new Rectangle((int)Pos.X, (int)Pos.Y, npc.FrameWidth * (int)scale / 100, (npc.FrameHeight * (int)scale / 100));
 
-            if (talk == true )
-            {
-                dialog.Update(gameTime);
-            }
+           
             if (checkCollision == true)
             {
                 npc.Depth = 0.6f;

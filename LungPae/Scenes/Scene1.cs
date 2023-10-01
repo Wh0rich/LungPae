@@ -72,7 +72,7 @@ namespace LungPae.Scenes
             npc3.Update(gameTime);
             player.Update(gameTime);
             chin.Update(gameTime);
-            dialog.Update(gameTime);
+            
             seven.CheckCollision(player);
             obj.CheckCollision(player);
             player.Collision(obj.ObjRecDown);
@@ -125,7 +125,7 @@ namespace LungPae.Scenes
             //ให้ชินหันหน้ามาหาตอนพูด
             if (player.PlayerRec.Intersects(chin.chinRecTalk) &&Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(chin.chinRecTalk))
               {
-                dialog.Update(gameTime);
+                
                 chin.Talk = true;
                 Data.CanControl = false;
                 if (player.row == 1)

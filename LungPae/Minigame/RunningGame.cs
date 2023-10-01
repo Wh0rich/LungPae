@@ -116,7 +116,7 @@ namespace LungPae.Minigame
             }
             npcMan.UpdateFrame(elapsed);
             npcLady.UpdateFrame(elapsed);
-            dialog.Update(gameTime);
+            
         }
         internal override void Draw(SpriteBatch Batch)
         {

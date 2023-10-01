@@ -18,7 +18,7 @@ namespace LungPae.Model
     internal class Chin 
     {
         AnimatedTexture chin;
-        Dialog dialog;
+        Dialog dialog,dialog2;
         
 
 
@@ -48,12 +48,14 @@ namespace LungPae.Model
             chin = new AnimatedTexture(Vector2.Zero ,Rotation,Scale,Depth);
             Scale = Scale * 100;
             dialog = new Dialog();
+            dialog2 = new Dialog();
         }
 
         internal void Load(ContentManager content)
         {
           chin.Load(content, "ChinPantiesThief", 4, 4, 3);
-            dialog.LoadContent(content);
+            dialog2.LoadContent(content, "ChinBox_Happy");
+            dialog.LoadContent(content, "ChinBox");
             speed = 1;
             
         }
@@ -70,7 +72,7 @@ namespace LungPae.Model
                 speed = 0;
                 chin.Stop();
                 chin.UpdateFrame(0);
-                dialog.Update(gameTime);
+                
             }
 
             if (Data.CanControl == true)
@@ -99,7 +101,7 @@ namespace LungPae.Model
                 }
                 else
                 {
-                    chin.Depth = 0.5f;
+                    chin.Depth = 0.4f;
                 }
                
                 

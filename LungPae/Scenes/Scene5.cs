@@ -54,7 +54,6 @@ namespace LungPae.Scenes
             Data.MRec = new Rectangle(Data.ms.X, Data.ms.Y, 1, 1);
             if (player.PlayerRec.Intersects(kid.dekRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(kid.dekRec))
             {
-                dialog.Update(gameTime);
                 kid.Talk = true;
                 Data.CanControl = false;
                 if (player.row == 1)
