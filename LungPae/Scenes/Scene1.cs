@@ -28,7 +28,7 @@ namespace LungPae.Scenes
         SpriteFont Font;
         Building obj,seven;
         Dialog dialog;
-       
+        material bin,bin2,bin3,bin4;
 
         
         
@@ -46,7 +46,10 @@ namespace LungPae.Scenes
             npc3 = new NPC(0, 0.6f, 0.5f, new Vector2(800, 400));
             dialog = new Dialog();
             player = new Player();
-            
+            bin = new material(new Vector2 (600,125),1f);
+            bin2 = new material(new Vector2(220,305), 1f);
+            bin3 = new material(new Vector2(1000, 320), 1f);
+            bin4 = new material(new Vector2(320, 135), 1f);
 
         }
         internal override void LoadContent(ContentManager Content)
@@ -57,6 +60,10 @@ namespace LungPae.Scenes
             npc1.Load(Content, "NPC", 4, 4, 0);
             npc2.Load(Content,"NPC",4,4, 0);
             npc3.Load(Content, "NPC", 4, 4, 0);
+            bin.Load(Content, "recycleBin");
+            bin2.Load(Content, "recycleBin");
+            bin3.Load(Content, "recycleBin");
+            bin4.Load(Content, "recycleBin");
             dialog.LoadContent(Content);
             grass = Content.Load<Texture2D>("grass");
             floor = Content.Load<Texture2D>("Floor");
@@ -72,7 +79,10 @@ namespace LungPae.Scenes
             npc3.Update(gameTime);
             player.Update(gameTime);
             chin.Update(gameTime);
-            
+            player.Collision(bin.ObjRecDown);
+            player.Collision(bin2.ObjRecDown);
+            player.Collision(bin3.ObjRecDown);
+            player.Collision(bin4.ObjRecDown);
             seven.CheckCollision(player);
             obj.CheckCollision(player);
             player.Collision(obj.ObjRecDown);
@@ -85,7 +95,10 @@ namespace LungPae.Scenes
             npc1.Npccheck(player);
             npc2.Npccheck(player);
             npc3.Npccheck(player);
-
+            bin.CheckCollision(player);
+            bin2.CheckCollision(player);
+            bin3.CheckCollision(player);
+            bin4.CheckCollision(player);
             Data.ms = Mouse.GetState();
             Data.MRec = new Rectangle(Data.ms.X, Data.ms.Y, 1, 1);
 
@@ -151,7 +164,7 @@ namespace LungPae.Scenes
                 Data.inv.AddItem(Data.Pantie);
                 chin.give = false;
             }
-           
+            Console.WriteLine(Data.Plypos);
            
         }
        
@@ -165,7 +178,10 @@ namespace LungPae.Scenes
                 }
                 
             }
-            
+            bin.Draw(_spriteBatch);
+            bin2.Draw(_spriteBatch);
+            bin3.Draw(_spriteBatch);
+            bin4.Draw(_spriteBatch);
             _spriteBatch.Draw(floor, new Vector2(Data.ScreenW / 2, Data.ScreenH - floor.Height),null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0f);
 
             npc1.DrawFrame(_spriteBatch,1);

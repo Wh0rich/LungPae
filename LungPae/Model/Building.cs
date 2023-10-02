@@ -40,7 +40,7 @@ namespace LungPae.Model
             }
             if (ObjRecDown.Intersects(player.PlayerRec))
             {
-                Depth = 0.4f;
+                Depth = 0.3f;
                 if (player.PlayerRec.Intersects(ObjRecDown) && player.PlayerRec.Top < ObjRecDown.Top)
                 {
                     Depth = 0.6f;

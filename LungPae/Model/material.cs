@@ -14,7 +14,7 @@ namespace LungPae.Model
         Texture2D obj;
         Vector2 pos;
         private float Scale;
-        private float Depth = 0.5f;
+        private float Depth = 0.8f;
         public Rectangle ObjRecDown, ObjRecTop;
         public bool Talk = false;
         public material(Vector2 pos, float scale) //รับค่า posกับscaleมา
@@ -27,22 +27,27 @@ namespace LungPae.Model
         internal void Load(ContentManager Content, string asset)
         {
             this.obj = Content.Load<Texture2D>(asset);
-            ObjRecTop = new Rectangle((int)pos.X, (int)pos.Y, obj.Width * (int)Scale / 100, (obj.Height * (int)Scale / 100) / 2);
-            ObjRecDown = new Rectangle((int)pos.X, (int)pos.Y + (obj.Height * (int)Scale / 100) / 2 + 10, obj.Width * (int)Scale / 100, (obj.Height * (int)Scale / 100) / 2);
+            //ObjRecTop = new Rectangle((int)pos.X, (int)pos.Y, obj.Width * (int)Scale / 100, (obj.Height * (int)Scale / 100) / 2);
+            //ObjRecDown = new Rectangle((int)pos.X , (int)pos.Y+20, obj.Width * (int)Scale / 100, obj.Height * (int)Scale / 100);
+            ObjRecDown = new Rectangle((int)pos.X, (int)pos.Y, obj.Width * (int)Scale / 100, obj.Height * (int)Scale / 100 + 16);
         }
         internal void CheckCollision(Player player)
         {
             if (ObjRecTop.Intersects(player.PlayerRec))
             {
-                Depth = 0.6f;
+                Depth = 0.7f;
             }
             if (ObjRecDown.Intersects(player.PlayerRec))
             {
                 Depth = 0.4f;
                 if (player.PlayerRec.Intersects(ObjRecDown) && player.PlayerRec.Top < ObjRecDown.Top)
                 {
-                    Depth = 0.6f;
+                    Depth = 0.4f;
                 }
+            }
+            else
+            {
+                Depth = 0.8f;
             }
         }
         internal void Draw(SpriteBatch _spriteBatch)
