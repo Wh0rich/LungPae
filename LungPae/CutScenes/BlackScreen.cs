@@ -39,12 +39,13 @@ namespace LungPae.CutScenes
             {
                 dialog.Draw(spriteBatch);
                 dialog.ChangeDialog("Fire in the hole");
-                if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec))
+                if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec)&&Data.Oldms.LeftButton == ButtonState.Released)
                 {
                     Data.OnFire = false;
                     Data.CurrentState = Data.Scenes.scene5;
                     Data.CanControl = true;
                 }
+                Data.Oldms = Data.ms;
             }
         }
     }

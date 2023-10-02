@@ -82,7 +82,7 @@ namespace LungPae.Model
                 }
             }
 
-            if (mord == false && Data.stick == false && Talk == true || Data.mask == true)
+            if (mord == false && Data.stick == false && Talk == true &&Data.mask == false|| mord == false && Data.stick == false && Talk == true && Data.mask == true||mord == true)
             {
                 Data.ms = Mouse.GetState();
                 switch (Data.DialogCount)
@@ -103,10 +103,34 @@ namespace LungPae.Model
             }
             if (mord == false && Data.stick == true && Talk == true && Data.mask == true)
             {
-                mord = true;
-                Talk = false;
-                Data.Quest2Finish =true;
-                Data.OnFire = true;
+                Data.ms = Mouse.GetState();
+                switch (Data.DialogCount)
+                {
+                    case 0:
+                        dialog.Draw(_spriteBatch);
+                        dialog.ChangeDialog("Are you going to set fire to chase away the crowd?");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        {
+                            Data.DialogCount++;
+                        }
+                        Data.Oldms = Data.ms;
+                        break;
+                    case 1:
+                        dialog.Draw(_spriteBatch);
+                        dialog.ChangeDialog("Use the smoke from the fire to drive away the crowd.");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        {
+                            mord = true;
+                            Talk = false;
+                            Data.Quest2Finish = true;
+                            Data.OnFire = true;
+                            Data.DialogCount=0;
+                        }
+                        Data.Oldms = Data.ms;
+                        break;
+                }
+
+                
             }
         }
 
