@@ -10,13 +10,14 @@ using LungPae.Core;
 using LungPae.Model;
 using LungPae.Scenes;
 using LungPae.Minigame;
+using LungPae.CutScenes;
 
 namespace LungPae.Manager
 {
-    
+
     internal partial class GameStateManager : Component // เรียกใช้แต่ละscene
     {
-        
+
         private Scene1 s1 = new Scene1();
         private Scene2 s2 = new Scene2();
         private Scene3 s3 = new Scene3();
@@ -24,6 +25,9 @@ namespace LungPae.Manager
         private Scene5 s5 = new Scene5();
         private Scene6 s6 = new Scene6();
         private RunningGame m1 = new RunningGame();
+        private BlackScreen b = new BlackScreen();
+    
+        
         internal override void LoadContent(ContentManager Content)
         {
            s1.LoadContent( Content);
@@ -33,6 +37,7 @@ namespace LungPae.Manager
            s5.LoadContent( Content);
            s6.LoadContent( Content);
            m1.LoadContent( Content);
+           b.LoadContent( Content );
         }
 
         internal override void Update(GameTime gameTime)
@@ -62,6 +67,9 @@ namespace LungPae.Manager
                 case Data.Scenes.minigame1:
                     m1.Update(gameTime);
                     break;
+                case Data.Scenes.Blackscreen:
+                    b.Update(gameTime);
+                    break;
             }
         }
         internal override void Draw(SpriteBatch spriteBatch)
@@ -90,7 +98,10 @@ namespace LungPae.Manager
                 case Data.Scenes.minigame1:
                     m1.Draw(spriteBatch);
                     break;
-                    
+                case Data.Scenes.Blackscreen:
+                    b.Draw(spriteBatch);
+                    break;
+
             }
         }
 

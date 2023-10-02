@@ -9,7 +9,7 @@ namespace LungPae.Core
     public class Game1 : Game
     {
         public static GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
+        public SpriteBatch _spriteBatch;
         private GameStateManager gsm;
        // SpriteFont f;
         //Texture2D tx;

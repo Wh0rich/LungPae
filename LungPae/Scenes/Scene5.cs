@@ -34,7 +34,7 @@ namespace LungPae.Scenes
             matchstick = new Item(new Vector2 (200,250));
             hat = new Item(new Vector2(500, 315));
             dialog = new Dialog();
-            fire = new Campfire(new Vector2(1000,375),3);
+            fire = new Campfire(new Vector2(600,375),1);
             crowd = new Crowd();
         }
         internal override void LoadContent(ContentManager Content)
@@ -88,6 +88,7 @@ namespace LungPae.Scenes
                 hat.pickup = true;
                 
             }
+            crowd.Update(gameTime);
             player.Update(gameTime);
             player.Collision(crowd.CrowdRec);
             player.Collision(fire.fireRec);
@@ -159,17 +160,15 @@ namespace LungPae.Scenes
             }
           
             if (Data.Quest2Finish == false)
-            {
-
+            { 
                 crowd.Draw(_spriteBatch);
-
-                
             }
-            if (Data.Quest2Finish == true)
+            if (Data.Quest2Finish == true&& Data.OnFire == true)
             {
-                
-               
-                
+
+                Data.CurrentState = Data.Scenes.Blackscreen;
+                Data.inv.RemoveItem(matchstick);
+                Data.inv.RemoveItem(hat);
             }
             fire.Draw(_spriteBatch);
             player.Draw(_spriteBatch);

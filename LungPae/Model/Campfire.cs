@@ -44,12 +44,12 @@ namespace LungPae.Model
             if (mord == false)
             {
                 _spriteBatch.Draw(fire, pos, null, Color.White, 0, Vector2.Zero, Scale / 100, 0, Depth);
-                fireRec = new Rectangle((int)pos.X + 26, (int)pos.Y + 30, fire.Width * (int)Scale / 100 - 14, fire.Height * (int)Scale / 100 + 16);
+                fireRec = new Rectangle((int)pos.X , (int)pos.Y , fire.Width * (int)Scale / 100 , fire.Height * (int)Scale / 100 + 16);
             }
             if (mord == true)
             {
                 _spriteBatch.Draw(fire2, pos, null, Color.White, 0, Vector2.Zero, Scale / 100, 0, Depth);
-                fireRec = new Rectangle((int)pos.X + 26, (int)pos.Y + 30, fire.Width * (int)Scale / 100 - 14, fire.Height * (int)Scale / 100 + 16);
+                fireRec = new Rectangle((int)pos.X, (int)pos.Y , fire.Width * (int)Scale / 100 , fire.Height * (int)Scale / 100 + 16);
             }
         }
         internal void Speak(SpriteBatch _spriteBatch)
@@ -104,7 +104,9 @@ namespace LungPae.Model
             if (mord == false && Data.stick == true && Talk == true && Data.mask == true)
             {
                 mord = true;
+                Talk = false;
                 Data.Quest2Finish =true;
+                Data.OnFire = true;
             }
         }
 
