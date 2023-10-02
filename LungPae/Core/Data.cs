@@ -31,7 +31,7 @@ namespace LungPae.Core
 
         //Quests
         public static bool Quest1 = false, Q1Finish = false, Panties = false;
-        public static bool Quest2 = false, watermelon = false;
+        public static bool Quest2 = true, Quest2Finish = false ,mask = false,stick = false ;
 
 
         public static Rectangle MRec;
@@ -47,5 +47,11 @@ namespace LungPae.Core
         
         public static Item Pantie = new Item();
         public static Item Watermelon = new Item();
+        public static Item Matchstick = new Item();
+        public static Item RobberHAt = new Item();
+       
+        //เพิ่มถังขยะ
+        //เพิ่มกองไฟ ทำ Quest2
+        //เพิ่มลู่วิ่ง กำแพง คนดู เปลี่ยนตอนชนะเป็นรูปอื่นในOther asset
     }
 }

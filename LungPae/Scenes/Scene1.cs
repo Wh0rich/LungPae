@@ -28,7 +28,7 @@ namespace LungPae.Scenes
         SpriteFont Font;
         Building obj,seven;
         Dialog dialog;
-        
+       
 
         
         
