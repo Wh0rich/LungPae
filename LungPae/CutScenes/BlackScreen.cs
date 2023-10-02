@@ -42,7 +42,7 @@ namespace LungPae.CutScenes
                 if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec)&&Data.Oldms.LeftButton == ButtonState.Released)
                 {
                     Data.OnFire = false;
-                    Data.CurrentState = Data.Scenes.scene5;
+                    Data.CurrentState = Data.Scenes.scene6;
                     Data.CanControl = true;
                 }
                 Data.Oldms = Data.ms;

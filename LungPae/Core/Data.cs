@@ -36,7 +36,7 @@ namespace LungPae.Core
 
 
         public static Rectangle MRec;
-        public static Rectangle TpRec, TpRec2 ;
+        public static Rectangle TpRec, TpRec2 , TpRec3, TpRec4;
 
         public static Vector2 Plypos;
 

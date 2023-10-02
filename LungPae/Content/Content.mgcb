@@ -85,30 +85,6 @@
 /processorParam:TextureFormat=Color
 /build:Campfire.png
 
-#begin Campfire.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campfire.png
-
-#begin Campfire2.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Campfire2.png
-
 #begin Campfire2.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -180,6 +156,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:DialogBox.png
+
+#begin FinishLuwing.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:FinishLuwing.png
 
 #begin Floor.png
 /importer:TextureImporter
@@ -344,6 +332,18 @@
 /processorParam:TextureFormat=Color
 /build:Lungpae.png
 
+#begin Luwing.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Luwing.png
+
 #begin matchstick.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -355,6 +355,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:matchstick.png
+
+#begin MixerAni.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:MixerAni.png
 
 #begin MixerBox.png
 /importer:TextureImporter
@@ -447,6 +459,18 @@
 /processorParam:TextureFormat=Color
 /build:recycleBin.png
 
+#begin ResultLOGO.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:ResultLOGO.png
+
 #begin RobberHat.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -494,6 +518,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:StadiumWall.png
+
+#begin StartLuwing.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:StartLuwing.png
 
 #begin watermelon.png
 /importer:TextureImporter

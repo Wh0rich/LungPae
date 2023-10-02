@@ -41,7 +41,7 @@ namespace LungPae.Scenes
             }
             if (player.PlayerRec.Intersects(Data.TpRec2))
             {
-                Data.CurrentState = Data.Scenes.scene5;
+                Data.CurrentState = Data.Scenes.scene4;
                 Data.Plypos.Y = 0 + 10;
             }
             for (int i = 0; i < Data.ScreenW / grass.Width; i++)

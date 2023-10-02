@@ -245,7 +245,7 @@ namespace LungPae.Model
                         break;
                     case 7:
                         dialogBox.DrawPerson(Batch, "Chin");
-                        dialogBox.ChangeDialog("How about this question? How many trash cans are there in the park?");
+                        dialogBox.ChangeDialog("How about this question?\nHow many trash cans are there in the park?");
                         dialogBox.Answer("2", "3 ", "4");
                         dialogBox.DrawAns3(Batch);
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialogBox.Ans1Rec) && Data.Oldms.LeftButton == ButtonState.Released)
