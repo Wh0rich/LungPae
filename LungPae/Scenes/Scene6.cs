@@ -21,7 +21,7 @@ namespace LungPae.Scenes
         Campfire fire;
         Dialog dialog;
         Crowd crowd;
-        Item matchstick, hat;
+        
 
         Rectangle CrowdRec;
         float temp;
@@ -31,8 +31,8 @@ namespace LungPae.Scenes
         public Scene6()
         {
             player = new Player();
-            matchstick = new Item(new Vector2(200, 250));
-            hat = new Item(new Vector2(500, 315));
+            
+           
             dialog = new Dialog();
             fire = new Campfire(new Vector2(600, 375), 1);
             crowd = new Crowd();
@@ -45,11 +45,10 @@ namespace LungPae.Scenes
             crowd.Load(Content);
             Floor = Content.Load<Texture2D>("Floor");
             grass = Content.Load<Texture2D>("grass");
-            matchstick.Load(Content, "matchstick");
-            hat.Load(Content, "RobberHat");
+            
+            
             fire.Load(Content);
-            Data.Matchstick.Load(Content, "matchstick");
-            Data.RobberHAt.Load(Content, "RobberHat");
+            
 
         }
         internal override void Update(GameTime gameTime)
@@ -61,14 +60,7 @@ namespace LungPae.Scenes
             {
 
             }
-            if (player.PlayerRec.Intersects(matchstick.itemRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(matchstick.itemRec) && matchstick.pickup == false)
-            {
-                Data.inv.AddItem(Data.Matchstick);
-                matchstick.pickup = true;
-                matchstick.Talk = true;
-                Data.CanControl = false;
-                Data.stick = true;
-            }
+           
             if (player.PlayerRec.Intersects(crowd.CrowdRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(crowd.CrowdRec))
             {
                 Talk = true;
@@ -81,13 +73,8 @@ namespace LungPae.Scenes
                 Data.CanControl = false;
                 Data.Oldms = Data.ms;
             }
-            if (player.PlayerRec.Intersects(hat.itemRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(hat.itemRec) && hat.pickup == false)
-            {
-                Data.inv.AddItem(Data.RobberHAt);
-                Data.mask = true;
-                hat.pickup = true;
 
-            }
+           
             crowd.Update(gameTime);
             player.Update(gameTime);
             player.Collision(crowd.CrowdRec);
@@ -95,14 +82,8 @@ namespace LungPae.Scenes
         }
         internal override void Draw(SpriteBatch _spriteBatch)
         {
-            if (matchstick.pickup == false)
-            {
-                matchstick.Draw(_spriteBatch);
-            }
-            if (hat.pickup == false)
-            {
-                hat.Draw(_spriteBatch);
-            }
+           
+           
 
             Data.inv.Draw(_spriteBatch);
             Data.TpRec = new Rectangle(0, Data.ScreenH / 2, 5, 40);
@@ -141,17 +122,7 @@ namespace LungPae.Scenes
                 }
 
             }
-            if (matchstick.Talk == true)
-            {
-
-                dialog.Draw(_spriteBatch);
-                dialog.ChangeDialog("It must definitely do something.");
-                if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec))
-                {
-                    matchstick.Talk = false;
-                    Data.CanControl = true;
-                }
-            }
+           
             if (fire.Talk == true)
             {
                 fire.Speak(_spriteBatch);
@@ -165,8 +136,8 @@ namespace LungPae.Scenes
             {
 
                 Data.CurrentState = Data.Scenes.Blackscreen;
-                Data.inv.RemoveItem(matchstick);
-                Data.inv.RemoveItem(hat);
+                Data.inv.RemoveItem(Data.Matchstick);
+                Data.inv.RemoveItem(Data.RobberHAt);
             }
             fire.Draw(_spriteBatch);
             player.Draw(_spriteBatch);

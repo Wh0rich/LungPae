@@ -21,7 +21,7 @@ namespace LungPae.Core
                              minigame1,minigame2,minigame3,
                              Blackscreen}
         
-        public static Scenes CurrentState = Scenes.scene1;
+        public static Scenes CurrentState = Scenes.scene3;
         public static int DialogCount = 0 ;
 
         public static bool CanControl = true; //การควบคุมการเดินplayer

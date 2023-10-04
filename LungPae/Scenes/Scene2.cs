@@ -17,7 +17,7 @@ namespace LungPae.Scenes
     {
         Texture2D Floor;
         Texture2D grass;
-       
+        Item hat;
         Mixer mix;
        // Building Shed;
         Player player;
@@ -29,7 +29,7 @@ namespace LungPae.Scenes
             //Shed = new Building(new Vector2(350, 150), 2f);
             player = new Player();
             mix = new Mixer(mixPos);
-            
+            hat = new Item(new Vector2(500, 315));
             player.row = 4;
             
         }
@@ -37,6 +37,8 @@ namespace LungPae.Scenes
         {
             Floor = Content.Load<Texture2D>("Floor");
             grass = Content.Load<Texture2D>("grass");
+            hat.Load(Content, "RobberHat");
+            Data.RobberHAt.Load(Content, "RobberHat");
             mix.Load(Content);
             //Shed.Load(Content, "Shed");
             
@@ -52,7 +54,14 @@ namespace LungPae.Scenes
             mix.Update(gameTime);
             mix.mixCheck(player);
             player.Collision(mix.mixRec);
-           
+            
+            if (player.PlayerRec.Intersects(hat.itemRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(hat.itemRec) && hat.pickup == false)
+            {
+                Data.inv.AddItem(Data.RobberHAt);
+                Data.mask = true;
+                hat.pickup = true;
+
+            }
             if (Data.CanControl == true)
             {
                 //player.Collision(Shed.ObjRec);
@@ -95,6 +104,13 @@ namespace LungPae.Scenes
             Data.inv.Draw(_spriteBatch);
             Data.TpRec = new Rectangle(Data.ScreenW / 2, 0, 40, 5);
             Data.TpRec2 = new Rectangle(Data.ScreenW / 2, Data.ScreenH - 5, 40, 15);
+
+            if (hat.pickup == false)
+            {
+                hat.Draw(_spriteBatch);
+            }
+
+
             for (int i = 0; i < Data.ScreenW / grass.Width; i++)
             {
                 for (int j = 0; j < Data.ScreenH / grass.Height; j++)

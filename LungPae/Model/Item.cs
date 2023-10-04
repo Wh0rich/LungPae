@@ -35,8 +35,6 @@ namespace LungPae.Model
         {
             if (pickup==false)
             {
-
-
                 batch.Draw(item, itempos, null, Color.White, 0, Vector2.Zero, 0.5f, SpriteEffects.None, 0.4f);
                 itemRec = new Rectangle((int)itempos.X, (int)itempos.Y, item.Width * 50 / 100, item.Height * 50 / 100);
             }
