@@ -41,7 +41,7 @@ namespace LungPae.Scenes
             if (player.PlayerRec.Intersects(Data.TpRec3))
             {
                 Data.CurrentState = Data.Scenes.scene4;
-                Data.Plypos.Y = 720 - 60;
+                Data.Plypos.Y = 720 - 80;
             }
             if (player.PlayerRec.Intersects(Data.TpRec4))
             {

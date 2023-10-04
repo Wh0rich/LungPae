@@ -96,6 +96,10 @@ namespace LungPae.Scenes
                 }
 
             }
+            if (Keyboard.GetState().IsKeyDown(Keys.LeftControl))
+            {
+                Data.Q1Finish = true;
+            }
             // npc1.Draw(_spriteBatch);
             // npc1.Draw(_spriteBatch);
             if (player.PlayerRec.Intersects(Data.TpRec))
