@@ -57,7 +57,7 @@ namespace LungPae.Core
             _spriteBatch.Begin(SpriteSortMode.FrontToBack);
             //   _spriteBatch.Draw(tx,new Vector2(200,400),Color.White);
             //_spriteBatch.DrawString(f,"Hello", new Vector2(300, 500), Color.Wheat);
-            gsm.Draw(_spriteBatch);
+             gsm.Draw(_spriteBatch);
             _spriteBatch.End();
             // TODO: Add your drawing code here
             

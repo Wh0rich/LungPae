@@ -19,6 +19,7 @@ namespace LungPae.Scenes
         Texture2D grass;
         Item hat;
         Mixer mix;
+        TAE tae;
        // Building Shed;
         Player player;
         Vector2 mixPos = new Vector2(200, 350);
@@ -31,7 +32,8 @@ namespace LungPae.Scenes
             mix = new Mixer(mixPos);
             hat = new Item(new Vector2(500, 315));
             player.row = 4;
-            
+            tae = new TAE();
+
         }
         internal override void LoadContent(ContentManager Content)
         {
@@ -41,7 +43,7 @@ namespace LungPae.Scenes
             Data.RobberHAt.Load(Content, "RobberHat");
             mix.Load(Content);
             //Shed.Load(Content, "Shed");
-            
+            tae.Load(Content);
 
             player.LoadContent(Content);
         }
@@ -50,10 +52,11 @@ namespace LungPae.Scenes
            
             Data.MRec = new Rectangle(Data.ms.X, Data.ms.Y, 1, 1);
             Data.ms = Mouse.GetState();
-
+            tae.Update(gameTime);
             mix.Update(gameTime);
             mix.mixCheck(player);
             player.Collision(mix.mixRec);
+            tae.taeCheck(player);
             
             if (player.PlayerRec.Intersects(hat.itemRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(hat.itemRec) && hat.pickup == false)
             {
@@ -90,15 +93,19 @@ namespace LungPae.Scenes
                 }
 
             }
+            if (player.PlayerRec.Intersects(tae.taeRecTalk) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(tae.taeRecTalk))
+            {
+                Data.CanControl = false;
+                tae.Talktae = true;
+            }
 
+                //if (player.PlayerRec.Intersects(Shed.ObjRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(Shed.ObjRec))
+                //{
+                //    Data.CanControl = false;
 
-            //if (player.PlayerRec.Intersects(Shed.ObjRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(Shed.ObjRec))
-            //{
-            //    Data.CanControl = false;
-
-            //}
-
-        }
+                //}
+                
+            }
         internal override void Draw(SpriteBatch _spriteBatch)
         {
             Data.inv.Draw(_spriteBatch);
@@ -109,7 +116,7 @@ namespace LungPae.Scenes
             {
                 hat.Draw(_spriteBatch);
             }
-
+            
 
             for (int i = 0; i < Data.ScreenW / grass.Width; i++)
             {
@@ -134,6 +141,7 @@ namespace LungPae.Scenes
             //Shed.Draw(_spriteBatch);
             mix.Draw(_spriteBatch);
             player.Draw(_spriteBatch);
+            tae.Draw(_spriteBatch);
         }
     }
 }

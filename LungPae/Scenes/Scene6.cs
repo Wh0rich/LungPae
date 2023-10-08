@@ -16,7 +16,7 @@ namespace LungPae.Scenes
     internal class Scene6 : Component
     {
         Player player;
-
+        Item money;
         Texture2D Floor, grass;
         Campfire fire;
         Dialog dialog;
@@ -31,8 +31,7 @@ namespace LungPae.Scenes
         public Scene6()
         {
             player = new Player();
-            
-           
+            money = new Item(new Vector2(1200,410));
             dialog = new Dialog();
             fire = new Campfire(new Vector2(600, 375), 1);
             crowd = new Crowd();
@@ -45,7 +44,9 @@ namespace LungPae.Scenes
             crowd.Load(Content);
             Floor = Content.Load<Texture2D>("Floor");
             grass = Content.Load<Texture2D>("grass");
-            
+
+            money.Load(Content,"cash1");
+            Data.Cash.Load(Content,"cash1");
             
             fire.Load(Content);
             
@@ -74,7 +75,14 @@ namespace LungPae.Scenes
                 Data.Oldms = Data.ms;
             }
 
-           
+            if (Keyboard.GetState().IsKeyDown(Keys.LeftControl))
+            {
+                Data.Quest2Finish = true;
+            }
+
+
+
+
             crowd.Update(gameTime);
             player.Update(gameTime);
             player.Collision(crowd.CrowdRec);
@@ -134,11 +142,43 @@ namespace LungPae.Scenes
             }
             if (Data.Quest2Finish == true && Data.OnFire == true)
             {
-
+                
                 Data.CurrentState = Data.Scenes.Blackscreen;
                 Data.inv.RemoveItem(Data.Matchstick);
                 Data.inv.RemoveItem(Data.RobberHAt);
+               
             }
+
+            if (Data.Quest2Finish == true)
+            {
+                if (money.pickup == false)
+                {
+                    money.Draw(_spriteBatch);
+                }
+            }
+            if (player.PlayerRec.Intersects(money.itemRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(money.itemRec) && money.pickup == false)
+            {
+                Data.Money += 1;
+                if (Data.Money ==  1)
+                {
+                    Data.inv.AddItem(Data.Cash);
+                    Data.Cash.pickup = true;
+                }
+                if (Data.Money == 2)
+                {
+                    Data.inv.AddItem(Data.Cash2);
+                    Data.Cash2.pickup = true;
+                }
+                if (Data.Money == 3)
+                {
+                    Data.inv.AddItem(Data.Cash3);
+                    Data.Cash3.pickup = true;
+                }
+                
+                money.pickup = true;
+                
+            }
+
             fire.Draw(_spriteBatch);
             player.Draw(_spriteBatch);
         }

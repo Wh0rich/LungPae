@@ -21,8 +21,9 @@ namespace LungPae.Core
                              minigame1,minigame2,minigame3,
                              Blackscreen}
         
-        public static Scenes CurrentState = Scenes.scene3;
+        public static Scenes CurrentState = Scenes.scene8;
         public static int DialogCount = 0 ;
+        public static int Money = 0 ;
 
         public static bool CanControl = true; //การควบคุมการเดินplayer
         public static bool cutscene1 = true;
@@ -33,6 +34,7 @@ namespace LungPae.Core
         //Quests
         public static bool Quest1 = false, Q1Finish = false, Panties = false;
         public static bool Quest2 = true, Quest2Finish = false ,mask = false,stick = false, OnFire = false ;
+        public static bool Quest3 = true, watermelon = false, slingshot = false, Quest3Finish;
 
 
         public static Rectangle MRec;
@@ -50,7 +52,13 @@ namespace LungPae.Core
         public static Item Watermelon = new Item();
         public static Item Matchstick = new Item();
         public static Item RobberHAt = new Item();
-       
+        public static Item Cash = new Item();
+        public static Item Cash2 = new Item();
+        public static Item Cash3 = new Item();
+        public static Item Pork = new Item();
+        public static Item Slingshot = new Item();
+
+
         //เพิ่มถังขยะ
         //เพิ่มกองไฟ ทำ Quest2
         //เพิ่มลู่วิ่ง กำแพง คนดู เปลี่ยนตอนชนะเป็นรูปอื่นในOther asset

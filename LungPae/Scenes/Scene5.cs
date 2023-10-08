@@ -9,6 +9,7 @@ using LungPae.Core;
 using Microsoft.Xna.Framework.Content;
 using LungPae.Model;
 using Microsoft.Xna.Framework.Input;
+using System.Reflection.Emit;
 
 namespace LungPae.Scenes
 {
@@ -18,10 +19,12 @@ namespace LungPae.Scenes
         Texture2D grass, Floor;
         Item matchstick;
         Dialog dialog;
+        PorkShop porkShop;
         public Scene5()
         {
             player = new Player();
-            matchstick = new Item(new Vector2(200, 250));
+            matchstick = new Item(new Vector2(450, 500));
+            porkShop = new PorkShop();
             dialog = new Dialog();
         }
         internal override void LoadContent(ContentManager Content)
@@ -29,6 +32,7 @@ namespace LungPae.Scenes
             player.LoadContent(Content);
             grass = Content.Load<Texture2D>("grass");
             Floor = Content.Load<Texture2D>("Floor");
+            porkShop.Load(Content);
             matchstick.Load(Content, "matchstick");
             Data.Matchstick.Load(Content, "matchstick");
             dialog.LoadContent(Content);
@@ -36,6 +40,7 @@ namespace LungPae.Scenes
         internal override void Update(GameTime gameTime)
         {
             player.Update(gameTime);
+            porkShop.Update(gameTime);
             Data.ms = Mouse.GetState();
             Data.MRec = new Rectangle(Data.ms.X, Data.ms.Y, 1, 1);
             if (player.PlayerRec.Intersects(matchstick.itemRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(matchstick.itemRec) && matchstick.pickup == false)
@@ -46,6 +51,16 @@ namespace LungPae.Scenes
                 Data.CanControl = false;
                 Data.stick = true;
             }
+            porkShop.CheckCollision(player);
+            Console.WriteLine(porkShop.TalkRec);
+            if (player.PlayerRec.Intersects(porkShop.TalkRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(porkShop.TalkRec))
+            {
+                porkShop.Talk = true;
+                Data.CanControl = false;
+            }
+            Console.WriteLine(player.PlayerRec);
+            Console.WriteLine(porkShop.TalkRec);
+            Console.WriteLine(player.PlayerRec.Intersects(porkShop.TalkRec));
         }
         internal override void Draw(SpriteBatch _spriteBatch)
         {
@@ -91,6 +106,7 @@ namespace LungPae.Scenes
                 Data.Plypos.X = 0 + 10;
             }
             player.Draw(_spriteBatch);
+            porkShop.Draw(_spriteBatch);
         }
     }
 }

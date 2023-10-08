@@ -14,7 +14,7 @@ namespace LungPae.Model
 {
     internal class Building
     {
-        Texture2D obj;
+        public Texture2D obj;
         Vector2 pos;
         private float Scale;
         private float Depth = 0.5f;

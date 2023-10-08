@@ -40,7 +40,7 @@ namespace LungPae.Scenes
             
             Data.Plypos = new Vector2(0, 450);
             obj = new Building(new Vector2(60, 50), 0.3f);
-            seven = new Building(new Vector2(700,100),1);
+            seven = new Building(new Vector2(700,100),0.9f);
             npc1 = new NPC(0, 0.6f, 0.5f, new Vector2(490, 200));
             npc2 = new NPC(0, 0.6f, 0.5f, new Vector2(1200, 250));
             npc3 = new NPC(0, 0.6f, 0.5f, new Vector2(800, 400));
