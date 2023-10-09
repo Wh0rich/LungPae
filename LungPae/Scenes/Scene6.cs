@@ -122,7 +122,7 @@ namespace LungPae.Scenes
             {
 
                 dialog.Draw(_spriteBatch);
-                dialog.ChangeDialog("The crowd was so crowded it seemed impossible to continue.");
+                dialog.ChangeDialog("The crowd was so crowded\nit seemed impossible to continue.");
                 if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec))
                 {
                     Talk = false;

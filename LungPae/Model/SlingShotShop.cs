@@ -18,7 +18,7 @@ namespace LungPae.Model
         Building slingshop;
         Dialog dialog;
 
-        Vector2 pos = new Vector2(100, 100);
+        Vector2 pos = new Vector2(900, 20);
         float Scale = 1;
         public Rectangle TalkRec;
         public bool Talk = false;
@@ -30,10 +30,10 @@ namespace LungPae.Model
         }
         public void Load(ContentManager Content)
         {
-            slingshop.Load(Content, "PorkShop");
+            slingshop.Load(Content, "SlingShotShop");
             Data.Slingshot.Load(Content, "slingshot");
             dialog.LoadContent(Content);
-            TalkRec = new Rectangle((int)pos.X + 180, (int)pos.Y + (slingshop.obj.Height * (int)Scale / 100) / 2 - 40 + 50, 55, 90);
+            TalkRec = new Rectangle((int)pos.X + 200, (int)pos.Y + (slingshop.obj.Height * (int)Scale / 100) / 2 +55, 45, 90);
         }
         public void Update(GameTime gameTime)
         {
@@ -43,7 +43,7 @@ namespace LungPae.Model
         public void Draw(SpriteBatch Batch)
         {
             slingshop.Draw(Batch);
-            if (Talk == true && Data.Money == 0)
+            if (Talk == true && Data.Quest3 == false)
             {
                 dialog.Draw(Batch);
                 Data.ms = Mouse.GetState();
@@ -55,7 +55,23 @@ namespace LungPae.Model
                 }
                 Data.Oldms = Data.ms;
             }
-            if (Talk == true && Data.Money > 0 && Data.Slingshot.pickup == false)
+
+            if (Talk == true && Data.Quest3 == true && Data.Money ==0)
+            {
+                dialog.Draw(Batch);
+                Data.ms = Mouse.GetState();
+                dialog.ChangeDialog("You have no money to buy anything");
+                if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                {
+                    Talk = false;
+                    Data.CanControl = true;
+                }
+                Data.Oldms = Data.ms;
+            }
+
+
+
+            if (Talk == true && Data.Money > 0 && Data.Slingshot.pickup == false && Data.Quest3 == true)
             {
                 dialog.Draw(Batch);
                 Data.ms = Mouse.GetState();
@@ -82,6 +98,7 @@ namespace LungPae.Model
                     Data.inv.AddItem(Data.Slingshot);
                     Talk = false;
                     Data.Slingshot.pickup = true;
+                    Data.slingshot = true;
                     Data.CanControl = true;
                     Data.Money -= 1;
                 }

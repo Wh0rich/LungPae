@@ -26,8 +26,10 @@ namespace LungPae.Manager
         private Scene6 s6 = new Scene6();
         private Scene7 s7 = new Scene7();
         private Scene8 s8 = new Scene8();
+        private Scene9 s9 = new Scene9();
         private RunningGame m1 = new RunningGame();
         private BlackScreen b = new BlackScreen();
+        private ShotDog shot = new ShotDog();
     
         
         internal override void LoadContent(ContentManager Content)
@@ -40,8 +42,10 @@ namespace LungPae.Manager
            s6.LoadContent( Content);
            s7.LoadContent( Content);
            s8.LoadContent( Content);
+           s9.LoadContent( Content);
            m1.LoadContent( Content);
-           b.LoadContent( Content );
+           b.LoadContent( Content);
+           shot.LoadContent( Content); 
         }
 
         internal override void Update(GameTime gameTime)
@@ -74,11 +78,17 @@ namespace LungPae.Manager
                 case Data.Scenes.scene8:
                     s8.Update(gameTime);
                     break;
+                case Data.Scenes.scene9:
+                    s9.Update(gameTime);
+                    break;
                 case Data.Scenes.minigame1:
                     m1.Update(gameTime);
                     break;
                 case Data.Scenes.Blackscreen:
                     b.Update(gameTime);
+                    break;
+                case Data.Scenes.ShotDog:
+                    shot.Update(gameTime);
                     break;
             }
         }
@@ -111,11 +121,17 @@ namespace LungPae.Manager
                 case Data.Scenes.scene8:
                      s8.Draw(spriteBatch);
                     break;
+                case Data.Scenes.scene9:
+                    s9.Draw(spriteBatch);
+                    break;
                 case Data.Scenes.minigame1:
                     m1.Draw(spriteBatch);
                     break;
                 case Data.Scenes.Blackscreen:
                     b.Draw(spriteBatch);
+                    break;
+                 case Data.Scenes.ShotDog:
+                    shot.Draw(spriteBatch);
                     break;
 
             }

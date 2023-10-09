@@ -10,11 +10,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework.Input;
 
+
 namespace LungPae.Scenes
 {
     internal class Scene8 : Component
     {
         Player player;
+        Texture2D Floor;
         WatermelonShop melonshop;
         public Scene8()
         {
@@ -25,11 +27,16 @@ namespace LungPae.Scenes
         {
             player.LoadContent(Content);
             melonshop.Load(Content);
+            Floor = Content.Load<Texture2D>("Floor");
         }
         internal override void Update(GameTime gameTime)
         {
+            Data.ms = Mouse.GetState();
+            Data.MRec = new Rectangle(Data.ms.X, Data.ms.Y, 1, 1);
+
             player.Update(gameTime);
             melonshop?.Update(gameTime);
+            
             melonshop.CheckCollision(player);
             if (player.PlayerRec.Intersects(melonshop.TalkRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(melonshop.TalkRec))
             {
@@ -42,6 +49,7 @@ namespace LungPae.Scenes
             Data.inv.Draw(_spriteBatch);
             
             Data.TpRec = new Rectangle(0+5, Data.ScreenH / 2, 5, 40);
+            _spriteBatch.Draw(Floor, new Vector2(0, Data.ScreenH / 2), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
             if (player.PlayerRec.Intersects(Data.TpRec))
             {
                 Data.CurrentState = Data.Scenes.scene7;

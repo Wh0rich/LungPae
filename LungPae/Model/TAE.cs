@@ -38,8 +38,8 @@ namespace LungPae.Model
         }
         internal void Update (GameTime gameTime)
         {
-            taeRec = new Rectangle((int)Pos.X, (int)Pos.Y + 30, tae.FrameWidth * (int)Scale / 100, tae.FrameHeight * (int)Scale / 100 + 10);
-            taeRecTop = new Rectangle((int)Pos.X, (int)Pos.Y, tae.FrameWidth * (int)Scale / 100, (tae.FrameHeight * (int)Scale / 100) - 40);
+            taeRec = new Rectangle((int)Pos.X, (int)Pos.Y + 50, tae.FrameWidth * (int)Scale / 100, tae.FrameHeight * (int)Scale / 100 );
+            taeRecTop = new Rectangle((int)Pos.X, (int)Pos.Y, tae.FrameWidth * (int)Scale / 100, (tae.FrameHeight * (int)Scale / 100) - 50);
             taeRecTalk = new Rectangle((int)Pos.X, (int)Pos.Y, tae.FrameWidth * (int)Scale / 100, tae.FrameHeight * (int)Scale / 100+20);
             if (checkCollision == true)
             {
@@ -49,7 +49,7 @@ namespace LungPae.Model
             }
             else
             {
-                tae.Depth = 0.5f;
+                tae.Depth = 0.4f;
             }
             
         }
@@ -165,6 +165,10 @@ namespace LungPae.Model
                         {
                             Data.DialogCount = 0;
                             Data.CanControl = true;
+                            Data.Quest3Finish = true;
+                            Data.inv.RemoveItem(Data.Slingshot);
+                            Data.inv.RemoveItem(Data.Watermelon);
+                            Data.CurrentState = Data.Scenes.ShotDog;
                             Talktae = false;
                         }
                         Data.Oldms = Data.ms;

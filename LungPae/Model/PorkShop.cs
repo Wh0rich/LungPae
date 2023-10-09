@@ -43,7 +43,23 @@ namespace LungPae.Model
             public void Draw(SpriteBatch Batch)
         {
             porkshop.Draw(Batch);
-            if (Talk == true && Data.Money == 0)
+
+
+            if (Talk == true && Data.QuestLaab == false)
+            {
+                dialog.Draw(Batch);
+                Data.ms = Mouse.GetState();
+                dialog.ChangeDialog("Closed, Please come back later");
+                if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                {
+                    Talk = false;
+                    Data.CanControl = true;
+                }
+                Data.Oldms = Data.ms;
+            }
+
+
+            if (Talk == true && Data.Money == 0 && Data.QuestLaab == true)
             {
                 dialog.Draw(Batch);
                 Data.ms = Mouse.GetState();
@@ -55,7 +71,7 @@ namespace LungPae.Model
                 }
                 Data.Oldms = Data.ms;
             }
-            if (Talk == true && Data.Money > 0&& Data.Pork.pickup == false)
+            if (Talk == true && Data.Money > 0&& Data.Pork.pickup == false &&Data.QuestLaab == true)
             {
                 dialog.Draw(Batch);
                 Data.ms = Mouse.GetState();

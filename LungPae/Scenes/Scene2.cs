@@ -141,7 +141,11 @@ namespace LungPae.Scenes
             //Shed.Draw(_spriteBatch);
             mix.Draw(_spriteBatch);
             player.Draw(_spriteBatch);
-            tae.Draw(_spriteBatch);
+            if (Data.Quest3Finish == false)
+            {
+                tae.Draw(_spriteBatch);
+            }
+            
         }
     }
 }

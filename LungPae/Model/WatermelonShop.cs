@@ -33,7 +33,7 @@ namespace LungPae.Model
             melonShop.Load(Content, "WatermelonShop");
             Data.Watermelon.Load(Content,"watermelon");
             dialog.LoadContent(Content);
-            TalkRec = new Rectangle((int)pos.X + 145, (int)pos.Y + (melonShop.obj.Height * (int)Scale / 100) / 2 +30, 58, 90);
+            TalkRec = new Rectangle((int)pos.X + 145, (int)pos.Y + (melonShop.obj.Height * (int)Scale / 100) / 2 +80, 58, 70);
         }
         public void Update(GameTime gameTime)
         {
@@ -43,7 +43,7 @@ namespace LungPae.Model
         public void Draw(SpriteBatch Batch)
         {
             melonShop.Draw(Batch);
-            if (Talk == true && Data.Money == 0 )
+            if (Talk == true && Data.Money == 0 && Data.Watermelon.pickup == false)
             {
                 dialog.Draw(Batch);
                 Data.ms = Mouse.GetState();
@@ -81,6 +81,7 @@ namespace LungPae.Model
                     Data.inv.AddItem(Data.Watermelon);
                     Talk = false;
                     Data.Watermelon.pickup = true;
+                    Data.watermelon = true;
                     Data.CanControl = true;
                     Data.Money -= 1;
                 }

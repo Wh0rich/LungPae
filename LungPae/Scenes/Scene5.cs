@@ -23,7 +23,7 @@ namespace LungPae.Scenes
         public Scene5()
         {
             player = new Player();
-            matchstick = new Item(new Vector2(450, 500));
+            matchstick = new Item(new Vector2(300, 500));
             porkShop = new PorkShop();
             dialog = new Dialog();
         }

@@ -19,9 +19,9 @@ namespace LungPae.Core
         public enum Scenes { scene1, scene2, scene3, scene4, scene5, scene6, scene7, scene8, scene9, scene10,
                              scene11, scene12, scene13, scene14, scene15, scene16, scene17, scene18, scene19, scene20,
                              minigame1,minigame2,minigame3,
-                             Blackscreen}
+                             Blackscreen,ShotDog}
         
-        public static Scenes CurrentState = Scenes.scene8;
+        public static Scenes CurrentState = Scenes.ShotDog;
         public static int DialogCount = 0 ;
         public static int Money = 0 ;
 
@@ -31,10 +31,15 @@ namespace LungPae.Core
         //MiniGames
         public static bool Minigame1 = false , Minigame1Finish = false;
 
+        //Sup-Quest
+        public static bool QuestLaab = false;
+
+
+
         //Quests
         public static bool Quest1 = false, Q1Finish = false, Panties = false;
         public static bool Quest2 = true, Quest2Finish = false ,mask = false,stick = false, OnFire = false ;
-        public static bool Quest3 = true, watermelon = false, slingshot = false, Quest3Finish;
+        public static bool Quest3 = false, watermelon = false, slingshot = false, Quest3Finish = true;
 
 
         public static Rectangle MRec;

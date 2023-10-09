@@ -16,7 +16,7 @@ namespace LungPae.Scenes
     {
         Player player;
         Item money1,money2;
-
+        SlingShotShop shop;
 
         Texture2D grass, Floor;
 
@@ -24,6 +24,7 @@ namespace LungPae.Scenes
         public Scene7()
         {
             player = new Player();
+            shop = new SlingShotShop();
             money1 = new Item(new Vector2(100,200));
             money2 = new Item(new Vector2(100, 400));
         }
@@ -32,6 +33,7 @@ namespace LungPae.Scenes
             player.LoadContent(Content);
             grass = Content.Load<Texture2D>("grass");
             Floor = Content.Load<Texture2D>("Floor");
+            shop.Load(Content);
             money1.Load(Content,"cash2");
            money2.Load(Content, "cash3");
             Data.Cash2.Load(Content, "cash2");
@@ -42,6 +44,13 @@ namespace LungPae.Scenes
             player.Update(gameTime);
             Data.ms = Mouse.GetState();
             Data.MRec = new Rectangle(Data.ms.X, Data.ms.Y, 1, 1);
+            shop.Update(gameTime);
+            shop.CheckCollision(player);
+            if (player.PlayerRec.Intersects(shop.TalkRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(shop.TalkRec))
+            {
+                shop.Talk = true;
+                Data.CanControl = false;
+            }
         }
         internal override void Draw(SpriteBatch _spriteBatch)
         {
@@ -126,7 +135,7 @@ namespace LungPae.Scenes
                 Data.Plypos.X = 0 + 10;
             }
             player.Draw(_spriteBatch);
-
+            shop.Draw(_spriteBatch);
         }
     }
 }
