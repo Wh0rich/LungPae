@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,7 +20,9 @@ namespace LungPae.CutScenes
         Texture2D Floor;
         Texture2D grass;
         AnimatedTexture dog;
+        TAE tae;
         Vector2 dogpos = new Vector2(700, 100);
+        Vector2 taepos = new Vector2(700,180);
         Dialog dialog;
         float temp;
         int row = 2;
@@ -31,10 +34,12 @@ namespace LungPae.CutScenes
         public ShotDog()
         {
             dog = new AnimatedTexture(Vector2.Zero,0,1,0.5f);
+            tae = new TAE();
             dialog = new Dialog();
         }
         internal override void LoadContent(ContentManager Content)
         {
+            tae.Load(Content);
             dog.Load(Content,"Doggy1",4,5,4);   
             Floor = Content.Load<Texture2D>("Floor");
             grass = Content.Load<Texture2D>("grass");
@@ -45,6 +50,7 @@ namespace LungPae.CutScenes
         {
             Data.ms = Mouse.GetState();
             Data.MRec = new Rectangle(Data.ms.X, Data.ms.Y, 1, 1);
+            tae.Update(gameTime);
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             if(tokjai == true)
             {
@@ -62,6 +68,11 @@ namespace LungPae.CutScenes
         {
             spriteBatch.Draw(Floor, new Vector2(Data.ScreenW / 2, Data.ScreenH - Floor.Height), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
             spriteBatch.Draw(Floor, new Vector2(Data.ScreenW / 2, 0), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
+
+            if (talk1 == true)
+            {
+                tae.tae.DrawFrame(spriteBatch, taepos, 3);
+            }
             
 
             for (int i = 0; i < Data.ScreenW / grass.Width; i++)
@@ -84,6 +95,13 @@ namespace LungPae.CutScenes
                 }
                 Data.Oldms = Data.ms;
             }
+
+            if(talk1 == false)
+            {
+                tae.tae.DrawFrame(spriteBatch,taepos,5);
+            }
+
+
             if(tokjai == true)
             {
                 dog.DrawFrame(spriteBatch, 0, dogpos, 3);

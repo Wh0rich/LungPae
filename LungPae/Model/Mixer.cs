@@ -17,7 +17,7 @@ namespace LungPae.Model
     internal class Mixer
     {
         AnimatedTexture mixer;
-        AnimatedTexture Mixani;
+        public AnimatedTexture Mixani;
         Dialog dialog;
         Vector2 mixPos;
 
@@ -34,8 +34,8 @@ namespace LungPae.Model
         }
         public Mixer(Vector2 mixpos)
         {
-            mixer = new AnimatedTexture(Vector2.Zero, 0, Scale, 0.5f);
-            Mixani = new AnimatedTexture(Vector2.Zero, 0, Scale, 0.5f);
+            mixer = new AnimatedTexture(Vector2.Zero, 0, Scale, 0.4f);
+            Mixani = new AnimatedTexture(Vector2.Zero, 0, Scale, 0.4f);
             dialog = new Dialog();
             this.mixPos = mixpos;
             Scale = Scale * 100;
@@ -43,7 +43,7 @@ namespace LungPae.Model
         internal void Load(ContentManager content)
         {
             mixer.Load(content, "MixerReal", 1, 4, 10);
-            Mixani.Load(content, "MixerAni", 5, 1, 10);
+            Mixani.Load(content, "MixerAni", 6, 1, 18);
             dialog.LoadContent(content,"MixerBox");
         }
         internal void Update(GameTime gameTime)
@@ -60,8 +60,11 @@ namespace LungPae.Model
             }
             else
             {
-                mixer.Depth = 0.5f;
+                mixer.Depth = 0.4f;
             }
+
+
+
 
         }
         internal void Draw(SpriteBatch batch)
@@ -116,7 +119,7 @@ namespace LungPae.Model
 
         internal void Drawmini(SpriteBatch batch,Vector2 Posmix) // Drawสำหรับminigame
         {
-            mixer.DrawFrame(batch, Posmix);
+            Mixani.DrawFrame(batch, Posmix);
         }
 
             

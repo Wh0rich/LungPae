@@ -54,7 +54,7 @@ namespace LungPae.Scenes
             
             Data.ms = Mouse.GetState();
             Data.MRec = new Rectangle(Data.ms.X, Data.ms.Y, 1, 1);
-            if (player.PlayerRec.Intersects(kid.dekRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(kid.dekRec)|| player.PlayerRec.Intersects(kid.dekLadyRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(kid.dekLadyRec))
+            if (player.PlayerRec.Intersects(kid.DekTalkRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(kid.DekTalkRec))
             {
                 kid.Talk = true;
                 Data.CanControl = false;
@@ -76,6 +76,7 @@ namespace LungPae.Scenes
                 }
                 Data.Oldms = Data.ms;
             }
+            kid.Update(gameTime);
             
         }
         internal override void Draw(SpriteBatch _spriteBatch)

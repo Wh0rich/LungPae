@@ -13,6 +13,18 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin ../../../../../Downloads/AyDee.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../Downloads/AyDee.png;AyDee.png
+
 #begin ../../../../../Downloads/FinishLuwing.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -49,6 +61,18 @@
 /processorParam:TextureFormat=Color
 /build:../../../../../Downloads/matchstick.png;matchstick.png
 
+#begin ../../../../../Downloads/MixerAni.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../Downloads/MixerAni.png;MixerAni.png
+
 #begin ../../../../../Downloads/recycleBin.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -73,6 +97,18 @@
 /processorParam:TextureFormat=Color
 /build:../../../../../Downloads/StartLuwing.png;StartLuwing.png
 
+#begin ../../../../../Downloads/TAE.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../Downloads/TAE.png;TAE.png
+
 #begin 7-11.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -84,6 +120,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:7-11.png
+
+#begin AyDee.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:AyDee.png
 
 #begin BigBush.png
 /importer:TextureImporter
@@ -602,6 +650,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:sandbox.png
+
+#begin shop1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:shop1.png
 
 #begin slingshot.png
 /importer:TextureImporter

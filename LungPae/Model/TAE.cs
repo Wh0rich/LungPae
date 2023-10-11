@@ -16,14 +16,14 @@ namespace LungPae.Model
 {
     internal class TAE
     {
-        AnimatedTexture tae;
+        public AnimatedTexture tae;
         Dialog dialog;
         Vector2 Pos;
         public Rectangle taeRec, taeRecTop, taeRecTalk;
         public bool Talktae = false;
         public bool checkCollision = false;
-        float Scale = 0.6f;
-        
+        float Scale = 0.8f;
+        public int row = 1;
         public TAE()
         {
             tae = new AnimatedTexture(Vector2.Zero,0,Scale,0.4f);
@@ -31,7 +31,7 @@ namespace LungPae.Model
         }
         internal void Load(ContentManager Content)
         {
-            tae.Load(Content, "Luwing", 1, 1, 1);
+            tae.Load(Content, "TAE", 1, 5, 1);
             Scale *= 100;
             Pos = new Vector2(300,50);
             dialog.LoadContent(Content);
@@ -51,12 +51,19 @@ namespace LungPae.Model
             {
                 tae.Depth = 0.4f;
             }
-            
+
+            if (Data.Quest3Finish ==true)
+            {
+                taeRec = new Rectangle(-20000,1,1,1);
+                taeRecTop = new Rectangle(-20000, 1, 1, 1);
+                taeRecTalk = new Rectangle(-20000, 1, 1, 1);
+            }
+
         }
         internal void Draw(SpriteBatch Batch)
         {
-            tae.DrawFrame(Batch,Pos);
-            if (Talktae == true && Data.Quest3 == false)
+            tae.DrawFrame(Batch,Pos,row);
+            if (Talktae == true && Data.Quest3 == false && Data.Quest2Finish == false)
             {
                 dialog.Draw(Batch);
                 dialog.ChangeDialog("Hello");
@@ -70,7 +77,7 @@ namespace LungPae.Model
             }
 
 
-            if (Talktae == true && Data.Quest3 == true && Data.watermelon == false)
+            if (Talktae == true &&  Data.watermelon == false && Data.Quest2Finish == true)
             {
                 dialog.Draw(Batch);
                 dialog.Draw(Batch);
@@ -98,7 +105,7 @@ namespace LungPae.Model
                 }
             }
 
-            if (Talktae == true && Data.Quest3 == true && Data.watermelon == true&& Data.slingshot == false)
+            if (Talktae == true && Data.watermelon == true&& Data.slingshot == false)
             {
                 dialog.Draw(Batch);
                 dialog.Draw(Batch);
@@ -107,8 +114,10 @@ namespace LungPae.Model
                 {
                     case 0:
                         dialog.ChangeDialog("Really brought watermelon?");
+                        
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
+                            Data.inv.RemoveItem(Data.Watermelon);
                             Data.DialogCount++;
                         }
                         Data.Oldms = Data.ms;
@@ -137,6 +146,7 @@ namespace LungPae.Model
                         {
                             Data.DialogCount = 0;
                             Data.CanControl = true;
+                            Data.Quest3 = true;
                             Talktae = false;
                         }
                         Data.Oldms = Data.ms;
@@ -167,7 +177,7 @@ namespace LungPae.Model
                             Data.CanControl = true;
                             Data.Quest3Finish = true;
                             Data.inv.RemoveItem(Data.Slingshot);
-                            Data.inv.RemoveItem(Data.Watermelon);
+                            
                             Data.CurrentState = Data.Scenes.ShotDog;
                             Talktae = false;
                         }

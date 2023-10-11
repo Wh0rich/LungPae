@@ -27,6 +27,7 @@ namespace LungPae.Manager
         private Scene7 s7 = new Scene7();
         private Scene8 s8 = new Scene8();
         private Scene9 s9 = new Scene9();
+        private Scene10 s10 = new Scene10();
         private RunningGame m1 = new RunningGame();
         private BlackScreen b = new BlackScreen();
         private ShotDog shot = new ShotDog();
@@ -43,6 +44,7 @@ namespace LungPae.Manager
            s7.LoadContent( Content);
            s8.LoadContent( Content);
            s9.LoadContent( Content);
+           s10.LoadContent(Content);
            m1.LoadContent( Content);
            b.LoadContent( Content);
            shot.LoadContent( Content); 
@@ -80,6 +82,9 @@ namespace LungPae.Manager
                     break;
                 case Data.Scenes.scene9:
                     s9.Update(gameTime);
+                    break;
+                case Data.Scenes.scene10:
+                    s10.Update(gameTime);
                     break;
                 case Data.Scenes.minigame1:
                     m1.Update(gameTime);
@@ -123,6 +128,9 @@ namespace LungPae.Manager
                     break;
                 case Data.Scenes.scene9:
                     s9.Draw(spriteBatch);
+                    break;
+                case Data.Scenes.scene10:
+                    s10.Draw(spriteBatch);
                     break;
                 case Data.Scenes.minigame1:
                     m1.Draw(spriteBatch);

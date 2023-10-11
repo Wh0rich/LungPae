@@ -33,6 +33,7 @@ namespace LungPae.Minigame
         float speedMix, speedPlayer;
         float temp;
 
+        bool finish = false;
         bool A_isPressed = false;
         bool D_isPressed = false;
         bool teach = true   ;
@@ -58,8 +59,9 @@ namespace LungPae.Minigame
             grass = content.Load<Texture2D>("grass");
             npcMan.Load(content, "NPCMan",2,1,4);
             npcLady.Load(content, "NPCLady", 2, 1, 3);
-            speedMix =3f ;
+            speedMix =4f ;
             speedPlayer = 1f;
+            player.row = 4;
         }
         internal override void Update(GameTime gameTime)
         {
@@ -118,6 +120,12 @@ namespace LungPae.Minigame
                 }
                 playerpos.X += speedPlayer;
                 Mixpos.X += speedMix;
+                if(finish == false)
+                {
+                    mixer.Mixani.UpdateFrame(elapsed);
+                    player.player.UpdateFrame(elapsed);
+                }
+               
                 Console.WriteLine("Player Pos (x,y ) " + playerpos);
                 Console.WriteLine("Mix Pos (x,y ) " + Mixpos);
                 Console.WriteLine("Cam Pos (x,y ) " + cameraPos);
@@ -168,6 +176,7 @@ namespace LungPae.Minigame
             {
                 speedMix = 0;
                 speedPlayer = 0;
+                finish = true;
                 Batch.Draw(logo, new Vector2(Data.ScreenW / 2 -250, Data.ScreenH / 2-240), new Rectangle(0,0,logo.Width,logo.Height/2), Color.White, 0, Vector2.Zero, 1, 0, 0.9f);
                 player.player.Frame = 1;
                 dialog.Draw(Batch);
@@ -176,12 +185,14 @@ namespace LungPae.Minigame
                 {
                     Data.CurrentState = Data.Scenes.scene2;
                     Data.CanControl = true;
+                    
                 } 
             }
            if(Mixpos.X > Finish.X)
             {
                 speedMix = 0;
                 speedPlayer = 0;
+                finish = true;
                 Batch.Draw(logo, new Vector2(Data.ScreenW / 2 - 250, Data.ScreenH / 2 - 240), new Rectangle(0, logo.Width/2, logo.Width, logo.Height / 2), Color.White, 0, Vector2.Zero, 1, 0, 0.9f);
                 dialog.Draw(Batch);
                 dialog.ChangeDialog("press Enter");
@@ -189,6 +200,7 @@ namespace LungPae.Minigame
                 {
                     Data.CurrentState = Data.Scenes.scene2;
                     Data.CanControl = true;
+                    
                 }
             }
             mixer.Drawmini(Batch,Mixpos - cameraPos);

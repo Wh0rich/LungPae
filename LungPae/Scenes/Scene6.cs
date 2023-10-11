@@ -21,8 +21,7 @@ namespace LungPae.Scenes
         Campfire fire;
         Dialog dialog;
         Crowd crowd;
-        
-
+        Building shop1;
         Rectangle CrowdRec;
         float temp;
         bool Talk;
@@ -30,6 +29,7 @@ namespace LungPae.Scenes
         bool stick = false;
         public Scene6()
         {
+            shop1 = new Building(new Vector2(200,50), 1);
             player = new Player();
             money = new Item(new Vector2(1200,410));
             dialog = new Dialog();
@@ -44,7 +44,7 @@ namespace LungPae.Scenes
             crowd.Load(Content);
             Floor = Content.Load<Texture2D>("Floor");
             grass = Content.Load<Texture2D>("grass");
-
+            shop1.Load(Content,"shop1");
             money.Load(Content,"cash1");
             Data.Cash.Load(Content,"cash1");
             

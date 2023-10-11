@@ -21,7 +21,7 @@ namespace LungPae.Core
                              minigame1,minigame2,minigame3,
                              Blackscreen,ShotDog}
         
-        public static Scenes CurrentState = Scenes.ShotDog;
+        public static Scenes CurrentState = Scenes.scene3;
         public static int DialogCount = 0 ;
         public static int Money = 0 ;
 
@@ -39,7 +39,7 @@ namespace LungPae.Core
         //Quests
         public static bool Quest1 = false, Q1Finish = false, Panties = false;
         public static bool Quest2 = true, Quest2Finish = false ,mask = false,stick = false, OnFire = false ;
-        public static bool Quest3 = false, watermelon = false, slingshot = false, Quest3Finish = true;
+        public static bool Quest3 = false, watermelon = false, slingshot = false, Quest3Finish = false;
 
 
         public static Rectangle MRec;

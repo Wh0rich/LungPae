@@ -95,6 +95,29 @@ namespace LungPae.Scenes
             }
             if (player.PlayerRec.Intersects(tae.taeRecTalk) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(tae.taeRecTalk))
             {
+
+                tae.Talktae = true;
+                Data.CanControl = false;
+                if (player.row == 1)
+                {
+                    tae.row = 3;
+                }
+                if (player.row == 2)
+                {
+                    tae.row = 2;
+                }
+                if (player.row == 3)
+                {
+                    tae.row = 1;
+                }
+                if (player.row == 4)
+                {
+                    tae.row = 4;
+                }
+
+            }
+            if (player.PlayerRec.Intersects(tae.taeRecTalk) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(tae.taeRecTalk))
+            {
                 Data.CanControl = false;
                 tae.Talktae = true;
             }
@@ -117,6 +140,7 @@ namespace LungPae.Scenes
                 hat.Draw(_spriteBatch);
             }
             
+
 
             for (int i = 0; i < Data.ScreenW / grass.Width; i++)
             {

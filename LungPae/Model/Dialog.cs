@@ -47,7 +47,7 @@ namespace LungPae.Model
 
         internal void DrawPerson(SpriteBatch spriteBatch,string name) 
         {
-            DialogRec = new Rectangle((int)DialogPos.X-150, (int)DialogPos.Y, DialogBox.Width, DialogBox.Height);
+            DialogRec = new Rectangle((int)DialogPos.X-150, (int)DialogPos.Y, DialogBox.Width, DialogBox.Height+60);
             spriteBatch.Draw(DialogBox, new Vector2(DialogPos.X-150,DialogPos.Y ),null, Color.White,0,Vector2.Zero,1,SpriteEffects.None,0.8f);
             spriteBatch.DrawString(Myfont, msg, new Vector2(DialogPos.X -100 ,DialogPos.Y + 50), Color.Black,0,Vector2.Zero,1,SpriteEffects.None,0.9f);
             spriteBatch.DrawString(Name, name, new Vector2(DialogPos.X+530, DialogPos.Y+240), Color.BlueViolet, 0, Vector2.Zero, 1, 0, 0.9f);

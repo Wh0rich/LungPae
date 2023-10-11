@@ -66,7 +66,7 @@ namespace LungPae.Model
                             {
                                 Data.DialogCount = 0;
                                 Data.CanControl = true;
-                                Data.Quest3 = true;
+
                                 Talk = false;
                             }
                             Data.Oldms = Data.ms;

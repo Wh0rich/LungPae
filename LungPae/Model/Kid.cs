@@ -23,7 +23,7 @@ namespace LungPae.Model
         Dialog LadyBox, LadyHappy;
         Vector2 DekPos,DekLadyPos;
 
-        public Rectangle dekRec,dekLadyRec;
+        public Rectangle dekRec,dekLadyRec,DekTalkRec;
 
         public int row = 1;
 
@@ -60,17 +60,27 @@ namespace LungPae.Model
             dialogPae.LoadContent(content);
             Scale = Scale * 100;
         }
+        public void Update(GameTime gameTime)
+        {
+            if (Data.Q1Finish == true)
+            {
+                dekRec = new Rectangle(-20000, 0, 1, 1);
+                dekLadyRec = new Rectangle(-20000, 0, 1, 1);
+            }
+        }
        
         public void Draw(SpriteBatch batch) 
         {
             //if(Data.Quest1 == true||Data.Panties == true)
             //{
+           
                 Dek.DrawFrame(batch, DekPos, row);
                 DekLady.DrawFrame(batch, DekLadyPos, row);
-               dekRec = new Rectangle((int)DekPos.X, (int)DekPos.Y +15 , (Dek.FrameWidth * (int)Scale) / 100, (Dek.FrameHeight * (int)Scale)/100);
-               dekLadyRec = new Rectangle((int)DekLadyPos.X, (int)DekLadyPos.Y+ 11  , (Dek.FrameWidth * (int)Scale) / 100 + 10, (Dek.FrameHeight * (int)Scale) / 100);
-            Console.WriteLine(dekLadyRec.ToString());
-            Console.WriteLine(dekRec.ToString());
+                dekRec = new Rectangle((int)DekPos.X, (int)DekPos.Y + 15, (Dek.FrameWidth * (int)Scale) / 100, (Dek.FrameHeight * (int)Scale) / 100);
+                dekLadyRec = new Rectangle((int)DekLadyPos.X, (int)DekLadyPos.Y + 11, (Dek.FrameWidth * (int)Scale) / 100 + 10, (Dek.FrameHeight * (int)Scale) / 100);
+               DekTalkRec = new Rectangle((int)DekPos.X-30, (int)DekPos.Y - 30,120,80);
+
+
             //}
         }
       

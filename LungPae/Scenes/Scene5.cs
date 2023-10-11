@@ -58,6 +58,7 @@ namespace LungPae.Scenes
                 porkShop.Talk = true;
                 Data.CanControl = false;
             }
+            Data.Oldms = Data.ms;
             Console.WriteLine(player.PlayerRec);
             Console.WriteLine(porkShop.TalkRec);
             Console.WriteLine(player.PlayerRec.Intersects(porkShop.TalkRec));
