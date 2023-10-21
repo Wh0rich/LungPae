@@ -20,9 +20,13 @@ namespace LungPae.CutScenes
         Texture2D Floor;
         Texture2D grass;
         AnimatedTexture dog;
+        AnimatedTexture dog2;
+        AnimatedTexture dog3;
         TAE tae;
-        Vector2 dogpos = new Vector2(700, 100);
-        Vector2 taepos = new Vector2(700,180);
+        Vector2 dogpos = new Vector2(620,60);
+        Vector2 dogpos3 = new Vector2(655, 30);
+        Vector2 dogpos2 = new Vector2(585, 35);
+        Vector2 taepos = new Vector2(620,140);
         Dialog dialog;
         float temp;
         int row = 2;
@@ -34,13 +38,17 @@ namespace LungPae.CutScenes
         public ShotDog()
         {
             dog = new AnimatedTexture(Vector2.Zero,0,1,0.5f);
+            dog2 = new AnimatedTexture(Vector2.Zero, 0, 1, 0.5f);
+            dog3= new AnimatedTexture(Vector2.Zero, 0, 1, 0.5f);
             tae = new TAE();
             dialog = new Dialog();
         }
         internal override void LoadContent(ContentManager Content)
         {
             tae.Load(Content);
-            dog.Load(Content,"Doggy1",4,5,4);   
+            dog.Load(Content,"Doggy1",4,5,4);
+            dog2.Load(Content, "Doggy1", 4, 5, 4);
+            dog3.Load(Content, "Doggy1", 4, 5, 4);
             Floor = Content.Load<Texture2D>("Floor");
             grass = Content.Load<Texture2D>("grass");
             dialog.LoadContent(Content);
@@ -60,6 +68,8 @@ namespace LungPae.CutScenes
             if (dogwalk == true)
             {
                 dogpos.Y -= 2;
+                dogpos2.Y -= 2;
+                dogpos3.Y -= 2;
                 dog.UpdateFrame(elapsed);
             }
             
@@ -85,7 +95,9 @@ namespace LungPae.CutScenes
             }
             if (talk1 == true)
             {
-                dog.DrawFrame(spriteBatch, 1, dogpos, 1);
+                dog.DrawFrame(spriteBatch, 0, dogpos, 1);
+                dog2.DrawFrame(spriteBatch, 3, dogpos3, 3);
+                dog3.DrawFrame(spriteBatch, 2, dogpos2, 3);
                 dialog.Draw(spriteBatch);
                 dialog.ChangeDialog("Look This !!!!");
                 if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
@@ -105,6 +117,8 @@ namespace LungPae.CutScenes
             if(tokjai == true)
             {
                 dog.DrawFrame(spriteBatch, 0, dogpos, 3);
+                dog2.DrawFrame(spriteBatch, 3, dogpos3, 3);
+                dog3.DrawFrame(spriteBatch, 2, dogpos2, 3);
                 if (temp > 2.5)
                 {
                     tokjai = false;
@@ -115,6 +129,8 @@ namespace LungPae.CutScenes
             if(dogwalk == true)
             {
                 dog.DrawFrame(spriteBatch,dogpos,row);
+                dog2.DrawFrame(spriteBatch, dogpos3, 4);
+                dog3.DrawFrame(spriteBatch, dogpos2, 5);
             }
 
             if (dogpos.Y < -30 && talk2 == true)

@@ -67,8 +67,8 @@ namespace LungPae.Model
             Ans1Pos = new Vector2(DialogPos.X - 100, DialogPos.Y + 200);
             Ans2Pos = new Vector2(DialogPos.X - 100, DialogPos.Y + 230);
             
-            Ans1Rec = new Rectangle((int)Ans1Pos.X, (int)Ans1Pos.Y, 30, 30);
-            Ans2Rec = new Rectangle((int)Ans2Pos.X, (int)Ans2Pos.Y, 30, 30);
+            Ans1Rec = new Rectangle((int)Ans1Pos.X, (int)Ans1Pos.Y, 80, 30);
+            Ans2Rec = new Rectangle((int)Ans2Pos.X, (int)Ans2Pos.Y, 80, 30);
         }
         internal void DrawAns(SpriteBatch spriteBatch)
         {

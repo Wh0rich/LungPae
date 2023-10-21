@@ -35,13 +35,8 @@ namespace LungPae.Model
             dialog.LoadContent(Content);    
             TalkRec = new Rectangle((int)pos.X + 180, (int)pos.Y + (porkshop.obj.Height * (int)Scale / 100) / 2 - 40 + 50, 55,90);
         }
-        public void Update(GameTime gameTime)
-        {
-            Data.ms = Mouse.GetState();
-            Data.MRec = new Rectangle(Data.ms.X, Data.ms.Y, 1, 1);
-        }
-            public void Draw(SpriteBatch Batch)
-        {
+       public void Draw(SpriteBatch Batch)
+       {
             porkshop.Draw(Batch);
 
 
@@ -59,7 +54,7 @@ namespace LungPae.Model
             }
 
 
-            if (Talk == true && Data.Money == 0 && Data.QuestLaab == true)
+            if (Talk == true && Data.Money == 0 && Data.QuestLaab == true && Data.Pork.pickup == false)
             {
                 dialog.Draw(Batch);
                 Data.ms = Mouse.GetState();
@@ -85,16 +80,7 @@ namespace LungPae.Model
                         Data.inv.RemoveItem(Data.Cash3);
                         Data.Cash3.pickup = false;
                     }
-                    else if (Data.Cash2.pickup == true)
-                    {
-                        Data.inv.RemoveItem(Data.Cash2);
-                        Data.Cash2.pickup = false;
-                    }
-                    else if (Data.Cash.pickup == true)
-                    {
-                        Data.inv.RemoveItem(Data.Cash);
-                        Data.Cash.pickup = false;
-                    }
+                    
                     Data.inv.AddItem(Data.Pork);
                     Talk = false;
                     Data.Pork.pickup = true;
@@ -123,7 +109,7 @@ namespace LungPae.Model
             }
 
 
-        }
+       }
           
            
     

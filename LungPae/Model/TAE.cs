@@ -24,6 +24,7 @@ namespace LungPae.Model
         public bool checkCollision = false;
         float Scale = 0.8f;
         public int row = 1;
+        bool remove = true;
         public TAE()
         {
             tae = new AnimatedTexture(Vector2.Zero,0,Scale,0.4f);
@@ -107,6 +108,7 @@ namespace LungPae.Model
 
             if (Talktae == true && Data.watermelon == true&& Data.slingshot == false)
             {
+                
                 dialog.Draw(Batch);
                 dialog.Draw(Batch);
                 Data.ms = Mouse.GetState();
@@ -117,7 +119,12 @@ namespace LungPae.Model
                         
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
-                            Data.inv.RemoveItem(Data.Watermelon);
+                            if(remove == true)
+                            {
+                                Data.inv.RemoveItem(Data.Watermelon);
+                                remove = false;
+                            }
+                            
                             Data.DialogCount++;
                         }
                         Data.Oldms = Data.ms;

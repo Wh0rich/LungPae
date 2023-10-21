@@ -17,21 +17,32 @@ namespace LungPae.Model
     internal class Dog
     {
         public AnimatedTexture dog;
+        public AnimatedTexture dogBr;
+        public AnimatedTexture dogBl;
         Dialog dialog;
         Vector2 dogpos;
-       public Rectangle dogRec,dogRecTalk;
+        Vector2 dogpos1;
+        Vector2 dogpos2;
+        public Rectangle dogRec,dogRecTalk;
        public bool Talk = false;
         public int row = 1;
         public Dog() 
         {
             dog = new AnimatedTexture(Vector2.Zero,0,1,0.4f);
+            dogBr = new AnimatedTexture(Vector2.Zero, 0, 1, 0.4f);
+            dogBl = new AnimatedTexture(Vector2.Zero, 0, 1, 0.4f);
             dialog = new Dialog();
         }
 
         internal void Load(ContentManager Content)
         {
             dog.Load(Content,"Doggy1",4,5,4);
-            dogpos = new Vector2(700,100);
+            dogBr.Load(Content, "Doggy1", 4, 5, 4);
+            dogBl.Load(Content, "Doggy1", 4, 5, 4);
+
+            dogpos = new Vector2(620,60);
+            dogpos1 = new Vector2(655, 30);
+            dogpos2 = new Vector2(585, 35);
             dialog.LoadContent(Content);
         }
         internal void Update(GameTime gameTime)
@@ -43,8 +54,10 @@ namespace LungPae.Model
             if (Data.Quest3Finish == false)
             {
                 dog.DrawFrame(Batch, 0, dogpos);
-                dogRec = new Rectangle((int)dogpos.X, (int)dogpos.Y, 100, 120);
-                dogRecTalk = new Rectangle((int)dogpos.X - 30, 0, 150, 180);
+                dogBr.DrawFrame(Batch,3, dogpos1,3);
+                dogBl.DrawFrame(Batch, 2, dogpos2,3);
+                dogRec = new Rectangle((int)dogpos.X-50, (int)dogpos.Y-40, 170, 130);
+                dogRecTalk = new Rectangle((int)dogpos.X-70 , (int)dogpos.Y-40, 210, 180);
 
                 if (Talk == true)
                 {
@@ -75,6 +88,11 @@ namespace LungPae.Model
 
 
                 }
+            }
+            if(Data.Quest3Finish == true)
+            {
+                dogRec = new Rectangle(20000,0,1,1);
+                dogRecTalk = new Rectangle(20000,0,1,1);
             }
 
             

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using LungPae.Core;
 using Microsoft.Xna.Framework.Content;
 using LungPae.Model;
+using Microsoft.Xna.Framework.Input;
 
 namespace LungPae.Scenes
 {
@@ -55,6 +56,11 @@ namespace LungPae.Scenes
             _spriteBatch.Draw(Floor, new Vector2(Data.ScreenW / 2, Data.ScreenH - Floor.Height), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
             _spriteBatch.Draw(Floor, new Vector2(Data.ScreenW / 2, 0), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
             player.Draw(_spriteBatch);
+
+
+
+            
+
         }
     }
 }

@@ -15,7 +15,7 @@ namespace LungPae.Scenes
     internal class Scene7 : Component
     {
         Player player;
-        Item money1,money2;
+        Item money1;
         SlingShotShop shop;
 
         Texture2D grass, Floor;
@@ -26,7 +26,7 @@ namespace LungPae.Scenes
             player = new Player();
             shop = new SlingShotShop();
             money1 = new Item(new Vector2(100,200));
-            money2 = new Item(new Vector2(100, 400));
+            
         }
         internal override void LoadContent(ContentManager Content)
         {
@@ -35,9 +35,9 @@ namespace LungPae.Scenes
             Floor = Content.Load<Texture2D>("Floor");
             shop.Load(Content);
             money1.Load(Content,"cash2");
-           money2.Load(Content, "cash3");
+          
             Data.Cash2.Load(Content, "cash2");
-            Data.Cash3.Load(Content, "cash3");
+           
         }
         internal override void Update(GameTime gameTime)
         {
@@ -66,10 +66,7 @@ namespace LungPae.Scenes
             {
                 money1.Draw(_spriteBatch);
             }
-            if (money2.pickup == false)
-            {
-                money2.Draw(_spriteBatch);
-            }
+           
 
             if (player.PlayerRec.Intersects(money1.itemRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(money1.itemRec) && money1.pickup == false)
             {
@@ -84,36 +81,12 @@ namespace LungPae.Scenes
                     Data.inv.AddItem(Data.Cash2);
                     Data.Cash2.pickup = true;
                 }
-                if (Data.Money == 3)
-                {
-                    Data.inv.AddItem(Data.Cash3);
-                    Data.Cash3.pickup = true;
-                }
+                
                 money1.pickup = true;
                 
             }
 
-            if (player.PlayerRec.Intersects(money2.itemRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(money2.itemRec) && money2.pickup == false)
-            {
-                Data.Money += 1;
-                if (Data.Money == 1)
-                {
-                    Data.inv.AddItem(Data.Cash);
-                    Data.Cash.pickup = true;
-                }
-                if (Data.Money == 2)
-                {
-                    Data.inv.AddItem(Data.Cash2);
-                    Data.Cash2.pickup = true;
-                }
-                if (Data.Money == 3)
-                {
-                    Data.inv.AddItem(Data.Cash3);
-                    Data.Cash3.pickup = true;
-                }
-                money2.pickup = true;
-                
-            }
+           
 
 
 

@@ -40,7 +40,7 @@ namespace LungPae.Scenes
         internal override void Update(GameTime gameTime)
         {
             player.Update(gameTime);
-            porkShop.Update(gameTime);
+            
             Data.ms = Mouse.GetState();
             Data.MRec = new Rectangle(Data.ms.X, Data.ms.Y, 1, 1);
             if (player.PlayerRec.Intersects(matchstick.itemRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(matchstick.itemRec) && matchstick.pickup == false)
@@ -58,7 +58,7 @@ namespace LungPae.Scenes
                 porkShop.Talk = true;
                 Data.CanControl = false;
             }
-            Data.Oldms = Data.ms;
+           
             Console.WriteLine(player.PlayerRec);
             Console.WriteLine(porkShop.TalkRec);
             Console.WriteLine(player.PlayerRec.Intersects(porkShop.TalkRec));

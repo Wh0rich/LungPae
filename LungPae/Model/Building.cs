@@ -17,7 +17,7 @@ namespace LungPae.Model
         public Texture2D obj;
         Vector2 pos;
         private float Scale;
-        private float Depth = 0.5f;
+        private float Depth = 0.3f;
         public Rectangle ObjRecDown, ObjRecTop;
         public Building(Vector2 pos, float scale) //รับค่า posกับscaleมา
         {
@@ -36,14 +36,14 @@ namespace LungPae.Model
         {
             if (ObjRecTop.Intersects(player.PlayerRec))
             {
-                Depth = 0.6f;
+                player.player.Depth = 0.2f;
             }
             if (ObjRecDown.Intersects(player.PlayerRec))
             {
-                Depth = 0.3f;
+                player.player.Depth = 0.5f;
                 if (player.PlayerRec.Intersects(ObjRecDown) && player.PlayerRec.Top < ObjRecDown.Top)
                 {
-                    Depth = 0.6f;
+                    player.player.Depth = 0.2f;
                 }
             }
         }

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using LungPae.Model;
 
 using Microsoft.Xna.Framework.Input;
+using LungPae.CutScenes;
 
 namespace LungPae.Core
 {
@@ -21,18 +22,20 @@ namespace LungPae.Core
                              minigame1,minigame2,minigame3,
                              Blackscreen,ShotDog}
         
-        public static Scenes CurrentState = Scenes.scene3;
+        public static Scenes CurrentState = Scenes.scene9;
         public static int DialogCount = 0 ;
         public static int Money = 0 ;
 
         public static bool CanControl = true; //การควบคุมการเดินplayer
         public static bool cutscene1 = true;
+        public static bool fade = false;
 
         //MiniGames
         public static bool Minigame1 = false , Minigame1Finish = false;
 
         //Sup-Quest
         public static bool QuestLaab = false;
+        public static bool Quest4 = false, Quest4Finish = false, leave =true;
 
 
 
@@ -40,7 +43,7 @@ namespace LungPae.Core
         public static bool Quest1 = false, Q1Finish = false, Panties = false;
         public static bool Quest2 = true, Quest2Finish = false ,mask = false,stick = false, OnFire = false ;
         public static bool Quest3 = false, watermelon = false, slingshot = false, Quest3Finish = false;
-
+        
 
         public static Rectangle MRec;
         public static Rectangle TpRec, TpRec2 , TpRec3, TpRec4;
@@ -63,6 +66,7 @@ namespace LungPae.Core
         public static Item Pork = new Item();
         public static Item Slingshot = new Item();
 
+        public static BlackScreen bs = new BlackScreen();
 
         //เพิ่มถังขยะ
         //เพิ่มกองไฟ ทำ Quest2

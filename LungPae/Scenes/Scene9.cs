@@ -47,7 +47,10 @@ namespace LungPae.Scenes
                 Data.CanControl = false;
 
             }
-
+            if (Keyboard.GetState().IsKeyDown(Keys.LeftControl))
+            {
+                Data.Quest3Finish = true;
+            }
 
         }
         internal override void Draw(SpriteBatch _spriteBatch)

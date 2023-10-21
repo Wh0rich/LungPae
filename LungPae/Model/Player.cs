@@ -81,9 +81,9 @@ namespace LungPae.Model
                 {
                     player.Frame = 0;
                 }
-                PlayerRec = new Rectangle((int)Data.Plypos.X, (int)Data.Plypos.Y, 64 * 6 / 10, 119 * 6 / 10);
+               
             }
-
+            PlayerRec = new Rectangle((int)Data.Plypos.X, (int)Data.Plypos.Y, 64 * 6 / 10, 119 * 6 / 10);
             if (PlayerRec.Left < 0)
             {
                 Data.Plypos.X += speed;

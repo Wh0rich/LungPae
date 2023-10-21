@@ -56,7 +56,7 @@ namespace LungPae.Model
                 Data.Oldms = Data.ms;
             }
 
-            if (Talk == true && Data.Quest3 == true && Data.Money ==0)
+            if (Talk == true && Data.Quest3 == true && Data.Money ==0&&Data.Slingshot.pickup == false)
             {
                 dialog.Draw(Batch);
                 Data.ms = Mouse.GetState();

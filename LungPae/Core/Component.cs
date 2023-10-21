@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace LungPae.Core
 {
-    internal abstract class Component
+    public abstract class Component
     {
         internal abstract void LoadContent(ContentManager Content);
         internal abstract void Update(GameTime gameTime);
