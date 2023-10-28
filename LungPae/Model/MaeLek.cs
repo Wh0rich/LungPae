@@ -18,7 +18,7 @@ namespace LungPae.Model
     internal class MaeLek
     {
         AnimatedTexture lek;
-        Dialog dialog;
+        Dialog dialog,box,sad;
         public Rectangle lekTalkRec, lekRec, lekRecTop;
 
         Vector2 lekpos;
@@ -30,15 +30,18 @@ namespace LungPae.Model
         {
             lek = new AnimatedTexture(Vector2.Zero, 0, Scale, 0.4f);
             dialog = new Dialog();
-           
+            box = new Dialog();
+            sad = new Dialog();
             Scale *= 100;
         }
 
         internal void Load(ContentManager Content)
         {
-            lek.Load(Content, "MixerReal", 1, 4, 0);
+            lek.Load(Content, "MaeLek", 1, 4, 0);
             Data.Cash3.Load(Content, "cash3");
             dialog.LoadContent(Content);
+            box.LoadContent(Content, "MaeLekBox");
+            sad.LoadContent(Content, "MaeLekBox_Sad");
             lekpos = new Vector2(80, 290);
         }
         internal void Update(GameTime gameTime)
@@ -65,9 +68,9 @@ namespace LungPae.Model
                 {
                     case 0:
 
-                        dialog.Draw(Batch);
-                        dialog.ChangeDialog("Thank you for bringing my son here");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        box.DrawPerson(Batch,"Maelek");
+                        box.ChangeDialog("Thank you for bringing my son here");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(box.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
                         }
@@ -75,9 +78,9 @@ namespace LungPae.Model
                         break;
                     case 1:
 
-                        dialog.Draw(Batch);
-                        dialog.ChangeDialog("It looks like he passed out from food poisoning by\nlaab he bought yesterday");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        sad.DrawPerson(Batch, "Maelek");
+                        sad.ChangeDialog("It looks like he passed out from food poisoning by\nlaab he bought yesterday");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(sad.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
                         }
@@ -85,9 +88,9 @@ namespace LungPae.Model
                         break;
                     case 2:
 
-                        dialog.Draw(Batch);
-                        dialog.ChangeDialog("I think I'll make him some cooked laab to eat\nin case his symptoms get better");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        box.DrawPerson(Batch, "Maelek");
+                        box.ChangeDialog("I think I'll make him some cooked laab to eat\nin case his symptoms get better");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(box.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
                         }
@@ -95,9 +98,9 @@ namespace LungPae.Model
                         break;
                     case 3:
 
-                        dialog.Draw(Batch);
-                        dialog.ChangeDialog("Of course I will do it for you in return for\nbringing my son here");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        box.DrawPerson(Batch, "Maelek");
+                        box.ChangeDialog("Of course I will do it for you in return for\nbringing my son here");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(box.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount ++;
                             
@@ -106,9 +109,9 @@ namespace LungPae.Model
                         break;
                     case 4:
 
-                        dialog.Draw(Batch);
-                        dialog.ChangeDialog("Could you please help me buy Minched pork?");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        box.DrawPerson(Batch, "Maelek");
+                        box.ChangeDialog("Could you please help me buy Minched pork?");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(box.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount ++;
                            
@@ -141,9 +144,9 @@ namespace LungPae.Model
                 {
                     case 0:
 
-                        dialog.Draw(Batch);
-                        dialog.ChangeDialog("The pork at the bottom of the chiang mai moat\nis very good quality");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        box.DrawPerson(Batch, "Maelek");
+                        box.ChangeDialog("The pork at the bottom of the chiang mai moat\nis very good quality");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(box.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount=0;
                             Talk = false;
@@ -160,9 +163,9 @@ namespace LungPae.Model
                 {
                     case 0:
 
-                        dialog.Draw(Batch);
-                        dialog.ChangeDialog("I've got the pork. I'm going to start cooking now");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        box.DrawPerson(Batch, "Maelek");
+                        box.ChangeDialog("I've got the pork. I'm going to start cooking now");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(box.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount = 0;
                             Talk = false;

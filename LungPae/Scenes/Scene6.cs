@@ -54,7 +54,7 @@ namespace LungPae.Scenes
         }
         internal override void Update(GameTime gameTime)
         {
-            Console.WriteLine(Data.Oldms);
+            
             Data.ms = Mouse.GetState();
             Data.MRec = new Rectangle(Data.ms.X, Data.ms.Y, 1, 1);
             if (Data.Quest2Finish == true && Data.Quest2 == true)

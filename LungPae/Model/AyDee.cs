@@ -17,12 +17,13 @@ namespace LungPae.Model
     internal class AyDee
     {
         AnimatedTexture Dee;
-        Dialog dialog;
+        Texture2D sleep;
+        Dialog dialog,faint;
        public Rectangle deeTalkRec, deeRec, deeRecTop;
 
         Vector2 Deepos;
         int row = 1;
-       public  bool Talk = false;
+        public  bool Talk = false;
         bool tooktomom = false;
         bool checkCollision = false;
         float Scale = 0.6f;
@@ -30,12 +31,16 @@ namespace LungPae.Model
         {
             Dee = new AnimatedTexture(Vector2.Zero,0,Scale,0.4f);
             dialog = new Dialog();
+            faint = new Dialog();
+            
             Scale *= 100;
         }
 
         internal void Load(ContentManager Content)
         {
             Dee.Load(Content,"AyDee",1,4,0);
+            sleep = Content.Load<Texture2D>("Dee_knock");
+            faint.LoadContent(Content, "DeeBox_faint");
             dialog.LoadContent(Content);
             Deepos = new Vector2(100,50);
         }
@@ -82,9 +87,9 @@ namespace LungPae.Model
                         break;
                     case 1:
 
-                        dialog.Draw(Batch);
-                        dialog.ChangeDialog("What time is it now?");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        faint.DrawPerson(Batch,"Dee");
+                        faint.ChangeDialog("What time is it now?");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(faint.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
                         }
@@ -92,9 +97,9 @@ namespace LungPae.Model
                         break;
                     case 2:
 
-                        dialog.Draw(Batch);
-                        dialog.ChangeDialog("I don't know how many hours I slept");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        faint.DrawPerson(Batch, "Dee");
+                        faint.ChangeDialog("I don't know how many hours I slept");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(faint.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
                         }
@@ -102,9 +107,9 @@ namespace LungPae.Model
                         break;
                     case 3:
 
-                        dialog.Draw(Batch);
-                        dialog.ChangeDialog("bruhhhh");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        faint.DrawPerson(Batch, "Dee");
+                        faint.ChangeDialog("bruhhhh");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(faint.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
                         }
@@ -130,10 +135,10 @@ namespace LungPae.Model
             }
             if (tooktomom == false)
             {
-                Dee.DrawFrame(Batch, Deepos, row);
-                deeRec = new Rectangle((int)Deepos.X+10, (int)Deepos.Y + 50, Dee.FrameWidth * (int)Scale / 100 -5, Dee.FrameHeight * (int)Scale / 100);
-                deeRecTop = new Rectangle((int)Deepos.X, (int)Deepos.Y, Dee.FrameWidth * (int)Scale / 100, (Dee.FrameHeight * (int)Scale / 100) - 50);
-                deeTalkRec = new Rectangle((int)Deepos.X, (int)Deepos.Y, Dee.FrameWidth * (int)Scale / 100, Dee.FrameHeight * (int)Scale / 100 + 20);
+                Batch.Draw(sleep,Deepos,null,Color.White,0,Vector2.Zero,Scale/100,0,0.4f);
+                deeRec = new Rectangle((int)Deepos.X, (int)Deepos.Y , sleep.Width * (int)Scale / 100+5, sleep.Height * (int)Scale / 100+20);
+                deeRecTop = new Rectangle((int)Deepos.X, (int)Deepos.Y, sleep.Width * (int)Scale / 100, (sleep.Height * (int)Scale / 100) - 50);
+                deeTalkRec = new Rectangle((int)Deepos.X-10, (int)Deepos.Y-10, sleep.Width * (int)Scale / 100+20, sleep.Height * (int)Scale / 100 + 20);
             }
             if(tooktomom == true)
             {

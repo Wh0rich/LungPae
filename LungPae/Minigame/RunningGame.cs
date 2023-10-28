@@ -57,6 +57,7 @@ namespace LungPae.Minigame
             wall = content.Load<Texture2D>("StadiumWall");
             logo = content.Load<Texture2D>("ResultLOGO");
             grass = content.Load<Texture2D>("grass");
+            
             npcMan.Load(content, "NPCMan",2,1,4);
             npcLady.Load(content, "NPCLady", 2, 1, 3);
             speedMix =4f ;
@@ -124,11 +125,7 @@ namespace LungPae.Minigame
                 {
                     mixer.Mixani.UpdateFrame(elapsed);
                     player.player.UpdateFrame(elapsed);
-                }
-               
-                Console.WriteLine("Player Pos (x,y ) " + playerpos);
-                Console.WriteLine("Mix Pos (x,y ) " + Mixpos);
-                Console.WriteLine("Cam Pos (x,y ) " + cameraPos);
+                } 
             }
             npcMan.UpdateFrame(elapsed);
             npcLady.UpdateFrame(elapsed);
@@ -156,7 +153,7 @@ namespace LungPae.Minigame
             }
             if (Keyboard.GetState().IsKeyDown(Keys.LeftControl))
             {
-                Mixpos.X = 4990;
+                playerpos.X = 4990;
                 cameraPos.X = 4500;
             }
             for (int i = 0; i < 5000 / wall.Width + 560; i++)
@@ -183,8 +180,9 @@ namespace LungPae.Minigame
                 dialog.ChangeDialog("press Enter");
                 if  (Keyboard.GetState().IsKeyDown(Keys.Enter))
                 {
-                    Data.CurrentState = Data.Scenes.scene2;
+                    Data.CurrentState = Data.Scenes.scene14;
                     Data.CanControl = true;
+                    Data.Minigame1Finish = true;
                     
                 } 
             }
@@ -198,7 +196,7 @@ namespace LungPae.Minigame
                 dialog.ChangeDialog("press Enter");
                 if (Keyboard.GetState().IsKeyDown(Keys.Enter))
                 {
-                    Data.CurrentState = Data.Scenes.scene2;
+                    Data.CurrentState = Data.Scenes.scene14;
                     Data.CanControl = true;
                     
                 }

@@ -27,7 +27,7 @@ namespace LungPae.CutScenes
         Vector2 dogpos3 = new Vector2(655, 30);
         Vector2 dogpos2 = new Vector2(585, 35);
         Vector2 taepos = new Vector2(620,140);
-        Dialog dialog;
+        Dialog dialog,box;
         float temp;
         int row = 2;
 
@@ -42,6 +42,7 @@ namespace LungPae.CutScenes
             dog3= new AnimatedTexture(Vector2.Zero, 0, 1, 0.5f);
             tae = new TAE();
             dialog = new Dialog();
+            box = new Dialog();
         }
         internal override void LoadContent(ContentManager Content)
         {
@@ -51,7 +52,9 @@ namespace LungPae.CutScenes
             dog3.Load(Content, "Doggy1", 4, 5, 4);
             Floor = Content.Load<Texture2D>("Floor");
             grass = Content.Load<Texture2D>("grass");
-            dialog.LoadContent(Content);
+            dialog.LoadContent(Content, "TaeBox");
+            box.LoadContent(Content, "TaeBox_Angry");
+
         }
 
         internal override void Update(GameTime gameTime)
@@ -98,9 +101,9 @@ namespace LungPae.CutScenes
                 dog.DrawFrame(spriteBatch, 0, dogpos, 1);
                 dog2.DrawFrame(spriteBatch, 3, dogpos3, 3);
                 dog3.DrawFrame(spriteBatch, 2, dogpos2, 3);
-                dialog.Draw(spriteBatch);
-                dialog.ChangeDialog("Look This !!!!");
-                if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                box.DrawPerson(spriteBatch,"Tae");
+                box.ChangeDialog("Look This !!!!");
+                if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(box.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                 {
                     talk1 = false;
                     tokjai = true;
@@ -139,17 +142,17 @@ namespace LungPae.CutScenes
                 switch (Data.DialogCount)
                 {
                     case 0:
-                        dialog.Draw(spriteBatch);
-                        dialog.ChangeDialog("I'm TAE the gangster of chiangmai moat!!!");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        box.DrawPerson(spriteBatch,"Tae");
+                        box.ChangeDialog("I'm TAE the gangster of chiangmai moat!!!");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(box.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
                         }
                         Data.Oldms = Data.ms;
                         break;
                     case 1:
-                        dialog.Draw(spriteBatch);
-                        dialog.ChangeDialog("but I have to go on a mission.Good bye PeaKung");
+                        dialog.DrawPerson(spriteBatch,"Tae");
+                        dialog.ChangeDialog("but I have to go on a mission.Good bye PaeKung");
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount = 0 ;

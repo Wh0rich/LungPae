@@ -15,7 +15,8 @@ namespace LungPae.CutScenes
     public class BlackScreen : Component
     {
         Texture2D bg;
-        Dialog dialog;
+        Dialog dialog,maelek,deehappy;
+
         float temp;
         bool Add = false;
         bool eatlaab = false;
@@ -26,10 +27,14 @@ namespace LungPae.CutScenes
         public BlackScreen() 
         { 
             dialog = new Dialog();
+            maelek = new Dialog();
+            deehappy = new Dialog();
         }
         internal override void LoadContent(ContentManager Content)
         {
             bg = Content.Load<Texture2D>("Blackbg");
+            maelek.LoadContent(Content, "MaeLekBox");
+            deehappy.LoadContent(Content, "DeeBox_Happy");
             dialog.LoadContent(Content);
         }
 
@@ -76,7 +81,7 @@ namespace LungPae.CutScenes
 
             spriteBatch.Draw(bg, Vector2.Zero, Color.Black );
 
-            if (Data.Quest2Finish == true && fire ==false)
+            if (Data.Quest2Finish == true && fire ==true)
             {
                 dialog.Draw(spriteBatch);
                 dialog.ChangeDialog("Fire in the hole");
@@ -89,7 +94,7 @@ namespace LungPae.CutScenes
                 }
                 Data.Oldms = Data.ms;
             }
-            if ( eatlaab == false)
+            if ( eatlaab == false && Data.QuestLaab == true)
             {
                 Data.ms = Mouse.GetState();
                 switch (Data.DialogCount)
@@ -97,7 +102,7 @@ namespace LungPae.CutScenes
                     case 0:
 
                         dialog.Draw(spriteBatch);
-                        dialog.ChangeDialog("waited for her to cook for a while\nDee suddenly regained consciousness.");
+                        dialog.ChangeDialog("You waited for her to cook for a while\nDee suddenly regained consciousness.");
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
@@ -106,9 +111,9 @@ namespace LungPae.CutScenes
                         break;
                     case 1:
 
-                        dialog.Draw(spriteBatch);
-                        dialog.ChangeDialog("Cooked Laap is finished cooking");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        maelek.DrawPerson(spriteBatch,"Maelek");
+                        maelek.ChangeDialog("Cooked Laap is finished cooking");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(maelek.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
                         }
@@ -116,9 +121,9 @@ namespace LungPae.CutScenes
                         break;
                     case 2:
 
-                        dialog.Draw(spriteBatch);
-                        dialog.ChangeDialog("Finally!\nYou come and eat together and thank you for helping.Pe.");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        deehappy.DrawPerson(spriteBatch,"Dee");
+                        deehappy.ChangeDialog("Finally!\nYou come and eat together and thank you for helping.Pe.");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(deehappy.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
                         }
@@ -136,15 +141,14 @@ namespace LungPae.CutScenes
                         break;
                     case 4:
 
-                        dialog.Draw(spriteBatch);
-                        dialog.ChangeDialog("E kar Moh Kaa Nard!!!");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        deehappy.DrawPerson(spriteBatch, "Dee");
+                        deehappy.ChangeDialog("E kar Moh Kaa Nard!!!");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(deehappy.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount = 0;
                             Data.CanControl = true;
                             Data.Quest4Finish = true;
                             Data.Plypos = new Vector2(85,290);
-
                             Data.CurrentState = Data.Scenes.scene11;
                             eatlaab = true;
                         }

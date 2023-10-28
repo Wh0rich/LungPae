@@ -45,13 +45,23 @@ namespace LungPae.Model
             mixer.Load(content, "MixerReal", 1, 4, 10);
             Mixani.Load(content, "MixerAni", 6, 1, 18);
             dialog.LoadContent(content,"MixerBox");
+            Data.Sweater.Load(content, "MixerHood");
         }
         internal void Update(GameTime gameTime)
         {
-            mixRec = new Rectangle((int)mixPos.X, (int)mixPos.Y +30, mixer.FrameWidth * (int)Scale / 100, mixer.FrameHeight * (int)Scale / 100+10);
-            mixRecTop = new Rectangle((int)mixPos.X, (int)mixPos.Y, mixer.FrameWidth * (int)Scale / 100, (mixer.FrameHeight * (int)Scale / 100) -40 );
-            mixRecTalk = new Rectangle((int)mixPos.X, (int)mixPos.Y , mixer.FrameWidth * (int)Scale / 100, mixer.FrameHeight * (int)Scale / 100);
-            
+            if(Data.Minigame1Finish == false)
+            {
+                mixRec = new Rectangle((int)mixPos.X, (int)mixPos.Y + 30, mixer.FrameWidth * (int)Scale / 100, mixer.FrameHeight * (int)Scale / 100 + 10);
+                mixRecTop = new Rectangle((int)mixPos.X, (int)mixPos.Y, mixer.FrameWidth * (int)Scale / 100, (mixer.FrameHeight * (int)Scale / 100) - 40);
+                mixRecTalk = new Rectangle((int)mixPos.X, (int)mixPos.Y, mixer.FrameWidth * (int)Scale / 100, mixer.FrameHeight * (int)Scale / 100);
+            }
+            if (Data.Minigame1Finish == true)
+            {
+                mixRec = new Rectangle(-20000,1,1,1);
+                mixRecTop = new Rectangle(-20000, 1, 1, 1);
+                mixRecTalk = new Rectangle(-20000, 1, 1, 1);
+            }
+
             if (checkCollision == true)
             {
                 mixer.Depth = 0.6f;
@@ -69,15 +79,15 @@ namespace LungPae.Model
         }
         internal void Draw(SpriteBatch batch)
         {
-            mixer.DrawFrame(batch, mixPos, row);
-            
-            if (Talk == true && Data.Minigame1 == false)
+           
+
+            if (Talk == true && Data.Minigame1Finish == false)
             {
-                dialog.DrawPerson(batch,"Mixer");
+                dialog.DrawPerson(batch, "Mixer");
                 switch (Data.DialogCount)
                 {
                     case 0:
-                        dialog.ChangeDialog("Hi");
+                        dialog.ChangeDialog("I'm Mixer.Horse power athlete");
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
@@ -86,36 +96,41 @@ namespace LungPae.Model
                         break;
 
                     case 1:
-                        dialog.ChangeDialog("Ma runing gunn");
+                        dialog.ChangeDialog("If you can beat me in a race.\nI'll lift my hoodie for you.");
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount = 0;
                             Data.Minigame1 = true;
                             Data.CurrentState = Data.Scenes.minigame1;
-                            Talk = false;
+
                         }
                         Data.Oldms = Data.ms;
                         break;
                 }
             }
-            if (Talk == true && Data.Minigame1 == true)
+            if (Talk == true && Data.Minigame1Finish == true)
             {
-                dialog.Draw(batch);
+                dialog.DrawPerson(batch, "Mixer");
                 switch (Data.DialogCount)
                 {
                     case 0:
-                        dialog.ChangeDialog("Hi");
+                        dialog.ChangeDialog("It's so hot, take my shirt.");
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount = 0;
                             Data.CanControl = true;
+                            Data.inv.AddItem(Data.Sweater);
+                            Data.Sweater.pickup = true;
+                            mixPos = new Vector2(20000, 1);
                             Talk = false;
                         }
                         Data.Oldms = Data.ms;
                         break;
                 }
             }
+            mixer.DrawFrame(batch, mixPos, row);
         }
+           
 
         internal void Drawmini(SpriteBatch batch,Vector2 Posmix) // Drawสำหรับminigame
         {
@@ -129,6 +144,7 @@ namespace LungPae.Model
             {
                 checkCollision = true;
             }
+            player.Collision(mixRec);
         }
     }
 }

@@ -29,6 +29,12 @@ namespace LungPae.Manager
         private Scene9 s9 = new Scene9();
         private Scene10 s10 = new Scene10();
         private Scene11 s11 = new Scene11();
+        private Scene12 s12 = new Scene12();
+        private Scene13 s13 = new Scene13();
+        private Scene14 s14 = new Scene14();
+        private Scene15 s15 = new Scene15();
+        private Scene16 s16 = new Scene16();
+        private Cowboy c1 = new Cowboy();
         private RunningGame m1 = new RunningGame();
         private BlackScreen b = new BlackScreen();
         private ShotDog shot = new ShotDog();
@@ -47,6 +53,12 @@ namespace LungPae.Manager
            s9.LoadContent( Content);
            s10.LoadContent(Content);
            s11.LoadContent(Content);
+           s12.LoadContent(Content);
+           s13.LoadContent( Content);
+           s14.LoadContent( Content);
+           s15.LoadContent( Content);
+           s16.LoadContent(Content);
+           c1.LoadContent(Content);
            m1.LoadContent( Content);
            b.LoadContent( Content);
            shot.LoadContent( Content); 
@@ -90,6 +102,24 @@ namespace LungPae.Manager
                     break;
                 case Data.Scenes.scene11:
                     s11.Update(gameTime);
+                    break;
+                case Data.Scenes.scene12:
+                    s12.Update(gameTime);
+                    break;
+                case Data.Scenes.scene13:
+                    s13.Update(gameTime);
+                    break;
+                case Data.Scenes.scene14:
+                    s14.Update(gameTime);
+                    break;
+                case Data.Scenes.scene15:
+                    s15.Update(gameTime);
+                    break;
+                case Data.Scenes.scene16:
+                    s16.Update(gameTime);
+                    break;
+                case Data.Scenes.Cowboy:
+                    c1.Update(gameTime);
                     break;
                 case Data.Scenes.minigame1:
                     m1.Update(gameTime);
@@ -139,6 +169,24 @@ namespace LungPae.Manager
                     break;
                 case Data.Scenes.scene11:
                     s11.Draw(spriteBatch);
+                    break;
+                case Data.Scenes.scene12:
+                    s12.Draw(spriteBatch);
+                    break;
+                case Data.Scenes.scene13:
+                    s13.Draw(spriteBatch);
+                    break;
+                case Data.Scenes.scene14:
+                    s14.Draw(spriteBatch);
+                    break;
+                case Data.Scenes.scene15:
+                    s15.Draw(spriteBatch);
+                    break;
+                case Data.Scenes.scene16:
+                    s16.Draw(spriteBatch);
+                    break;
+                case Data.Scenes.Cowboy:
+                    c1.Draw(spriteBatch);
                     break;
                 case Data.Scenes.minigame1:
                     m1.Draw(spriteBatch);

@@ -53,6 +53,7 @@ namespace LungPae.Model
                     Talk = false;
                     Data.CanControl = true;
                 }
+                Data.Oldms = Data.ms;
             }
             if (Talk == true && Data.Money > 0 && Data.Watermelon.pickup == false)
             {

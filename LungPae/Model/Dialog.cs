@@ -58,6 +58,19 @@ namespace LungPae.Model
             spriteBatch.Draw(DialogBox, DialogPos, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.8f);
             spriteBatch.DrawString(Myfont, msg, new Vector2(DialogPos.X + 50, DialogPos.Y + 50), Color.Black, 0, Vector2.Zero, 1, SpriteEffects.None, 0.9f);
         }
+
+        internal void DrawAns1(SpriteBatch spriteBatch)
+        {
+
+            spriteBatch.DrawString(Myfont, ans1, Ans1Pos, Color.Black, 0, Vector2.Zero, 1, SpriteEffects.None, 0.9f);
+           
+
+            Ans1Pos = new Vector2(DialogPos.X - 100, DialogPos.Y + 200);
+           
+
+            Ans1Rec = new Rectangle((int)Ans1Pos.X, (int)Ans1Pos.Y, 500, 30);
+           
+        }
         internal void DrawAns2(SpriteBatch spriteBatch)
         {
 
@@ -67,8 +80,8 @@ namespace LungPae.Model
             Ans1Pos = new Vector2(DialogPos.X - 100, DialogPos.Y + 200);
             Ans2Pos = new Vector2(DialogPos.X - 100, DialogPos.Y + 230);
             
-            Ans1Rec = new Rectangle((int)Ans1Pos.X, (int)Ans1Pos.Y, 80, 30);
-            Ans2Rec = new Rectangle((int)Ans2Pos.X, (int)Ans2Pos.Y, 80, 30);
+            Ans1Rec = new Rectangle((int)Ans1Pos.X, (int)Ans1Pos.Y, 500, 30);
+            Ans2Rec = new Rectangle((int)Ans2Pos.X, (int)Ans2Pos.Y, 500, 30);
         }
         internal void DrawAns(SpriteBatch spriteBatch)
         {
@@ -79,9 +92,10 @@ namespace LungPae.Model
             Ans1Pos = new Vector2(DialogPos.X+50 , DialogPos.Y + 200);
             Ans2Pos = new Vector2(DialogPos.X+50, DialogPos.Y + 230);
 
-            Ans1Rec = new Rectangle((int)Ans1Pos.X, (int)Ans1Pos.Y, 30, 30);
-            Ans2Rec = new Rectangle((int)Ans2Pos.X, (int)Ans2Pos.Y, 30, 30);
+            Ans1Rec = new Rectangle((int)Ans1Pos.X, (int)Ans1Pos.Y, 500, 30);
+            Ans2Rec = new Rectangle((int)Ans2Pos.X, (int)Ans2Pos.Y, 500, 30);
         }
+
         internal void DrawAns3(SpriteBatch spriteBatch)
         {
 
@@ -91,13 +105,17 @@ namespace LungPae.Model
             Ans1Pos = new Vector2(DialogPos.X - 100, DialogPos.Y + 200);
             Ans2Pos = new Vector2(DialogPos.X - 100, DialogPos.Y + 230);
             Ans3Pos = new Vector2(DialogPos.X - 100, DialogPos.Y + 260);
-            Ans1Rec = new Rectangle((int)Ans1Pos.X, (int)Ans1Pos.Y, 30, 30);
-            Ans2Rec = new Rectangle((int)Ans2Pos.X, (int)Ans2Pos.Y, 30, 30);
-            Ans3Rec = new Rectangle((int)Ans3Pos.X, (int)Ans3Pos.Y, 30, 30);
+            Ans1Rec = new Rectangle((int)Ans1Pos.X, (int)Ans1Pos.Y, 500, 30);
+            Ans2Rec = new Rectangle((int)Ans2Pos.X, (int)Ans2Pos.Y, 500, 30);
+            Ans3Rec = new Rectangle((int)Ans3Pos.X, (int)Ans3Pos.Y, 500, 30);
         }
         internal void ChangeDialog( String msg) //รับstringมาเปลี่ยนข้อความ
         {
             this.msg = msg; 
+        }
+        internal void Answer(string ans1)
+        {
+            this.ans1 = ans1;
         }
         internal void Answer(string ans1, string ans2)
         {

@@ -17,7 +17,7 @@ namespace LungPae.Model
     internal class TAE
     {
         public AnimatedTexture tae;
-        Dialog dialog;
+        Dialog dialog,angry,surprise,box;
         Vector2 Pos;
         public Rectangle taeRec, taeRecTop, taeRecTalk;
         public bool Talktae = false;
@@ -29,6 +29,9 @@ namespace LungPae.Model
         {
             tae = new AnimatedTexture(Vector2.Zero,0,Scale,0.4f);
             dialog = new Dialog();
+            angry = new Dialog();
+            surprise = new Dialog();
+            box = new Dialog();
         }
         internal void Load(ContentManager Content)
         {
@@ -36,10 +39,13 @@ namespace LungPae.Model
             Scale *= 100;
             Pos = new Vector2(300,50);
             dialog.LoadContent(Content);
+            box.LoadContent(Content,"TaeBox");
+            angry.LoadContent(Content, "TaeBox_Angry");
+            surprise.LoadContent(Content, "TaeBox_Surprise");
         }
         internal void Update (GameTime gameTime)
         {
-            taeRec = new Rectangle((int)Pos.X, (int)Pos.Y + 50, tae.FrameWidth * (int)Scale / 100, tae.FrameHeight * (int)Scale / 100 );
+            taeRec = new Rectangle((int)Pos.X, (int)Pos.Y + 50, tae.FrameWidth * (int)Scale / 100, tae.FrameHeight * (int)Scale / 100 -10 );
             taeRecTop = new Rectangle((int)Pos.X, (int)Pos.Y, tae.FrameWidth * (int)Scale / 100, (tae.FrameHeight * (int)Scale / 100) - 50);
             taeRecTalk = new Rectangle((int)Pos.X, (int)Pos.Y, tae.FrameWidth * (int)Scale / 100, tae.FrameHeight * (int)Scale / 100+20);
             if (checkCollision == true)
@@ -80,22 +86,21 @@ namespace LungPae.Model
 
             if (Talktae == true &&  Data.watermelon == false && Data.Quest2Finish == true)
             {
-                dialog.Draw(Batch);
-                dialog.Draw(Batch);
+                angry.DrawPerson(Batch,"Tae");
                 Data.ms = Mouse.GetState();
                 switch (Data.DialogCount)
                 {
                     case 0:
-                        dialog.ChangeDialog("What do you want?\nI'm a gangster in this area");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        angry.ChangeDialog("What do you want?\nI'm a gangster in this area");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(angry.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
                         }
                         Data.Oldms = Data.ms;
                         break;
                     case 1:
-                        dialog.ChangeDialog("If you want to talk to me, go get me a watermelon");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        angry.ChangeDialog("If you want to talk to me, go get me a watermelon");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(angry.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount = 0;
                             Data.CanControl = true;
@@ -109,15 +114,14 @@ namespace LungPae.Model
             if (Talktae == true && Data.watermelon == true&& Data.slingshot == false)
             {
                 
-                dialog.Draw(Batch);
-                dialog.Draw(Batch);
                 Data.ms = Mouse.GetState();
                 switch (Data.DialogCount)
                 {
                     case 0:
-                        dialog.ChangeDialog("Really brought watermelon?");
+                        surprise.DrawPerson(Batch, "Tae");
+                        surprise.ChangeDialog("Really brought watermelon?");
                         
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(surprise.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             if(remove == true)
                             {
@@ -130,8 +134,9 @@ namespace LungPae.Model
                         Data.Oldms = Data.ms;
                         break;
                     case 1:
-                        dialog.ChangeDialog("Ok.What do you want me to help you with?");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        box.DrawPerson(Batch, "Tae");
+                        box.ChangeDialog("Ok.What do you want me to help you with?");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(box.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
                         }
@@ -139,6 +144,7 @@ namespace LungPae.Model
                         break;
                         //Pae
                     case 2:
+                        dialog.Draw(Batch);
                         dialog.ChangeDialog("Please help drive the dog away");
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
@@ -148,8 +154,9 @@ namespace LungPae.Model
                         break;
                         //Tae
                     case 3:
-                        dialog.ChangeDialog("Fine, but you'll have to get me a weapon.");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        box.DrawPerson(Batch, "Tae");
+                        box.ChangeDialog("Fine, but you'll have to get me a weapon.");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(box.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount = 0;
                             Data.CanControl = true;
@@ -163,27 +170,29 @@ namespace LungPae.Model
 
             if (Talktae == true && Data.Quest3 == true && Data.watermelon == true && Data.slingshot == true)
             {
-                dialog.Draw(Batch);
-                dialog.Draw(Batch);
+               
                 Data.ms = Mouse.GetState();
                 switch (Data.DialogCount)
                 {
                     case 0:
-                        dialog.ChangeDialog("Is this a weapon?\nHaHa! You can rest assured.");
-                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                        box.DrawPerson(Batch, "Tae");
+                        box.ChangeDialog("Is this a weapon?\nHaHa! You can rest assured.");
+                        if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(box.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                            Data.inv.RemoveItem(Data.Slingshot);
                         }
                         Data.Oldms = Data.ms;
                         break;
                     case 1:
+                        dialog.Draw(Batch);
                         dialog.ChangeDialog("You were confused about what he would do next.");
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount = 0;
                             Data.CanControl = true;
                             Data.Quest3Finish = true;
-                            Data.inv.RemoveItem(Data.Slingshot);
+                            
                             
                             Data.CurrentState = Data.Scenes.ShotDog;
                             Talktae = false;

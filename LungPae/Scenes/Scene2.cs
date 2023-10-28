@@ -18,18 +18,18 @@ namespace LungPae.Scenes
         Texture2D Floor;
         Texture2D grass;
         Item hat;
-        Mixer mix;
+        
         TAE tae;
        // Building Shed;
         Player player;
-        Vector2 mixPos = new Vector2(200, 350);
+        
         
         public Scene2()
         {
             
             //Shed = new Building(new Vector2(350, 150), 2f);
             player = new Player();
-            mix = new Mixer(mixPos);
+            
             hat = new Item(new Vector2(500, 315));
             player.row = 4;
             tae = new TAE();
@@ -41,7 +41,7 @@ namespace LungPae.Scenes
             grass = Content.Load<Texture2D>("grass");
             hat.Load(Content, "RobberHat");
             Data.RobberHAt.Load(Content, "RobberHat");
-            mix.Load(Content);
+            
             //Shed.Load(Content, "Shed");
             tae.Load(Content);
 
@@ -53,9 +53,7 @@ namespace LungPae.Scenes
             Data.MRec = new Rectangle(Data.ms.X, Data.ms.Y, 1, 1);
             Data.ms = Mouse.GetState();
             tae.Update(gameTime);
-            mix.Update(gameTime);
-            mix.mixCheck(player);
-            player.Collision(mix.mixRec);
+            
             tae.taeCheck(player);
             
             if (player.PlayerRec.Intersects(hat.itemRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(hat.itemRec) && hat.pickup == false)
@@ -70,29 +68,7 @@ namespace LungPae.Scenes
                 //player.Collision(Shed.ObjRec);
                 player.Update(gameTime);
             }
-            if (player.PlayerRec.Intersects(mix.mixRecTalk) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(mix.mixRecTalk))
-            {
-
-                mix.Talk = true;
-                Data.CanControl = false;
-                if (player.row == 1)
-                {
-                    mix.row = 3;
-                }
-                if (player.row == 2)
-                {
-                    mix.row = 2;
-                }
-                if (player.row == 3)
-                {
-                    mix.row = 1;
-                }
-                if (player.row == 4)
-                {
-                    mix.row = 4;
-                }
-
-            }
+           
             if (player.PlayerRec.Intersects(tae.taeRecTalk) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(tae.taeRecTalk))
             {
 
@@ -163,7 +139,7 @@ namespace LungPae.Scenes
             _spriteBatch.Draw(Floor, new Vector2(Data.ScreenW / 2, Data.ScreenH - Floor.Height), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
             _spriteBatch.Draw(Floor, new Vector2(Data.ScreenW / 2,0), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
             //Shed.Draw(_spriteBatch);
-            mix.Draw(_spriteBatch);
+            
             player.Draw(_spriteBatch);
             if (Data.Quest3Finish == false)
             {

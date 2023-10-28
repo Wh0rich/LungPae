@@ -38,6 +38,7 @@ namespace LungPae.Scenes
         }
         internal override void Update(GameTime gameTime)
         {
+
             player.Update(gameTime);
             Data.MRec = new Rectangle(Data.ms.X, Data.ms.Y, 1, 1);
             Data.ms = Mouse.GetState();
@@ -60,11 +61,11 @@ namespace LungPae.Scenes
         internal override void Draw(SpriteBatch _spriteBatch)
         {
             Data.inv.Draw(_spriteBatch);
-            Data.TpRec = new Rectangle(Data.ScreenW / 2, 0, 40, 5);
+            Data.TpRec = new Rectangle(0,Data.ScreenH / 2, 40, 5);
             Data.TpRec2 = new Rectangle(Data.ScreenW / 2, Data.ScreenH - 5, 40, 15);
 
             _spriteBatch.Draw(Floor, new Vector2(Data.ScreenW / 2, Data.ScreenH - Floor.Height), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
-            _spriteBatch.Draw(Floor, new Vector2(Data.ScreenW / 2, 0), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
+            _spriteBatch.Draw(Floor, new Vector2(0,Data.ScreenH / 2), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
 
            
             for (int i = 0; i < Data.ScreenW / grass.Width; i++)
@@ -78,7 +79,7 @@ namespace LungPae.Scenes
             if (player.PlayerRec.Intersects(Data.TpRec))
             {
                 Data.CurrentState = Data.Scenes.scene12;
-                Data.Plypos.Y = 720 - 80;
+                Data.Plypos.X = Data.ScreenW - 70;
             }
             if (player.PlayerRec.Intersects(Data.TpRec2))
             {
