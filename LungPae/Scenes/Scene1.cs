@@ -17,6 +17,7 @@ using LungPae.Model;
 using System.Threading;
 using System.Reflection.Metadata;
 
+
 namespace LungPae.Scenes
 {
     internal class Scene1 : Component
@@ -26,12 +27,13 @@ namespace LungPae.Scenes
         NPC npc1,npc2,npc3;
         Player player;
         SpriteFont Font;
-        Building obj,seven;
+        Building obj,seven,house2,house3;
         Dialog dialog;
         material bin,bin2,bin3,bin4;
+        Tree tree1, tree2;
+        Bush Bigbush1, Bigbush2, Smallbush1, Smallbush2, Smallbush3, Smallbush4;
 
-        
-        
+
         bool talk = false;
         int speed = 1;
         public Scene1()
@@ -39,17 +41,27 @@ namespace LungPae.Scenes
             chin = new Chin();
             
             Data.Plypos = new Vector2(0, 450);
-            obj = new Building(new Vector2(60, 50), 0.3f);
-            seven = new Building(new Vector2(700,100),0.9f);
+            obj = new Building(new Vector2(40,20), 0.3f);
+            house2 = new Building(new Vector2(0, 480), 0.5f);
+            house3 = new Building(new Vector2(1020, 450), 0.3f);
+            seven = new Building(new Vector2(700,30),0.3f);
+            tree1 = new Tree(new Vector2(1050, 20), 0.2f);
+            tree2 = new Tree(new Vector2(552, 20), 0.2f);
             npc1 = new NPC(0, 0.6f, 0.5f, new Vector2(490, 200));
-            npc2 = new NPC(0, 0.6f, 0.5f, new Vector2(1200, 250));
+            npc2 = new NPC(0, 0.6f, 0.5f, new Vector2(1200, 200));
             npc3 = new NPC(0, 0.6f, 0.5f, new Vector2(800, 400));
             dialog = new Dialog();
             player = new Player();
-            bin = new material(new Vector2 (600,125),1f);
+            bin = new material(new Vector2 (1200,125),1f);
             bin2 = new material(new Vector2(220,305), 1f);
             bin3 = new material(new Vector2(1000, 320), 1f);
             bin4 = new material(new Vector2(320, 135), 1f);
+            Bigbush1 = new Bush(new Vector2(0, 370), 0.25f);
+            Bigbush2 = new Bush(new Vector2(1150, 300),0.25f);
+            Smallbush1 = new Bush(new Vector2(300,655),0.25f);
+            Smallbush2 = new Bush(new Vector2(400,655),0.25f);
+            Smallbush3 = new Bush(new Vector2(800,655),0.25f);
+            Smallbush4 = new Bush(new Vector2(900,655),0.25f);
 
         }
         internal override void LoadContent(ContentManager Content)
@@ -57,6 +69,10 @@ namespace LungPae.Scenes
             chin.Load(Content);
             obj.Load(Content, "House1");
             seven.Load(Content, "7-11");
+            tree1.Load(Content);
+            tree2.Load(Content);
+            house2.Load(Content, "house-2");
+            house3.Load(Content, "House3 (1)");
             npc1.Load(Content, "NPC", 4, 4, 0);
             npc2.Load(Content,"NPC",4,4, 0);
             npc3.Load(Content, "NPC", 4, 4, 0);
@@ -64,6 +80,14 @@ namespace LungPae.Scenes
             bin2.Load(Content, "recycleBin");
             bin3.Load(Content, "recycleBin");
             bin4.Load(Content, "recycleBin");
+
+            Smallbush1.Load(Content);
+            Smallbush2.Load(Content);
+            Smallbush3.Load(Content);
+            Smallbush4.Load(Content);
+
+            Bigbush1.Load(Content);
+            Bigbush2.Load(Content);
             dialog.LoadContent(Content);
             grass = Content.Load<Texture2D>("grass");
             floor = Content.Load<Texture2D>("Floor");
@@ -79,17 +103,29 @@ namespace LungPae.Scenes
             npc3.Update(gameTime);
             player.Update(gameTime);
             chin.Update(gameTime);
-            player.Collision(bin.ObjRecDown);
-            player.Collision(bin2.ObjRecDown);
-            player.Collision(bin3.ObjRecDown);
-            player.Collision(bin4.ObjRecDown);
+            player.Collision(house2.ObjRecDown);
+            player.Collision(house3.ObjRecDown);
+
+            Bigbush1.Bushcheck(player);
+            Bigbush2.Bushcheck(player);
+            Smallbush1.Bushcheck(player);
+            Smallbush2.Bushcheck(player);
+            Smallbush3.Bushcheck(player);
+            Smallbush4.Bushcheck(player);
             seven.CheckCollision(player);
+            house2.CheckCollision(player);
+            house3.CheckCollision(player);
+
+            tree1.Treecheck(player);
+            tree2.Treecheck(player);
+
             obj.CheckCollision(player);
             player.Collision(obj.ObjRecDown);
             player.Collision(seven.ObjRecDown);
             player.Collision(npc1.NpcRec);
             player.Collision(npc2.NpcRec);
             player.Collision(npc3.NpcRec);
+
             player.Collision(chin.chinRec);
             chin.Chincheck(player);
             npc1.Npccheck(player);
@@ -99,6 +135,7 @@ namespace LungPae.Scenes
             bin2.CheckCollision(player);
             bin3.CheckCollision(player);
             bin4.CheckCollision(player);
+            
             Data.ms = Mouse.GetState();
             Data.MRec = new Rectangle(Data.ms.X, Data.ms.Y, 1, 1);
 
@@ -164,7 +201,7 @@ namespace LungPae.Scenes
                 Data.inv.AddItem(Data.Pantie);
                 chin.give = false;
             }
-            Console.WriteLine(Data.Plypos);
+            Console.WriteLine(Bigbush1.BbigRecTop);
            
         }
        
@@ -190,6 +227,18 @@ namespace LungPae.Scenes
 
 
             obj.Draw(_spriteBatch);
+            Smallbush1.Drawsmall(_spriteBatch);
+            Smallbush2.Drawsmall(_spriteBatch);
+            Smallbush3.Drawsmall(_spriteBatch);
+            Smallbush4.Drawsmall(_spriteBatch);
+
+            Bigbush2.Drawbig(_spriteBatch);
+            Bigbush1.Drawbig(_spriteBatch);
+            house2.Draw(_spriteBatch);
+            
+            house3.Draw(_spriteBatch);
+            tree1.Draw(_spriteBatch);
+            tree2.Draw(_spriteBatch);
             seven.Draw(_spriteBatch);
             chin.Draw(_spriteBatch);
             player.Draw(_spriteBatch);

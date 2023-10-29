@@ -60,7 +60,7 @@ namespace LungPae.Model
             }
             else
             {
-                npc.Depth = 0.4f;
+                npc.Depth = 0.3f;
             }
 
         }

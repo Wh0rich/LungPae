@@ -66,6 +66,7 @@ namespace LungPae.Scenes
                 }
 
             }
+            Data.Oldms = Data.ms;
         }
 
         internal override void Draw(SpriteBatch Batch)

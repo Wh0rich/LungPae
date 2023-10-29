@@ -71,7 +71,6 @@ namespace LungPae.Model
                         dialog.ChangeDialog("The man seemed to be lying on the ground.\nDo you want to help him?");
                         dialog.Answer("Definitely helps.", "No, I'm busy.");
                         dialog.DrawAns(Batch);
-                        dialog.DrawAns(Batch);
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.Ans1Rec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
 

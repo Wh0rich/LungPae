@@ -18,6 +18,7 @@ namespace LungPae.Scenes
         Texture2D Floor;
         Texture2D grass;
         Item hat;
+        Building building;
         
         TAE tae;
        // Building Shed;
@@ -29,7 +30,7 @@ namespace LungPae.Scenes
             
             //Shed = new Building(new Vector2(350, 150), 2f);
             player = new Player();
-            
+            building = new Building(new Vector2(0, 20),0.3f);
             hat = new Item(new Vector2(500, 315));
             player.row = 4;
             tae = new TAE();
@@ -39,6 +40,7 @@ namespace LungPae.Scenes
         {
             Floor = Content.Load<Texture2D>("Floor");
             grass = Content.Load<Texture2D>("grass");
+            building.Load(Content, "buliding");
             hat.Load(Content, "RobberHat");
             Data.RobberHAt.Load(Content, "RobberHat");
             

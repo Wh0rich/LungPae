@@ -15,14 +15,18 @@ using System.Timers;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.Tracing;
 using LungPae.Model;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Media;
 
 namespace LungPae.Minigame
 {
     internal class Cowboy : Component
     {
+        Song shoot;
+        Song sound;
+
 
         Dialog dialog;
-
         Texture2D cowboy;
         Texture2D Hostage;
         Texture2D bg,floor;
@@ -32,12 +36,14 @@ namespace LungPae.Minigame
         Texture2D wall;
         SpriteFont font,score;
         Vector2 wallpos = new Vector2(0,0);
-        Vector2 Gunpos = new Vector2(650,374);
+        Vector2 Gunpos = new Vector2(750,374);
         List<Vector2> Cbpos = new List<Vector2>();
         List<Rectangle>CbRec = new List<Rectangle>();
         
         bool Add = false, Click =false;
+
         bool IsFinish = false, teach = true;
+        bool count = false;
         bool Wave1 = false, Wave2 = false, Wave3 = false, Wave4 = false, Wave5 = false, Wave6 = false;
         int enermy;
         int Max_enermy = 6;
@@ -48,8 +54,16 @@ namespace LungPae.Minigame
 
         Random r = new Random();
         public Cowboy() 
-        { 
+        {
+            
             dialog = new Dialog();
+        }
+
+        void MediaPlayer_MediaStateChanged(object sender, System.EventArgs e)
+        {
+            // 0.0f is silent, 1.0f is full volume
+            MediaPlayer.Volume = 0.3f;
+
         }
         internal override void LoadContent(ContentManager Content)
         {
@@ -63,9 +77,15 @@ namespace LungPae.Minigame
             bg = Content.Load<Texture2D>("cowboy-backgroud");
             floor = Content.Load<Texture2D>("floor");
             dialog.LoadContent(Content);
+
+            this.sound = Content.Load<Song>("Cowboy_Standoff");
+            this.shoot = Content.Load<Song>("Shoot");
             
-            
+
+            MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
+
         }
+       
         internal override void Update(GameTime gameTime)
         {
             Data.ms = Mouse.GetState();
@@ -92,6 +112,7 @@ namespace LungPae.Minigame
                 //wave 1
                 if (Wave1 == true&&Add == true)
                 {
+                    
                     time = 8;
                     enermy = 3;
 
@@ -155,6 +176,7 @@ namespace LungPae.Minigame
                         temp += elapsed;
                         if (temp > 9)
                         {
+                            
                             Wave1 = false;
                             Wave2 = true;
                             Add = true;
@@ -168,6 +190,7 @@ namespace LungPae.Minigame
 
                 if (Wave2 == true && Add == true)
                 {
+                       
                     enermy = 4;
                     time = 7;
                     for (int i = 0; i < enermy; i++)
@@ -231,6 +254,7 @@ namespace LungPae.Minigame
                         temp += elapsed;
                         if (temp > 9)
                         {
+                            count = true;
                             Wave2 = false;
                             Wave3 = true;
                             Add = true;
@@ -305,6 +329,7 @@ namespace LungPae.Minigame
                         temp += elapsed;
                         if (temp > 9)
                         {
+                            
                             Wave3 = false;
                             Wave4 = true;
                             Add = true;
@@ -318,6 +343,7 @@ namespace LungPae.Minigame
                 //4
                 if (Wave4 == true && Add == true)
                 {
+                   
                     enermy = 8;
                     time = 5;
 
@@ -431,6 +457,7 @@ namespace LungPae.Minigame
                         temp += elapsed;
                         if (temp > 9)
                         {
+                            
                             Wave4 = false;
                             Wave5 = true;
                             Add = true;
@@ -442,6 +469,7 @@ namespace LungPae.Minigame
                 // Wave 5
                 if (Wave5 == true && Add == true)
                 {
+                    
                     enermy = 10;
                     time = 5;
 
@@ -555,6 +583,7 @@ namespace LungPae.Minigame
                         temp += elapsed;
                         if (temp > 9)
                         {
+                            
                             Wave5 = false;
                             Wave6 = true;
                             Add = true;
@@ -566,6 +595,7 @@ namespace LungPae.Minigame
                 //Wave 6
                 if (Wave6 == true && Add == true)
                 {
+                    
                     enermy = 10;
                     time = 5;
 
@@ -619,6 +649,7 @@ namespace LungPae.Minigame
 
                 if (Wave6 == true)
                 {
+
                     if (timer == 1)
                     {
                         time -= (int)timer;
@@ -679,7 +710,8 @@ namespace LungPae.Minigame
                         temp += elapsed;
                         if (temp > 9)
                         {
-                           IsFinish = true;
+                            
+                            IsFinish = true;
                         }
 
                     }
@@ -711,10 +743,11 @@ namespace LungPae.Minigame
         {
             spriteBatch.DrawString(score, "Score : " + point.ToString(), new Vector2(0, 20), Color.White, 0, Vector2.Zero, 1, 0, 0.9f);
             
-            if(teach == true)
+            if (teach == true)
             {
+                
                 dialog.Draw(spriteBatch);
-                dialog.ChangeDialog("There are 6 Waves\nUse Mouse to Aim \nKill Cowboy 1 point\nKill Hostage -5 point\nCollect 40 points to receive rewards.");
+                dialog.ChangeDialog("There are 6 Waves\nUse Mouse to Aim \nKill Cowboy 1 point\nKill Hostage -5 point\nCollect 30 points to receive rewards.");
                 if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                 {
                     Wave1 = true;
@@ -763,13 +796,18 @@ namespace LungPae.Minigame
 
             if (Wave1 ==true && temp >0 )
             {
-                if(temp > 0&& temp !<6)
+               
+                if (temp > 0&& temp !<6)
                 {
+                   
+                    
                     spriteBatch.DrawString(font, "Wave 2", new Vector2(520, 50), Color.White, 0, Vector2.Zero, 1, 0, 0.2f);
+                    
                 }
                 
                 if( temp >6 && temp !< 7)
                 {
+                    
                     spriteBatch.DrawString(font, "3", new Vector2(620, 50), Color.White, 0, Vector2.Zero, 1, 0, 0.2f);
                 }
                 if (temp > 7 && temp!< 8)
@@ -779,6 +817,7 @@ namespace LungPae.Minigame
                 if (temp > 8 && temp!< 9)
                 {
                     spriteBatch.DrawString(font, "1", new Vector2(620, 50), Color.White, 0, Vector2.Zero, 1, 0, 0.2f);
+                    
                 }
             }
 
@@ -786,6 +825,7 @@ namespace LungPae.Minigame
             {
                 if (temp > 0 && temp! < 6)
                 {
+                    count = true;
                     spriteBatch.DrawString(font, "Wave 3", new Vector2(520, 50), Color.White, 0, Vector2.Zero, 1, 0, 0.2f);
                 }
 
@@ -800,6 +840,7 @@ namespace LungPae.Minigame
                 if (temp > 8 && temp! < 9)
                 {
                     spriteBatch.DrawString(font, "1", new Vector2(620, 50), Color.White, 0, Vector2.Zero, 1, 0, 0.2f);
+                    count = false;
                 }
             }
             if (Wave3 == true && temp > 0)
@@ -846,7 +887,7 @@ namespace LungPae.Minigame
             {
                 if (temp > 0 && temp! < 6)
                 {
-                    spriteBatch.DrawString(font, "Wave 5", new Vector2(520, 50), Color.White, 0, Vector2.Zero, 1, 0, 0.2f);
+                    spriteBatch.DrawString(font, "Last Wave ", new Vector2(520, 50), Color.White, 0, Vector2.Zero, 1, 0, 0.2f);
                 }
 
                 if (temp > 6 && temp! < 7)
@@ -864,7 +905,7 @@ namespace LungPae.Minigame
             }
             if(IsFinish == true)
             {
-                if (point > 40)
+                if (point > 30)
                 {
                     dialog.Draw(spriteBatch);
                     dialog.ChangeDialog("Congratulations,you are one of the world.");
@@ -876,7 +917,7 @@ namespace LungPae.Minigame
                     }
                     Data.Oldms = Data.ms;
                 }
-                if (point < 40)
+                if (point < 30)
                 {
                     dialog.Draw(spriteBatch);
                     dialog.ChangeDialog("Try Again.");
@@ -890,7 +931,7 @@ namespace LungPae.Minigame
                 }
             }
 
-            for (int i = 0; i < 1280 / wall.Width + wall.Width; i++)
+            for (int i = 0; i < 1280 / wall.Width +1; i++)
             {
                 spriteBatch.Draw(wall, new Vector2(0 + wall.Width * i, 300), null, Color.White, 0, Vector2.Zero, 1, 0, 0.5f);
             }
@@ -904,16 +945,29 @@ namespace LungPae.Minigame
             }
             spriteBatch.Draw(bg, Vector2.Zero, null, Color.White, 0, Vector2.Zero, 1, 0, 0.1f);
 
+            //var instance1 = sound[0].CreateInstance();
+            //var instance2 = sound[1].CreateInstance();
+
             if (Click == false)
             {
+                
                 spriteBatch.Draw(Gun, Gunpos, null, Color.White, 0, Vector2.Zero, 0.5f, 0, 0.5f);
             }
             if (Click ==true)
             {
-               
-                 spriteBatch.Draw(FireGun, Gunpos, null, Color.White, 0, Vector2.Zero, 0.5f, 0, 0.5f);
+                MediaPlayer.Play(shoot);
+                spriteBatch.Draw(FireGun, Gunpos, null, Color.White, 0, Vector2.Zero, 0.5f, 0, 0.5f);
+            }
+            Data.Oldms = Data.ms;
+            if (count == true)
+            {
+                //MediaPlayer.Play(sound);
+
+            }
+            if (count == false)
+            {
                 
-               
+
             }
 
         }

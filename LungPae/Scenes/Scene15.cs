@@ -3,6 +3,7 @@ using LungPae.Model;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,12 @@ namespace LungPae.Scenes
     {
         Player player;
         Texture2D Floor, grass;
-
+        Cabinet cabinet;
 
         public Scene15()
         {
             player = new Player();
+            cabinet = new Cabinet(new Vector2(500, 250));
         }
 
         internal override void LoadContent(ContentManager Content)
@@ -29,11 +31,25 @@ namespace LungPae.Scenes
             player.LoadContent(Content);
             Floor = Content.Load<Texture2D>("Floor");
             grass = Content.Load<Texture2D>("grass");
+            cabinet.Load(Content);
         }
 
         internal override void Update(GameTime gameTime)
         {
+            Data.MRec = new Rectangle(Data.ms.X, Data.ms.Y, 1, 1);
+            Data.ms = Mouse.GetState();
             player.Update(gameTime);
+
+            if (player.PlayerRec.Intersects(cabinet.cabinetRecTalk) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(cabinet.cabinetRecTalk))
+            {
+                cabinet.Talk = true;
+                Data.CanControl = false;
+
+            }
+
+
+                cabinet.Update(gameTime);
+            cabinet.Gamecheck(player);
         }
 
         internal override void Draw(SpriteBatch Batch)
@@ -61,6 +77,7 @@ namespace LungPae.Scenes
             }
 
             player.Draw(Batch);
+            cabinet.Draw(Batch);
         }
 
     }

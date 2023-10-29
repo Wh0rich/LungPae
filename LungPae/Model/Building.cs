@@ -30,7 +30,7 @@ namespace LungPae.Model
         {
             this.obj = Content.Load<Texture2D>(asset);
             ObjRecTop = new Rectangle((int)pos.X, (int)pos.Y , obj.Width * (int)Scale / 100, (obj.Height * (int)Scale / 100) / 2);
-            ObjRecDown = new Rectangle((int)pos.X, (int)pos.Y + (obj.Height * (int)Scale / 100)/2 + 10, obj.Width * (int)Scale / 100, (obj.Height * (int)Scale / 100)/2); 
+            ObjRecDown = new Rectangle((int)pos.X, (int)pos.Y + (obj.Height * (int)Scale / 100)/2 + 10, obj.Width * (int)Scale / 100, (obj.Height * (int)Scale / 100)/2 ); 
         }
         internal void CheckCollision(Player player)
         {
@@ -41,6 +41,7 @@ namespace LungPae.Model
             if (ObjRecDown.Intersects(player.PlayerRec))
             {
                 player.player.Depth = 0.5f;
+                
                 if (player.PlayerRec.Intersects(ObjRecDown) && player.PlayerRec.Top < ObjRecDown.Top)
                 {
                     player.player.Depth = 0.2f;

@@ -37,6 +37,18 @@
 /processorParam:TextureFormat=Color
 /build:AyDee.png
 
+#begin Big-Tree.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Big-Tree.png
+
 #begin BigBush.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -108,6 +120,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:BornBox.png
+
+#begin buliding.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:buliding.png
 
 #begin Campfire.png
 /importer:TextureImporter
@@ -228,6 +252,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:ChinPantiesThief.png
+
+#begin Cowboy_Standoff.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Cowboy_Standoff.mp3
+
+#begin Cowboy_Standoff.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Cowboy_Standoff.wav
 
 #begin cowboy-backgroud.png
 /importer:TextureImporter
@@ -428,6 +464,18 @@
 /processorParam:TextureFormat=Color
 /build:Hostage.png
 
+#begin house-2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:house-2.png
+
 #begin House1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -440,7 +488,7 @@
 /processorParam:TextureFormat=Color
 /build:House1.png
 
-#begin House2.png
+#begin House3 (1).png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -450,9 +498,9 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:House2.png
+/build:House3 (1).png
 
-#begin House3.png
+#begin House4.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -462,7 +510,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:House3.png
+/build:House4.png
 
 #begin Kid1_Sad.png
 /importer:TextureImporter
@@ -735,6 +783,18 @@
 /processorParam:TextureFormat=Color
 /build:Pantie.png
 
+#begin pharmacy.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:pharmacy.png
+
 #begin pork.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -806,6 +866,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:sandbox.png
+
+#begin Shoot.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Shoot.mp3
+
+#begin Shoot.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Shoot.wav
 
 #begin shop1.png
 /importer:TextureImporter
@@ -926,906 +998,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:TaeBox.png
-
-#begin Voice/Born/Born_Bezier.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Born/Born_Bezier.mp3
-
-#begin Voice/Born/Born_But if it's wrong.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Born/Born_But if it's wrong.mp3
-
-#begin Voice/Born/Born_Don't forget to lock your door tonight.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Born/Born_Don't forget to lock your door tonight.mp3
-
-#begin Voice/Born/Born_Guessed the correct answer again.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Born/Born_Guessed the correct answer again.mp3
-
-#begin Voice/Born/Born_I'm Born,Mathematician Olympiad.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Born/Born_I'm Born,Mathematician Olympiad.mp3
-
-#begin Voice/Born/Born_Last Question.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Born/Born_Last Question.mp3
-
-#begin Voice/Born/Born_Please answer these questions.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Born/Born_Please answer these questions.mp3
-
-#begin Voice/Born/Born_Pythagorus.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Born/Born_Pythagorus.mp3
-
-#begin Voice/Born/Born_That's right.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Born/Born_That's right.mp3
-
-#begin Voice/Born/Born_These are the glasses you want.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Born/Born_These are the glasses you want.mp3
-
-#begin Voice/Born/Born_Why don't you take a math class.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Born/Born_Why don't you take a math class.mp3
-
-#begin Voice/Born/Born_You want my glasses.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Born/Born_You want my glasses.mp3
-
-#begin Voice/Born/Born_Your mother almost met me.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Born/Born_Your mother almost met me.mp3
-
-#begin Voice/Born/Born_Your mother survived.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Born/Born_Your mother survived.mp3
-
-#begin Voice/Chin/Chin_Did you answer correctly again.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Chin/Chin_Did you answer correctly again.mp3
-
-#begin Voice/Chin/Chin_Did you randomly answer correctly again.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Chin/Chin_Did you randomly answer correctly again.mp3
-
-#begin Voice/Chin/Chin_Do you have something with me.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Chin/Chin_Do you have something with me.mp3
-
-#begin Voice/Chin/Chin_How about this question.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Chin/Chin_How about this question.mp3
-
-#begin Voice/Chin/Chin_So answer the question correctly.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Chin/Chin_So answer the question correctly.mp3
-
-#begin Voice/Chin/Chin_The answer to this question is still simple.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Chin/Chin_The answer to this question is still simple.mp3
-
-#begin Voice/Chin/Chin_This guy is really stupid. Go find a new answer.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Chin/Chin_This guy is really stupid. Go find a new answer.mp3
-
-#begin Voice/Chin/Chin_What is the shape of the Chiangmai moat.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Chin/Chin_What is the shape of the Chiangmai moat.mp3
-
-#begin Voice/Chin/Chin_Which province are we in now.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Chin/Chin_Which province are we in now.mp3
-
-#begin Voice/Chin/Chin_Who teaches the subject 958221.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Chin/Chin_Who teaches the subject 958221.mp3
-
-#begin Voice/Chin/Chin_You said I stole panties.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Chin/Chin_You said I stole panties.mp3
-
-#begin Voice/Chin/Chin_You're really talented.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Chin/Chin_You're really talented.mp3
-
-#begin Voice/Dee/Dee_buhhhh.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Dee/Dee_buhhhh.mp3
-
-#begin Voice/Dee/Dee_Ekarmohkanad.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Dee/Dee_Ekarmohkanad.mp3
-
-#begin Voice/Dee/Dee_Finally.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Dee/Dee_Finally.mp3
-
-#begin Voice/Dee/Dee_I don't know how many hours I slept.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Dee/Dee_I don't know how many hours I slept.mp3
-
-#begin Voice/Dee/Dee_What time is it now.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Dee/Dee_What time is it now.mp3
-
-#begin Voice/Dog.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Dog.mp3
-
-#begin Voice/Kid/Kid1_I had my pantie stolen by a stranger.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Kid/Kid1_I had my pantie stolen by a stranger.mp3
-
-#begin Voice/Kid/Kid1_Tall.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Kid/Kid1_Tall.mp3
-
-#begin Voice/Kid/Kid1_Thank you very much, Uncle.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Kid/Kid1_Thank you very much, Uncle.mp3
-
-#begin Voice/Kid/Kid1_you really got it back.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Kid/Kid1_you really got it back.mp3
-
-#begin Voice/Kid/Kid2_Heartless.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Kid/Kid2_Heartless.mp3
-
-#begin Voice/Kid/Kid2_My friend's stuff was stolen by a stranger.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Kid/Kid2_My friend's stuff was stolen by a stranger.mp3
-
-#begin Voice/Kid/Kid2_Thanks.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Kid/Kid2_Thanks.mp3
-
-#begin Voice/Kid/Kid2_Will you help my friend.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Kid/Kid2_Will you help my friend.mp3
-
-#begin Voice/MaeLek/MaeLek_Cooked Laap  is finished cooking.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/MaeLek/MaeLek_Cooked Laap  is finished cooking.mp3
-
-#begin Voice/MaeLek/MaeLek_Could you please help me buy Minched pork.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/MaeLek/MaeLek_Could you please help me buy Minched pork.mp3
-
-#begin Voice/MaeLek/MaeLek_I think I'll make him some cooked laab to eat in case his symptoms get better.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/MaeLek/MaeLek_I think I'll make him some cooked laab to eat in case his symptoms get better.mp3
-
-#begin Voice/MaeLek/MaeLek_I've got the pork. I'm going to start cooking now.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/MaeLek/MaeLek_I've got the pork. I'm going to start cooking now.mp3
-
-#begin Voice/MaeLek/MaeLek_It looks like he passed out from food poisoning.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/MaeLek/MaeLek_It looks like he passed out from food poisoning.mp3
-
-#begin Voice/MaeLek/MaeLek_It seemed like it was definitely because of the raw laab he bought yesterday.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/MaeLek/MaeLek_It seemed like it was definitely because of the raw laab he bought yesterday.mp3
-
-#begin Voice/MaeLek/MaeLek_Of course I will do it for you in return for helping bring my son.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/MaeLek/MaeLek_Of course I will do it for you in return for helping bring my son.mp3
-
-#begin Voice/MaeLek/MaeLek_Thank you for bringing my son here.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/MaeLek/MaeLek_Thank you for bringing my son here.mp3
-
-#begin Voice/MaeLek/MaeLek_The pork at the bottom of the chiang mai moat were of very good quality.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/MaeLek/MaeLek_The pork at the bottom of the chiang mai moat were of very good quality.mp3
-
-#begin Voice/Mixer/Mixer_I'm Mixer.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Mixer/Mixer_I'm Mixer.mp3
-
-#begin Voice/Mixer/Mixer_If you can beat me in a race.I'll lift your shirt for you.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Mixer/Mixer_If you can beat me in a race.I'll lift your shirt for you.mp3
-
-#begin Voice/Mixer/Mixer_It's so hot, take my shirt.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Mixer/Mixer_It's so hot, take my shirt.mp3
-
-#begin Voice/Tae/Tae_but I have to go on a mission.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Tae/Tae_but I have to go on a mission.mp3
-
-#begin Voice/Tae/Tae_Fine, but you'll have to get me a weapon.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Tae/Tae_Fine, but you'll have to get me a weapon.mp3
-
-#begin Voice/Tae/Tae_I'm TAE the gangster of chiangmai moat.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Tae/Tae_I'm TAE the gangster of chiangmai moat.mp3
-
-#begin Voice/Tae/Tae_If you want to talk to me, go get me a watermelon.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Tae/Tae_If you want to talk to me, go get me a watermelon.mp3
-
-#begin Voice/Tae/Tae_Is this a weapon.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Tae/Tae_Is this a weapon.mp3
-
-#begin Voice/Tae/Tae_Look This.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Tae/Tae_Look This.mp3
-
-#begin Voice/Tae/Tae_Ok.What do you want me to help you with.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Tae/Tae_Ok.What do you want me to help you with.mp3
-
-#begin Voice/Tae/Tae_Really brought watermelon.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Tae/Tae_Really brought watermelon.mp3
-
-#begin Voice/Tae/Tae_What do you want  I'm a gangster in this area.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Tae/Tae_What do you want  I'm a gangster in this area.mp3
-
-#begin Voice/Voice/Born/Born_Bezier.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Born/Born_Bezier.mp3
-
-#begin Voice/Voice/Born/Born_But if it's wrong.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Born/Born_But if it's wrong.mp3
-
-#begin Voice/Voice/Born/Born_Don't forget to lock your door tonight.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Born/Born_Don't forget to lock your door tonight.mp3
-
-#begin Voice/Voice/Born/Born_Guessed the correct answer again.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Born/Born_Guessed the correct answer again.mp3
-
-#begin Voice/Voice/Born/Born_I'm Born,Mathematician Olympiad.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Born/Born_I'm Born,Mathematician Olympiad.mp3
-
-#begin Voice/Voice/Born/Born_Last Question.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Born/Born_Last Question.mp3
-
-#begin Voice/Voice/Born/Born_Please answer these questions.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Born/Born_Please answer these questions.mp3
-
-#begin Voice/Voice/Born/Born_Pythagorus.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Born/Born_Pythagorus.mp3
-
-#begin Voice/Voice/Born/Born_That's right.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Born/Born_That's right.mp3
-
-#begin Voice/Voice/Born/Born_These are the glasses you want.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Born/Born_These are the glasses you want.mp3
-
-#begin Voice/Voice/Born/Born_Why don't you take a math class.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Born/Born_Why don't you take a math class.mp3
-
-#begin Voice/Voice/Born/Born_You want my glasses.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Born/Born_You want my glasses.mp3
-
-#begin Voice/Voice/Born/Born_Your mother almost met me.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Born/Born_Your mother almost met me.mp3
-
-#begin Voice/Voice/Born/Born_Your mother survived.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Born/Born_Your mother survived.mp3
-
-#begin Voice/Voice/Chin/Chin_Did you answer correctly again.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Chin/Chin_Did you answer correctly again.mp3
-
-#begin Voice/Voice/Chin/Chin_Did you randomly answer correctly again.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Chin/Chin_Did you randomly answer correctly again.mp3
-
-#begin Voice/Voice/Chin/Chin_Do you have something with me.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Chin/Chin_Do you have something with me.mp3
-
-#begin Voice/Voice/Chin/Chin_How about this question.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Chin/Chin_How about this question.mp3
-
-#begin Voice/Voice/Chin/Chin_So answer the question correctly.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Chin/Chin_So answer the question correctly.mp3
-
-#begin Voice/Voice/Chin/Chin_The answer to this question is still simple.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Chin/Chin_The answer to this question is still simple.mp3
-
-#begin Voice/Voice/Chin/Chin_This guy is really stupid. Go find a new answer.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Chin/Chin_This guy is really stupid. Go find a new answer.mp3
-
-#begin Voice/Voice/Chin/Chin_What is the shape of the Chiangmai moat.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Chin/Chin_What is the shape of the Chiangmai moat.mp3
-
-#begin Voice/Voice/Chin/Chin_Which province are we in now.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Chin/Chin_Which province are we in now.mp3
-
-#begin Voice/Voice/Chin/Chin_Who teaches the subject 958221.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Chin/Chin_Who teaches the subject 958221.mp3
-
-#begin Voice/Voice/Chin/Chin_You said I stole panties.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Chin/Chin_You said I stole panties.mp3
-
-#begin Voice/Voice/Chin/Chin_You're really talented.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Chin/Chin_You're really talented.mp3
-
-#begin Voice/Voice/Dee/Dee_buhhhh.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Dee/Dee_buhhhh.mp3
-
-#begin Voice/Voice/Dee/Dee_Ekarmohkanad.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Dee/Dee_Ekarmohkanad.mp3
-
-#begin Voice/Voice/Dee/Dee_Finally.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Dee/Dee_Finally.mp3
-
-#begin Voice/Voice/Dee/Dee_I don't know how many hours I slept.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Dee/Dee_I don't know how many hours I slept.mp3
-
-#begin Voice/Voice/Dee/Dee_What time is it now.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Dee/Dee_What time is it now.mp3
-
-#begin Voice/Voice/Dog.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Dog.mp3
-
-#begin Voice/Voice/Kid/Kid1_I had my pantie stolen by a stranger.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Kid/Kid1_I had my pantie stolen by a stranger.mp3
-
-#begin Voice/Voice/Kid/Kid1_Tall.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Kid/Kid1_Tall.mp3
-
-#begin Voice/Voice/Kid/Kid1_Thank you very much, Uncle.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Kid/Kid1_Thank you very much, Uncle.mp3
-
-#begin Voice/Voice/Kid/Kid1_you really got it back.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Kid/Kid1_you really got it back.mp3
-
-#begin Voice/Voice/Kid/Kid2_Heartless.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Kid/Kid2_Heartless.mp3
-
-#begin Voice/Voice/Kid/Kid2_My friend's stuff was stolen by a stranger.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Kid/Kid2_My friend's stuff was stolen by a stranger.mp3
-
-#begin Voice/Voice/Kid/Kid2_Thanks.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Kid/Kid2_Thanks.mp3
-
-#begin Voice/Voice/Kid/Kid2_Will you help my friend.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Kid/Kid2_Will you help my friend.mp3
-
-#begin Voice/Voice/MaeLek/MaeLek_Cooked Laap  is finished cooking.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/MaeLek/MaeLek_Cooked Laap  is finished cooking.mp3
-
-#begin Voice/Voice/MaeLek/MaeLek_Could you please help me buy Minched pork.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/MaeLek/MaeLek_Could you please help me buy Minched pork.mp3
-
-#begin Voice/Voice/MaeLek/MaeLek_I think I'll make him some cooked laab to eat in case his symptoms get better.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/MaeLek/MaeLek_I think I'll make him some cooked laab to eat in case his symptoms get better.mp3
-
-#begin Voice/Voice/MaeLek/MaeLek_I've got the pork. I'm going to start cooking now.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/MaeLek/MaeLek_I've got the pork. I'm going to start cooking now.mp3
-
-#begin Voice/Voice/MaeLek/MaeLek_It looks like he passed out from food poisoning.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/MaeLek/MaeLek_It looks like he passed out from food poisoning.mp3
-
-#begin Voice/Voice/MaeLek/MaeLek_It seemed like it was definitely because of the raw laab he bought yesterday.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/MaeLek/MaeLek_It seemed like it was definitely because of the raw laab he bought yesterday.mp3
-
-#begin Voice/Voice/MaeLek/MaeLek_Of course I will do it for you in return for helping bring my son.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/MaeLek/MaeLek_Of course I will do it for you in return for helping bring my son.mp3
-
-#begin Voice/Voice/MaeLek/MaeLek_Thank you for bringing my son here.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/MaeLek/MaeLek_Thank you for bringing my son here.mp3
-
-#begin Voice/Voice/MaeLek/MaeLek_The pork at the bottom of the chiang mai moat were of very good quality.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/MaeLek/MaeLek_The pork at the bottom of the chiang mai moat were of very good quality.mp3
-
-#begin Voice/Voice/Mixer/Mixer_I'm Mixer.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Mixer/Mixer_I'm Mixer.mp3
-
-#begin Voice/Voice/Mixer/Mixer_If you can beat me in a race.I'll lift your shirt for you.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Mixer/Mixer_If you can beat me in a race.I'll lift your shirt for you.mp3
-
-#begin Voice/Voice/Mixer/Mixer_It's so hot, take my shirt.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Mixer/Mixer_It's so hot, take my shirt.mp3
-
-#begin Voice/Voice/Tae/Tae_but I have to go on a mission.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Tae/Tae_but I have to go on a mission.mp3
-
-#begin Voice/Voice/Tae/Tae_Fine, but you'll have to get me a weapon.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Tae/Tae_Fine, but you'll have to get me a weapon.mp3
-
-#begin Voice/Voice/Tae/Tae_I'm TAE the gangster of chiangmai moat.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Tae/Tae_I'm TAE the gangster of chiangmai moat.mp3
-
-#begin Voice/Voice/Tae/Tae_If you want to talk to me, go get me a watermelon.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Tae/Tae_If you want to talk to me, go get me a watermelon.mp3
-
-#begin Voice/Voice/Tae/Tae_Is this a weapon.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Tae/Tae_Is this a weapon.mp3
-
-#begin Voice/Voice/Tae/Tae_Look This.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Tae/Tae_Look This.mp3
-
-#begin Voice/Voice/Tae/Tae_Ok.What do you want me to help you with.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Tae/Tae_Ok.What do you want me to help you with.mp3
-
-#begin Voice/Voice/Tae/Tae_Really brought watermelon.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Tae/Tae_Really brought watermelon.mp3
-
-#begin Voice/Voice/Tae/Tae_What do you want  I'm a gangster in this area.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Tae/Tae_What do you want  I'm a gangster in this area.mp3
-
-#begin Voice/Voice/Wizard/Wizard_Actually.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Wizard/Wizard_Actually.mp3
-
-#begin Voice/Voice/Wizard/Wizard_But I don't really like it. It's both spicy and smelly.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Wizard/Wizard_But I don't really like it. It's both spicy and smelly.mp3
-
-#begin Voice/Voice/Wizard/Wizard_But I keep my promise.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Wizard/Wizard_But I keep my promise.mp3
-
-#begin Voice/Voice/Wizard/Wizard_I have to use it to do magic.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Wizard/Wizard_I have to use it to do magic.mp3
-
-#begin Voice/Voice/Wizard/Wizard_I want a white sweater.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Wizard/Wizard_I want a white sweater.mp3
-
-#begin Voice/Voice/Wizard/Wizard_I'm just a guy who cosplays.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Wizard/Wizard_I'm just a guy who cosplays.mp3
-
-#begin Voice/Voice/Wizard/Wizard_Of course.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Wizard/Wizard_Of course.mp3
-
-#begin Voice/Voice/Wizard/Wizard_Thanks.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Wizard/Wizard_Thanks.mp3
-
-#begin Voice/Voice/Wizard/Wizard_This guy is really crazy.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Wizard/Wizard_This guy is really crazy.mp3
-
-#begin Voice/Voice/Wizard/Wizard_This guy is really stupid and easy to trick.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Wizard/Wizard_This guy is really stupid and easy to trick.mp3
-
-#begin Voice/Voice/Wizard/Wizard_This guy really likes laab.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Wizard/Wizard_This guy really likes laab.mp3
-
-#begin Voice/Voice/Wizard/Wizard_What do you want me to help with.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Wizard/Wizard_What do you want me to help with.mp3
-
-#begin Voice/Voice/Wizard/Wizard_What is your name, young man.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Wizard/Wizard_What is your name, young man.mp3
-
-#begin Voice/Voice/Wizard/Wizard_Yes, but there is a condition.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Voice/Wizard/Wizard_Yes, but there is a condition.mp3
-
-#begin Voice/Wizard/Wizard_Actually.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Wizard/Wizard_Actually.mp3
-
-#begin Voice/Wizard/Wizard_But I don't really like it. It's both spicy and smelly.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Wizard/Wizard_But I don't really like it. It's both spicy and smelly.mp3
-
-#begin Voice/Wizard/Wizard_But I keep my promise.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Wizard/Wizard_But I keep my promise.mp3
-
-#begin Voice/Wizard/Wizard_I have to use it to do magic.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Wizard/Wizard_I have to use it to do magic.mp3
-
-#begin Voice/Wizard/Wizard_I want a white sweater.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Wizard/Wizard_I want a white sweater.mp3
-
-#begin Voice/Wizard/Wizard_I'm just a guy who cosplays.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Wizard/Wizard_I'm just a guy who cosplays.mp3
-
-#begin Voice/Wizard/Wizard_Of course.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Wizard/Wizard_Of course.mp3
-
-#begin Voice/Wizard/Wizard_Thanks.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Wizard/Wizard_Thanks.mp3
-
-#begin Voice/Wizard/Wizard_This guy is really crazy.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Wizard/Wizard_This guy is really crazy.mp3
-
-#begin Voice/Wizard/Wizard_This guy is really stupid and easy to trick.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Wizard/Wizard_This guy is really stupid and easy to trick.mp3
-
-#begin Voice/Wizard/Wizard_This guy really likes laab.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Wizard/Wizard_This guy really likes laab.mp3
-
-#begin Voice/Wizard/Wizard_What do you want me to help with.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Wizard/Wizard_What do you want me to help with.mp3
-
-#begin Voice/Wizard/Wizard_What is your name, young man.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Wizard/Wizard_What is your name, young man.mp3
-
-#begin Voice/Wizard/Wizard_Yes, but there is a condition.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:Voice/Wizard/Wizard_Yes, but there is a condition.mp3
 
 #begin watermelon.png
 /importer:TextureImporter

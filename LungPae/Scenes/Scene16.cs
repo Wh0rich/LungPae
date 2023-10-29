@@ -16,6 +16,7 @@ namespace LungPae.Scenes
 {
     internal class Scene16 : Component
     {
+        
         Player player;
         Texture2D Floor, grass;
         Car car;
@@ -25,6 +26,7 @@ namespace LungPae.Scenes
             player = new Player();
             car = new Car();
             wizard = new Wizard();
+           
         }
 
         internal override void LoadContent(ContentManager Content)
@@ -32,6 +34,7 @@ namespace LungPae.Scenes
             player.LoadContent(Content);
             Floor = Content.Load<Texture2D>("Floor");
             grass = Content.Load<Texture2D>("grass");
+            
             car.Load(Content);
             wizard.Load(Content);
         }
