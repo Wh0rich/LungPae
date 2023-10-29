@@ -39,12 +39,11 @@ namespace LungPae.Scenes
         internal override void Draw(SpriteBatch Batch)
         {
             Data.inv.Draw(Batch);
-            Data.TpRec = new Rectangle(Data.ScreenW / 2, 0, 40, 5);
+            
             Data.TpRec2 = new Rectangle(Data.ScreenW / 2, Data.ScreenH - 5, 40, 15);
 
             Batch.Draw(Floor, new Vector2(Data.ScreenW / 2, Data.ScreenH - Floor.Height), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
-            Batch.Draw(Floor, new Vector2(Data.ScreenW / 2, 0), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
-
+            
 
             for (int i = 0; i < Data.ScreenW / grass.Width; i++)
             {
@@ -54,14 +53,10 @@ namespace LungPae.Scenes
                 }
 
             }
-            if (player.PlayerRec.Intersects(Data.TpRec))
-            {
-                Data.CurrentState = Data.Scenes.scene11;
-                Data.Plypos.Y = 720 - 80;
-            }
+            
             if (player.PlayerRec.Intersects(Data.TpRec2))
             {
-                Data.CurrentState = Data.Scenes.scene9;
+                Data.CurrentState = Data.Scenes.scene14;
                 Data.Plypos.Y = 0 + 10;
             }
 
