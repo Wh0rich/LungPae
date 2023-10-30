@@ -58,7 +58,7 @@ namespace LungPae.Model
         {
             Batch.Draw(cabinet, pos, null, Color.White, 0, Vector2.Zero, scale / 100, 0, Depth);
 
-            if (Talk == true)
+            if (Talk == true && Data.Joy.pickup == false)
             {
                 Data.ms = Mouse.GetState();
 
@@ -68,9 +68,24 @@ namespace LungPae.Model
                 {
                     
                     Data.CurrentState = Data.Scenes.Cowboy;
-
+                    Talk = false;
+                    
                 }
-               
+
+            }
+            if (Talk == true && Data.Joy.pickup == true)
+            {
+                Data.ms = Mouse.GetState();
+                dialog.Draw(Batch);
+                dialog.ChangeDialog("You got the prize");
+                if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec))
+                {
+
+                    Talk = false;
+                    Data.CanControl = true;
+                    
+                }
+                
             }
             Data.Oldms = Data.ms;
         }

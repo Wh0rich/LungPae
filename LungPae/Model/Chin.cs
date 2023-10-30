@@ -77,7 +77,7 @@ namespace LungPae.Model
             soundEffects.Add(content.Load<SoundEffect>("Chin_Which province are we in now"));//10
 
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 11; i++)
             {
                 instance.Add(soundEffects[i]);
                 instance[i].CreateInstance();

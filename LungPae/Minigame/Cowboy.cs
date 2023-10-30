@@ -917,7 +917,7 @@ namespace LungPae.Minigame
                         Data.Joy.pickup = true;
                         Data.CurrentState = Data.Scenes.scene14;
                         Data.CanControl = true;
-                        
+                       
                     }
                     Data.Oldms = Data.ms;
                 }
@@ -930,7 +930,12 @@ namespace LungPae.Minigame
                     {
                         Data.CurrentState = Data.Scenes.scene14;
                         Data.CanControl = true;
-
+                        IsFinish = false;
+                        teach = true;
+                        Wave6 = false;
+                        time = 0;
+                        timer = 0;
+                        point = 0;
                     }
                     Data.Oldms = Data.ms;
                 }
@@ -938,7 +943,7 @@ namespace LungPae.Minigame
             if (Keyboard.GetState().IsKeyDown(Keys.LeftControl))
             {
                 IsFinish = true;
-                point = 50;
+                point = 20;
             }
 
             for (int i = 0; i < 1280 / wall.Width +1; i++)

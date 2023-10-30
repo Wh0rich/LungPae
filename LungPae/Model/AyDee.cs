@@ -149,7 +149,7 @@ namespace LungPae.Model
                             Data.Plypos.X = 80;
                             Data.Plypos.Y = 340; 
                             tooktomom = true;
-                            instance[4].Play();
+                            instance[3].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;

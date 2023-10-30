@@ -23,7 +23,7 @@ namespace LungPae.Core
                              minigame1,minigame2,minigame3,
                              Blackscreen,ShotDog,Cowboy}
 
-        public static Scenes CurrentState = Scenes.scene3;
+        public static Scenes CurrentState = Scenes.scene14;
         public static int DialogCount = 0 ;
         public static int Money = 0 ;
 

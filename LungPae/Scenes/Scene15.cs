@@ -18,7 +18,7 @@ namespace LungPae.Scenes
     {
         Player player;
         Texture2D Floor, grass;
-        Cabinet cabinet;
+       
 
         public Scene15()
         {
@@ -40,12 +40,7 @@ namespace LungPae.Scenes
             Data.ms = Mouse.GetState();
             player.Update(gameTime);
 
-            if (player.PlayerRec.Intersects(cabinet.cabinetRecTalk) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(cabinet.cabinetRecTalk))
-            {
-                cabinet.Talk = true;
-                Data.CanControl = false;
-
-            }
+           
 
 
                
@@ -77,7 +72,7 @@ namespace LungPae.Scenes
             }
 
             player.Draw(Batch);
-            cabinet.Draw(Batch);
+            
         }
 
     }
