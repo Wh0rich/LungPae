@@ -50,8 +50,9 @@ namespace LungPae.Model
             soundEffects.Add(Content.Load<SoundEffect>("Dee_buhhhh"));
             soundEffects.Add(Content.Load<SoundEffect>("Dee_I don't know how many hours I slept"));
             soundEffects.Add(Content.Load<SoundEffect>("Dee_What time is it now"));
+            soundEffects.Add(Content.Load<SoundEffect>("MaeLek_Thank you for bringing my son here"));
 
-            for(int i = 0;i<3;i++)
+            for (int i = 0;i<4;i++)
             {
                 instance.Add(soundEffects[i]);
                 instance[i].CreateInstance();
@@ -148,6 +149,7 @@ namespace LungPae.Model
                             Data.Plypos.X = 80;
                             Data.Plypos.Y = 340; 
                             tooktomom = true;
+                            instance[4].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;

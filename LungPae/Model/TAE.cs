@@ -1,6 +1,7 @@
 ﻿using lungpae;
 using LungPae.Core;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -16,6 +17,8 @@ namespace LungPae.Model
 {
     internal class TAE
     {
+        List<SoundEffect> soundEffects = new List<SoundEffect>();
+        List<SoundEffect> instance = new List<SoundEffect>();
         public AnimatedTexture tae;
         Dialog dialog,angry,surprise,box;
         Vector2 Pos;
@@ -42,6 +45,23 @@ namespace LungPae.Model
             box.LoadContent(Content,"TaeBox");
             angry.LoadContent(Content, "TaeBox_Angry");
             surprise.LoadContent(Content, "TaeBox_Surprise");
+
+            soundEffects.Add(Content.Load<SoundEffect>("Tae_Fine, but you'll have to get me a weapon"));
+            soundEffects.Add(Content.Load<SoundEffect>("Tae_If you want to talk to me, go get me a watermelon"));
+            soundEffects.Add(Content.Load<SoundEffect>("Tae_Is this a weapon"));
+            soundEffects.Add(Content.Load<SoundEffect>("Tae_Ok.What do you want me to help you with"));
+            soundEffects.Add(Content.Load<SoundEffect>("Tae_Really brought watermelon"));
+            soundEffects.Add(Content.Load<SoundEffect>("Tae_Look This"));
+            soundEffects.Add(Content.Load<SoundEffect>("Tae_I'm TAE the gangster of chiangmai moat"));
+            soundEffects.Add(Content.Load<SoundEffect>("Tae_What do you want I'm a gangster in this area"));
+
+
+
+            for (int i = 0; i < 7; i++)
+            {
+                instance.Add(soundEffects[i]);
+                instance[i].CreateInstance();
+            }
         }
         internal void Update (GameTime gameTime)
         {
@@ -95,6 +115,7 @@ namespace LungPae.Model
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(angry.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                            instance[1].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -128,7 +149,7 @@ namespace LungPae.Model
                                 Data.inv.RemoveItem(Data.Watermelon);
                                 remove = false;
                             }
-                            
+                            instance[3].Play();
                             Data.DialogCount++;
                         }
                         Data.Oldms = Data.ms;
@@ -148,6 +169,7 @@ namespace LungPae.Model
                         dialog.ChangeDialog("Please help drive the dog away");
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
+                            instance[0].Play();
                             Data.DialogCount++;
                         }
                         Data.Oldms = Data.ms;
@@ -189,12 +211,14 @@ namespace LungPae.Model
                         dialog.ChangeDialog("You were confused about what he would do next.");
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
+                            instance[3].Play();
                             Data.DialogCount = 0;
                             Data.CanControl = true;
                             Data.Quest3Finish = true;
                             
                             
                             Data.CurrentState = Data.Scenes.ShotDog;
+
                             Talktae = false;
                         }
                         Data.Oldms = Data.ms;

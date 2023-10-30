@@ -2,6 +2,7 @@
 using LungPae.Core;
 using LungPae.Model;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -17,6 +18,9 @@ namespace LungPae.CutScenes
 {
     internal class ShotDog : Component
     {
+
+        List<SoundEffect> soundEffects = new List<SoundEffect>();
+        List<SoundEffect> instance = new List<SoundEffect>();
 
         Texture2D Floor;
         Texture2D grass;
@@ -65,7 +69,7 @@ namespace LungPae.CutScenes
             dog2.Load(Content, "Doggy1", 4, 5, 4);
             dog3.Load(Content, "Doggy1", 4, 5, 4);
             Floor = Content.Load<Texture2D>("Floor");
-            grass = Content.Load<Texture2D>("grass");
+            grass = Content.Load<Texture2D>("Floor");
             dialog.LoadContent(Content, "TaeBox");
             box.LoadContent(Content, "TaeBox_Angry");
             h1.Load(Content, "House1");
@@ -80,6 +84,12 @@ namespace LungPae.CutScenes
             h10.Load(Content, "House3");
             h11.Load(Content, "House1");
             h12.Load(Content, "House3");
+            soundEffects.Add(Content.Load<SoundEffect>("Tae_but I have to go on a mission"));
+            for (int i = 0; i < 1; i++)
+            {
+                instance.Add(soundEffects[i]);
+                instance[i].CreateInstance();
+            }
 
         }
 

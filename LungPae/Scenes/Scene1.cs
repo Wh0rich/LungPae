@@ -16,13 +16,15 @@ using LungPae.Core;
 using LungPae.Model;
 using System.Threading;
 using System.Reflection.Metadata;
+using Microsoft.Xna.Framework.Audio;
 
 
 namespace LungPae.Scenes
 {
     internal class Scene1 : Component
     {
-
+        List<SoundEffect> soundEffects = new List<SoundEffect>();
+        List<SoundEffect> instance = new List<SoundEffect>();
         Texture2D grass,floor;
         Chin chin;
         NPC npc1,npc3;
@@ -67,6 +69,14 @@ namespace LungPae.Scenes
         }
         internal override void LoadContent(ContentManager Content)
         {
+
+            soundEffects.Add(Content.Load<SoundEffect>("Chin_Do you have something with me"));
+
+            for (int i = 0; i < 1; i++)
+            {
+                instance.Add(soundEffects[i]);
+                instance[i].CreateInstance();
+            }
             chin.Load(Content);
             obj.Load(Content, "House1");
             seven.Load(Content, "7-11");
@@ -191,7 +201,7 @@ namespace LungPae.Scenes
                 {
                     chin.row = 4;
                 }
-                
+                instance[0].Play();
             } 
             if(chin.give == true)
             {
@@ -219,7 +229,7 @@ namespace LungPae.Scenes
             for (int i = 0; i < 10; i++)
             {
                 _spriteBatch.Draw(floor, new Vector2(Data.ScreenW / 2, Data.ScreenH - floor.Height) - Data.PosTileY * i, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
-                _spriteBatch.Draw(floor, new Vector2(Data.ScreenW / 2 + 40, Data.ScreenH - floor.Height) - Data.PosTileY * i, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
+                _spriteBatch.Draw(floor, new Vector2(Data.ScreenW / 2 - 80, Data.ScreenH - floor.Height) - Data.PosTileY * i, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
                 _spriteBatch.Draw(floor, new Vector2(Data.ScreenW / 2 - 40, Data.ScreenH - floor.Height) - Data.PosTileY * i, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
             }
             npc1.DrawFrame(_spriteBatch,1);
@@ -244,7 +254,7 @@ namespace LungPae.Scenes
             chin.Draw(_spriteBatch);
             player.Draw(_spriteBatch);
             Data.inv.Draw(_spriteBatch);
-            Data.TpRec = new Rectangle(Data.ScreenW / 2, Data.ScreenH - 5, 40, 5);
+            Data.TpRec = new Rectangle(Data.ScreenW / 2-80, Data.ScreenH - 5, 100, 5);
             if (player.PlayerRec.Intersects(Data.TpRec))
             {
                 Data.CurrentState = Data.Scenes.scene2;

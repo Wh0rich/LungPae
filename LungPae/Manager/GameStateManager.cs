@@ -34,6 +34,7 @@ namespace LungPae.Manager
         private Scene14 s14 = new Scene14();
         private Scene15 s15 = new Scene15();
         private Scene16 s16 = new Scene16();
+        private Scene17 s17 = new Scene17();
         private Cowboy c1 = new Cowboy();
         private RunningGame m1 = new RunningGame();
         private BlackScreen b = new BlackScreen();
@@ -58,6 +59,7 @@ namespace LungPae.Manager
            s14.LoadContent( Content);
            s15.LoadContent( Content);
            s16.LoadContent(Content);
+           s17.LoadContent( Content);
            c1.LoadContent(Content);
            m1.LoadContent( Content);
            b.LoadContent( Content);
@@ -117,6 +119,9 @@ namespace LungPae.Manager
                     break;
                 case Data.Scenes.scene16:
                     s16.Update(gameTime);
+                    break;
+                case Data.Scenes.scene17:
+                    s17.Update(gameTime);
                     break;
                 case Data.Scenes.Cowboy:
                     c1.Update(gameTime);
@@ -184,6 +189,9 @@ namespace LungPae.Manager
                     break;
                 case Data.Scenes.scene16:
                     s16.Draw(spriteBatch);
+                    break;
+                case Data.Scenes.scene17:
+                    s17.Draw(spriteBatch);
                     break;
                 case Data.Scenes.Cowboy:
                     c1.Draw(spriteBatch);

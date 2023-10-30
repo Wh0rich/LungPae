@@ -239,6 +239,7 @@ namespace LungPae.Model
                                 Data.DialogCount++;
                                 Data.inv.RemoveItem(Data.Sweater);
                                 Data.inv.RemoveItem(Data.Glasses);
+                            Data.inv.RemoveItem(Data.Joy);
                             }
                             Data.Oldms = Data.ms;
                             break;

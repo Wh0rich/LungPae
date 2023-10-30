@@ -911,7 +911,7 @@ namespace LungPae.Minigame
                     Data.ms = Mouse.GetState();
                     dialog.Draw(spriteBatch);
                     dialog.ChangeDialog("Congratulations,you are one of the world.");
-                    if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                    if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec))
                     {
                         Data.inv.AddItem(Data.Joy);
                         Data.Joy.pickup = true;
@@ -926,7 +926,7 @@ namespace LungPae.Minigame
                     Data.ms = Mouse.GetState();
                     dialog.Draw(spriteBatch);
                     dialog.ChangeDialog("Try Again.");
-                    if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
+                    if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec))
                     {
                         Data.CurrentState = Data.Scenes.scene14;
                         Data.CanControl = true;
@@ -934,6 +934,11 @@ namespace LungPae.Minigame
                     }
                     Data.Oldms = Data.ms;
                 }
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.LeftControl))
+            {
+                IsFinish = true;
+                point = 50;
             }
 
             for (int i = 0; i < 1280 / wall.Width +1; i++)

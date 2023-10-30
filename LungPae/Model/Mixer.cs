@@ -1,6 +1,7 @@
 ﻿using lungpae;
 using LungPae.Core;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -16,6 +17,8 @@ namespace LungPae.Model
 {
     internal class Mixer
     {
+        List<SoundEffect> soundEffects = new List<SoundEffect>();
+        List<SoundEffect> instance = new List<SoundEffect>();
         AnimatedTexture mixer;
         public AnimatedTexture Mixani;
         Dialog dialog;
@@ -46,6 +49,19 @@ namespace LungPae.Model
             Mixani.Load(content, "MixerAni", 6, 1, 18);
             dialog.LoadContent(content, "MixerBox");
             Data.Sweater.Load(content, "MixerHood");
+
+           
+            soundEffects.Add(content.Load<SoundEffect>("Mixer_I'm Mixer.Horse power athlete"));
+            soundEffects.Add(content.Load<SoundEffect>("Mixer_It's so hot, take my shirt"));
+            
+
+            for (int i = 0; i < 2; i++)
+            {
+                instance.Add(soundEffects[i]);
+                instance[i].CreateInstance();
+            }
+
+
         }
         internal void Update(GameTime gameTime)
         {

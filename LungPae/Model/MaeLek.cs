@@ -1,6 +1,7 @@
 ﻿using lungpae;
 using LungPae.Core;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -17,6 +18,8 @@ namespace LungPae.Model
 {
     internal class MaeLek
     {
+        List<SoundEffect> soundEffects = new List<SoundEffect>();
+        List<SoundEffect> instance = new List<SoundEffect>();
         AnimatedTexture lek;
         Dialog dialog,box,sad;
         public Rectangle lekTalkRec, lekRec, lekRecTop;
@@ -42,6 +45,24 @@ namespace LungPae.Model
             dialog.LoadContent(Content);
             box.LoadContent(Content, "MaeLekBox");
             sad.LoadContent(Content, "MaeLekBox_Sad");
+
+            soundEffects.Add(Content.Load<SoundEffect>("MaeLek_ I've got the pork"));
+            soundEffects.Add(Content.Load<SoundEffect>("MaeLek_Cooked Laap  is finished cooking"));
+            soundEffects.Add(Content.Load<SoundEffect>("MaeLek_Could you please help me buy"));
+            soundEffects.Add(Content.Load<SoundEffect>("MaeLek_I think I'll make him some cooked laab"));
+            soundEffects.Add(Content.Load<SoundEffect>("MaeLek_It looks like he passed out")); //4
+            soundEffects.Add(Content.Load<SoundEffect>("MaeLek_It seemed like it was definitely because of the raw laab"));
+            soundEffects.Add(Content.Load<SoundEffect>("MaeLek_Of course I will do it for you in return for helping"));
+            soundEffects.Add(Content.Load<SoundEffect>("MaeLek_The minced pork at the bottom"));
+           
+
+
+            for (int i = 0; i < 8; i++)
+            {
+                instance.Add(soundEffects[i]);
+                instance[i].CreateInstance();
+            }
+
             lekpos = new Vector2(80, 290);
         }
         internal void Update(GameTime gameTime)
@@ -73,6 +94,7 @@ namespace LungPae.Model
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(box.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                            instance[4].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -83,6 +105,7 @@ namespace LungPae.Model
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(sad.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                            instance[3].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -93,6 +116,7 @@ namespace LungPae.Model
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(box.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                            instance[6].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -103,7 +127,7 @@ namespace LungPae.Model
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(box.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount ++;
-                            
+                            instance[2].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;

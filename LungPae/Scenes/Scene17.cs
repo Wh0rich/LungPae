@@ -14,12 +14,13 @@ namespace LungPae.Scenes
 {
     internal class Scene17 : Component
     {
-        Game1 game1;
+       
         Texture2D bg;
         Dialog dialog;
         public Scene17()
         {
             dialog = new Dialog();  
+            
         }
         internal override void LoadContent(ContentManager Content)
         {
@@ -28,6 +29,7 @@ namespace LungPae.Scenes
         }
         internal override void Update(GameTime gameTime)
         {
+            Data.ms = Mouse.GetState();
             Data.MRec = new Rectangle(Data.ms.X, Data.ms.Y, 1, 1);
             Console.WriteLine(Data.MRec);
         }
@@ -37,6 +39,7 @@ namespace LungPae.Scenes
             spriteBatch.Draw(bg, Vector2.Zero, Color.Black);
             switch (Data.DialogCount)
             {
+
                 case 0:
 
                     dialog.Draw(spriteBatch);
@@ -48,12 +51,12 @@ namespace LungPae.Scenes
                     Data.Oldms = Data.ms;
                     break;
                 case 1:
-
-                    dialog.DrawPerson(spriteBatch, "Maelek");
+                    dialog.Draw(spriteBatch);
+                   
                     dialog.ChangeDialog("Thanks for traveling with Pae");
                     if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                     {
-                        game1.Exit();
+                        
 
                     }
                     Data.Oldms = Data.ms;

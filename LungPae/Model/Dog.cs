@@ -9,6 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
 using LungPae.Core;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Audio;
 
 namespace LungPae.Model
 {
@@ -16,6 +17,7 @@ namespace LungPae.Model
     
     internal class Dog
     {
+       
         public AnimatedTexture dog;
         public AnimatedTexture dogBr;
         public AnimatedTexture dogBl;
@@ -39,7 +41,7 @@ namespace LungPae.Model
             dog.Load(Content,"Doggy1",4,5,4);
             dogBr.Load(Content, "Doggy1", 4, 5, 4);
             dogBl.Load(Content, "Doggy1", 4, 5, 4);
-
+           
             dogpos = new Vector2(620,60);
             dogpos1 = new Vector2(655, 30);
             dogpos2 = new Vector2(585, 35);

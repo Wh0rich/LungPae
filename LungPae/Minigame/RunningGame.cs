@@ -2,6 +2,7 @@
 using LungPae.Core;
 using LungPae.Model;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -16,6 +17,9 @@ namespace LungPae.Minigame
 {
     internal class RunningGame : Component
     {
+        List<SoundEffect> soundEffects = new List<SoundEffect>();
+        List<SoundEffect> instance = new List<SoundEffect>();
+
         Player player;
         AnimatedTexture npcMan,npcLady;
         Mixer mixer;
@@ -57,7 +61,14 @@ namespace LungPae.Minigame
             wall = content.Load<Texture2D>("StadiumWall");
             logo = content.Load<Texture2D>("ResultLOGO");
             grass = content.Load<Texture2D>("grass");
-            
+            soundEffects.Add(content.Load<SoundEffect>("Mixer_It's so hot, take my shirt"));
+
+            for (int i = 0; i < 1; i++)
+            {
+                instance.Add(soundEffects[i]);
+                instance[i].CreateInstance();
+            }
+
             npcMan.Load(content, "NPCMan",2,1,4);
             npcLady.Load(content, "NPCLady", 2, 1, 3);
             speedMix =4f ;
@@ -182,6 +193,7 @@ namespace LungPae.Minigame
                 {
                     Data.CurrentState = Data.Scenes.scene14;
                     Data.Minigame1Finish = true;
+                    instance[0].Play();
                     mixer.Talk = true;
                     Data.Oldms = Data.ms;
                 } 

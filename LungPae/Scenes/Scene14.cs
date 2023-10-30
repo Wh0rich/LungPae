@@ -17,6 +17,8 @@ namespace LungPae.Scenes
 {
     internal class Scene14 : Component
     {
+        List<SoundEffect> soundEffects = new List<SoundEffect>();
+        List<SoundEffect> instance = new List<SoundEffect>();
         Cabinet cabinet;
         Player player;
         Texture2D Floor, grass;
@@ -63,6 +65,16 @@ namespace LungPae.Scenes
             h10.Load(Content, "House1");
          
             h12.Load(Content, "House1");
+
+            soundEffects.Add(Content.Load<SoundEffect>("Mixer_I'm Mixer.Horse power athlete"));
+           
+
+
+            for (int i = 0; i < 1; i++)
+            {
+                instance.Add(soundEffects[i]);
+                instance[i].CreateInstance();
+            }
 
         }
 
@@ -129,6 +141,7 @@ namespace LungPae.Scenes
                     mix.row = 4;
                 }
                 mix.Talk = true;
+                instance[0].Play();
                 Data.CanControl = false;
                 Data.Oldms = Data.ms;
             }

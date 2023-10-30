@@ -44,8 +44,8 @@ namespace LungPae.CutScenes
 
             soundEffects.Add(Content.Load<SoundEffect>("Dee_Ekarmohkanad"));
             soundEffects.Add(Content.Load<SoundEffect>("Dee_Finally"));
-
-            for (int i = 0; i < 2; i++)
+            soundEffects.Add(Content.Load<SoundEffect>("MaeLek_Cooked Laap  is finished cooking"));
+            for (int i = 0; i < 3; i++)
             {
                 instance.Add(soundEffects[i]);
                 instance[i].CreateInstance();
@@ -121,6 +121,7 @@ namespace LungPae.CutScenes
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                            instance[2].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;

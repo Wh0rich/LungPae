@@ -10,11 +10,15 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
 using LungPae.Model;
 using lungpae;
+using Microsoft.Xna.Framework.Audio;
 
 namespace LungPae.Scenes
 {
     internal class Scene9 : Component
     {
+        List<SoundEffect> soundEffects;
+        List<SoundEffect> instance;
+
         Texture2D Floor;
         Texture2D grass;
         Player player;
@@ -43,6 +47,7 @@ namespace LungPae.Scenes
         }
         internal override void LoadContent(ContentManager Content)
         {
+           
             Floor = Content.Load<Texture2D>("Floor");
             grass = Content.Load<Texture2D>("grass");
             h1.Load(Content, "House1");
@@ -58,7 +63,7 @@ namespace LungPae.Scenes
             h11.Load(Content, "House1");
             h12.Load(Content, "House3");
             dog.Load(Content);
-
+            
             player.LoadContent(Content);
         }
         internal override void Update(GameTime gameTime)

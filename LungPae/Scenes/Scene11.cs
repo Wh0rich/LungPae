@@ -9,11 +9,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework.Audio;
 
 namespace LungPae.Scenes
 {
     internal class Scene11 : Component
     {
+        List<SoundEffect> soundEffects = new List<SoundEffect>();
+        List<SoundEffect> instance = new List<SoundEffect>();
         Texture2D Floor;
         Texture2D grass;
         Player player;
@@ -49,7 +52,13 @@ namespace LungPae.Scenes
             h11.Load(Content, "House1");
             h12.Load(Content, "House3");
             building.Load(Content, "buliding");
-
+            soundEffects.Add(Content.Load<SoundEffect>("MaeLek_The minced pork at the bottom"));
+            soundEffects.Add(Content.Load<SoundEffect>("MaeLek_ I've got the pork"));
+            for (int i = 0; i < 2; i++)
+            {
+                instance.Add(soundEffects[i]);
+                instance[i].CreateInstance();
+            }
         }
         internal override void Update(GameTime gameTime)
         {
@@ -76,12 +85,20 @@ namespace LungPae.Scenes
             {
                 lek.Talk = true;
                 Data.CanControl = false;
-
+                if(Data.Pork.pickup == false)
+                {
+                    instance[0].Play();
+                }
+                if (Data.Pork.pickup == true)
+                {
+                    instance[1].Play();
+                }
             }
 
             lek.Update(gameTime);
             house.CheckCollision(player);
             player.Collision(house.ObjRecDown);
+
             lek.MaeLekCheck(player);
             Console.WriteLine("pos"+Data.Plypos);
             Console.WriteLine("Rec"+player.PlayerRec);

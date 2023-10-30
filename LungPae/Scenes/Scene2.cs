@@ -10,11 +10,15 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Input;
 using LungPae.Model;
 using lungpae;
+using Microsoft.Xna.Framework.Audio;
 
 namespace LungPae.Scenes
 {
     internal class Scene2 : Component
     {
+        List<SoundEffect> soundEffects = new List<SoundEffect>();
+        List<SoundEffect> instance = new List<SoundEffect>();
+
         Texture2D Floor;
         Texture2D grass;
         Item hat;
@@ -72,7 +76,15 @@ namespace LungPae.Scenes
             hat.Load(Content, "RobberHat");
             bin.Load(Content,"recyclebin");
             Data.RobberHAt.Load(Content, "RobberHat");
-            
+            soundEffects.Add(Content.Load<SoundEffect>("Tae_What do you want I'm a gangster in this area"));
+            soundEffects.Add(Content.Load<SoundEffect>("Tae_Really brought watermelon"));
+            soundEffects.Add(Content.Load<SoundEffect>("Tae_Is this a weapon"));
+            for (int i = 0; i < 3; i++)
+            {
+                instance.Add(soundEffects[i]);
+                instance[i].CreateInstance();
+            }
+
             //Shed.Load(Content, "Shed");
             tae.Load(Content);
 
@@ -166,12 +178,29 @@ namespace LungPae.Scenes
                 {
                     tae.row = 4;
                 }
+                if (Data.Quest2Finish == true&& Data.Watermelon.pickup == false )
+                {
+                    instance[0].Play();
+                }
+                if (Data.Quest2Finish == true && Data.Watermelon.pickup == true)
+                {
+                    instance[1].Play();
+                }
+                if (Data.Quest2Finish == true && Data.Watermelon.pickup == true && Data.Slingshot.pickup == true)
+                {
+                    instance[2].Play();
+
+                }
 
             }
             if (player.PlayerRec.Intersects(tae.taeRecTalk) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(tae.taeRecTalk))
             {
                 Data.CanControl = false;
                 tae.Talktae = true;
+                if(Data.Quest2Finish == true)
+                {
+                    instance[0].Play();
+                }
             }
 
                 //if (player.PlayerRec.Intersects(Shed.ObjRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(Shed.ObjRec))
