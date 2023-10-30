@@ -38,7 +38,7 @@ namespace LungPae.Model
         public Kid() 
         {
             DekPos = new Vector2(Data.ScreenW/2,Data.ScreenH-60);
-            DekLadyPos = new Vector2(Data.ScreenW / 2+35, Data.ScreenH-55);
+            DekLadyPos = new Vector2(Data.ScreenW / 2+45, Data.ScreenH-55);
             Dek = new AnimatedTexture(Vector2.Zero,Rotation,Scale,Depth);
             DekLady = new AnimatedTexture(Vector2.Zero,Rotation,Scale,Depth);
             dialogsad = new Dialog();

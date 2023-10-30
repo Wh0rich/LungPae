@@ -22,9 +22,10 @@ namespace LungPae.Scenes
 {
     internal class Scene1 : Component
     {
+
         Texture2D grass,floor;
         Chin chin;
-        NPC npc1,npc2,npc3;
+        NPC npc1,npc3;
         Player player;
         SpriteFont Font;
         Building obj,seven,house2,house3;
@@ -48,7 +49,7 @@ namespace LungPae.Scenes
             tree1 = new Tree(new Vector2(1050, 20), 0.2f);
             tree2 = new Tree(new Vector2(552, 20), 0.2f);
             npc1 = new NPC(0, 0.6f, 0.5f, new Vector2(490, 200));
-            npc2 = new NPC(0, 0.6f, 0.5f, new Vector2(1200, 200));
+            
             npc3 = new NPC(0, 0.6f, 0.5f, new Vector2(800, 400));
             dialog = new Dialog();
             player = new Player();
@@ -74,7 +75,7 @@ namespace LungPae.Scenes
             house2.Load(Content, "house-2");
             house3.Load(Content, "House3 (1)");
             npc1.Load(Content, "NPC", 4, 4, 0);
-            npc2.Load(Content,"NPC",4,4, 0);
+            
             npc3.Load(Content, "NPC", 4, 4, 0);
             bin.Load(Content, "recycleBin");
             bin2.Load(Content, "recycleBin");
@@ -99,7 +100,7 @@ namespace LungPae.Scenes
         {
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
             npc1.Update(gameTime);
-            npc2.Update(gameTime);
+            
             npc3.Update(gameTime);
             player.Update(gameTime);
             chin.Update(gameTime);
@@ -123,13 +124,13 @@ namespace LungPae.Scenes
             player.Collision(obj.ObjRecDown);
             player.Collision(seven.ObjRecDown);
             player.Collision(npc1.NpcRec);
-            player.Collision(npc2.NpcRec);
+            
             player.Collision(npc3.NpcRec);
 
             player.Collision(chin.chinRec);
             chin.Chincheck(player);
             npc1.Npccheck(player);
-            npc2.Npccheck(player);
+            
             npc3.Npccheck(player);
             bin.CheckCollision(player);
             bin2.CheckCollision(player);
@@ -160,11 +161,7 @@ namespace LungPae.Scenes
                 npc1.talk = true;
                 Data.CanControl= false;
             }
-            if (player.PlayerRec.Intersects(npc2.NpcRecTalk) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(npc2.NpcRecTalk))
-            {
-                npc2.talk = true;
-                Data.CanControl = false;
-            }
+           
             if (player.PlayerRec.Intersects(npc3.NpcRecTalk) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(npc3.NpcRecTalk))
             {
                 npc3.talk = true;
@@ -219,10 +216,14 @@ namespace LungPae.Scenes
             bin2.Draw(_spriteBatch);
             bin3.Draw(_spriteBatch);
             bin4.Draw(_spriteBatch);
-            _spriteBatch.Draw(floor, new Vector2(Data.ScreenW / 2, Data.ScreenH - floor.Height),null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0f);
-
+            for (int i = 0; i < 10; i++)
+            {
+                _spriteBatch.Draw(floor, new Vector2(Data.ScreenW / 2, Data.ScreenH - floor.Height) - Data.PosTileY * i, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
+                _spriteBatch.Draw(floor, new Vector2(Data.ScreenW / 2 + 40, Data.ScreenH - floor.Height) - Data.PosTileY * i, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
+                _spriteBatch.Draw(floor, new Vector2(Data.ScreenW / 2 - 40, Data.ScreenH - floor.Height) - Data.PosTileY * i, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
+            }
             npc1.DrawFrame(_spriteBatch,1);
-            npc2.DrawFrame(_spriteBatch, 2);
+            
             npc3.DrawFrame(_spriteBatch, 3);
 
 
@@ -262,11 +263,7 @@ namespace LungPae.Scenes
             {
                 npc1.Dialog(_spriteBatch);      
             }
-            if (npc2.talk == true)
-            {
-                npc2.Dialog(_spriteBatch);
-                
-            }
+           
             if (npc3.talk == true)
             {
                 npc3.Dialog(_spriteBatch);

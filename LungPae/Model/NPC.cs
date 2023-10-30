@@ -76,6 +76,10 @@ namespace LungPae.Model
         {
             npc.DrawFrame(spriteBatch, Frame, Pos);
         }
+        internal void Draw(SpriteBatch spriteBatch, int Frame,int row)
+        {
+            npc.DrawFrame(spriteBatch, Frame, Pos,row);
+        }
         internal void Draw(SpriteBatch spriteBatch)
         {
             npc.DrawFrame(spriteBatch, Pos, row);

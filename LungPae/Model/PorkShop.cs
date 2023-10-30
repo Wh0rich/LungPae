@@ -18,13 +18,13 @@ namespace LungPae.Model
         Building porkshop;
         Dialog dialog;
         
-        Vector2 pos = new Vector2(100, 100);
-        float Scale = 1;
+        Vector2 pos = new Vector2(0, 0);
+        float Scale = 0.3f;
         public Rectangle TalkRec;
         public bool Talk = false;
         public PorkShop()
         {
-            porkshop = new Building(pos,1);
+            porkshop = new Building(pos,Scale);
             dialog = new Dialog();
             Scale *= 100;
         }
@@ -33,7 +33,7 @@ namespace LungPae.Model
             porkshop.Load(Content,"PorkShop");
             Data.Pork.Load(Content,"Pork");
             dialog.LoadContent(Content);    
-            TalkRec = new Rectangle((int)pos.X + 180, (int)pos.Y + (porkshop.obj.Height * (int)Scale / 100) / 2 - 40 + 50, 55,90);
+            TalkRec = new Rectangle((int)pos.X + 160, (int)pos.Y + (porkshop.obj.Height * (int)Scale / 100) / 2 - 40 + 50, 55,90);
         }
        public void Draw(SpriteBatch Batch)
        {

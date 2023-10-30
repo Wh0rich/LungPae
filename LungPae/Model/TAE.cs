@@ -37,7 +37,7 @@ namespace LungPae.Model
         {
             tae.Load(Content, "TAE", 1, 5, 1);
             Scale *= 100;
-            Pos = new Vector2(300,50);
+            Pos = new Vector2(300,350);
             dialog.LoadContent(Content);
             box.LoadContent(Content,"TaeBox");
             angry.LoadContent(Content, "TaeBox_Angry");

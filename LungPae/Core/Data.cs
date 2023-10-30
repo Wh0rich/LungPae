@@ -22,8 +22,8 @@ namespace LungPae.Core
                              scene11, scene12, scene13, scene14, scene15, scene16, scene17, scene18, scene19, scene20,
                              minigame1,minigame2,minigame3,
                              Blackscreen,ShotDog,Cowboy}
-        
-        public static Scenes CurrentState = Scenes.Cowboy;
+
+        public static Scenes CurrentState = Scenes.scene3;
         public static int DialogCount = 0 ;
         public static int Money = 0 ;
 
@@ -54,6 +54,8 @@ namespace LungPae.Core
         public static Rectangle TpRec, TpRec2 , TpRec3, TpRec4;
 
         public static Vector2 Plypos;
+        public static Vector2 PosTileX = new Vector2(40,0);
+        public static Vector2 PosTileY = new Vector2(0, 40);
 
 
         public static MouseState ms, Oldms;

@@ -22,9 +22,8 @@ namespace LungPae.Minigame
 {
     internal class Cowboy : Component
     {
-        Song shoot;
-        Song sound;
-
+        List<SoundEffect> soundEffects;
+        List<SoundEffect> instance;
 
         Dialog dialog;
         Texture2D cowboy;
@@ -41,7 +40,7 @@ namespace LungPae.Minigame
         List<Rectangle>CbRec = new List<Rectangle>();
         
         bool Add = false, Click =false;
-
+        bool soundPlay;
         bool IsFinish = false, teach = true;
         bool count = false;
         bool Wave1 = false, Wave2 = false, Wave3 = false, Wave4 = false, Wave5 = false, Wave6 = false;
@@ -55,16 +54,12 @@ namespace LungPae.Minigame
         Random r = new Random();
         public Cowboy() 
         {
-            
+            soundEffects = new List<SoundEffect>();
+            instance = new List<SoundEffect>();
             dialog = new Dialog();
         }
 
-        void MediaPlayer_MediaStateChanged(object sender, System.EventArgs e)
-        {
-            // 0.0f is silent, 1.0f is full volume
-            MediaPlayer.Volume = 0.3f;
-
-        }
+        
         internal override void LoadContent(ContentManager Content)
         {
             cowboy = Content.Load<Texture2D>("Cowboy");
@@ -76,14 +71,19 @@ namespace LungPae.Minigame
             score = Content.Load<SpriteFont>("Font");
             bg = Content.Load<Texture2D>("cowboy-backgroud");
             floor = Content.Load<Texture2D>("floor");
+            Data.Joy.Load(Content, "PaeStation");
             dialog.LoadContent(Content);
 
-            this.sound = Content.Load<Song>("Cowboy_Standoff");
-            this.shoot = Content.Load<Song>("Shoot");
-            
+            soundEffects.Add(Content.Load<SoundEffect>("Cowboy_Standoff"));
+            soundEffects.Add(Content.Load<SoundEffect>("Shoot"));
 
-            MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
+            instance.Add(soundEffects[0]);
+            instance[0].CreateInstance();
 
+            instance.Add(soundEffects[1]);
+            instance[1].CreateInstance();
+
+          
         }
        
         internal override void Update(GameTime gameTime)
@@ -93,21 +93,20 @@ namespace LungPae.Minigame
             float elapsed = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
 
-            Console.WriteLine(timer);
+            Console.WriteLine(time);
             Console.WriteLine("enermy" + enermy);
             if (teach == false)
             {
                 if (timer < 1)
                 {
                     timer += elapsed;
-
+                    
+                    
                 }
                 if (timer > 1)
                 {
                     timer = 1.0f;
                 }
-
-
 
                 //wave 1
                 if (Wave1 == true&&Add == true)
@@ -160,11 +159,17 @@ namespace LungPae.Minigame
                        
 
                     }
+
+                   
+
+
                     if (enermy == 0 || time == 0)
                     {
                         time = 0;
+                        
                         if (enermy > 0)
                         {
+                            
                             for (int i = 0; i < enermy;)
                             {
                                 CbRec[i] = new Rectangle((int)Cbpos[i].X, (int)Cbpos[i].Y, cowboy.Width, cowboy.Height);
@@ -707,24 +712,21 @@ namespace LungPae.Minigame
                                 enermy--;
                             }
                         }
-                        temp += elapsed;
-                        if (temp > 9)
-                        {
-                            
-                            IsFinish = true;
-                        }
+
+                           IsFinish = true;
 
                     }
                 }
 
                 if (Data.ms.LeftButton == ButtonState.Pressed && Data.Oldms.LeftButton == ButtonState.Released)
                 {
+                    instance[1].Play();
                     Click = true;
                 }
                 Data.Oldms = Data.ms;
                 if (Data.ms.LeftButton == ButtonState.Released &&Data.Oldms.LeftButton == ButtonState.Released)
                 {
-                        Click = false;
+                    Click = false;
                 }
 
                 Data.Oldms = Data.ms;
@@ -753,7 +755,7 @@ namespace LungPae.Minigame
                     Wave1 = true;
                     Add = true;
                     teach = false;
-
+                    
                 }
                 Data.Oldms = Data.ms;
             }
@@ -796,13 +798,12 @@ namespace LungPae.Minigame
 
             if (Wave1 ==true && temp >0 )
             {
-               
+
                 if (temp > 0&& temp !<6)
                 {
-                   
-                    
                     spriteBatch.DrawString(font, "Wave 2", new Vector2(520, 50), Color.White, 0, Vector2.Zero, 1, 0, 0.2f);
-                    
+                    count = true;
+
                 }
                 
                 if( temp >6 && temp !< 7)
@@ -825,7 +826,7 @@ namespace LungPae.Minigame
             {
                 if (temp > 0 && temp! < 6)
                 {
-                    count = true;
+                    
                     spriteBatch.DrawString(font, "Wave 3", new Vector2(520, 50), Color.White, 0, Vector2.Zero, 1, 0, 0.2f);
                 }
 
@@ -907,11 +908,14 @@ namespace LungPae.Minigame
             {
                 if (point > 30)
                 {
+                    Data.ms = Mouse.GetState();
                     dialog.Draw(spriteBatch);
                     dialog.ChangeDialog("Congratulations,you are one of the world.");
                     if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                     {
-                        Data.CurrentState = Data.Scenes.scene15;
+                        Data.inv.AddItem(Data.Joy);
+                        Data.Joy.pickup = true;
+                        Data.CurrentState = Data.Scenes.scene14;
                         Data.CanControl = true;
                         
                     }
@@ -919,11 +923,12 @@ namespace LungPae.Minigame
                 }
                 if (point < 30)
                 {
+                    Data.ms = Mouse.GetState();
                     dialog.Draw(spriteBatch);
                     dialog.ChangeDialog("Try Again.");
                     if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                     {
-                        Data.CurrentState = Data.Scenes.scene15;
+                        Data.CurrentState = Data.Scenes.scene14;
                         Data.CanControl = true;
 
                     }
@@ -948,6 +953,9 @@ namespace LungPae.Minigame
             //var instance1 = sound[0].CreateInstance();
             //var instance2 = sound[1].CreateInstance();
 
+
+           
+            
             if (Click == false)
             {
                 
@@ -955,20 +963,11 @@ namespace LungPae.Minigame
             }
             if (Click ==true)
             {
-                MediaPlayer.Play(shoot);
+                
                 spriteBatch.Draw(FireGun, Gunpos, null, Color.White, 0, Vector2.Zero, 0.5f, 0, 0.5f);
             }
             Data.Oldms = Data.ms;
-            if (count == true)
-            {
-                //MediaPlayer.Play(sound);
-
-            }
-            if (count == false)
-            {
-                
-
-            }
+           
 
         }
     }

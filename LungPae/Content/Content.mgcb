@@ -13,18 +13,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin 7-11.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:7-11.png
-
 #begin AyDee.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -133,6 +121,30 @@
 /processorParam:TextureFormat=Color
 /build:buliding.png
 
+#begin C:/Users/leksr/Downloads/nebuilding/7-11.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:C:/Users/leksr/Downloads/nebuilding/7-11.png;7-11.png
+
+#begin C:/Users/leksr/Downloads/nebuilding/buliding.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:C:/Users/leksr/Downloads/nebuilding/buliding.png;buliding.png
+
 #begin Campfire.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -217,6 +229,18 @@
 /processorParam:TextureFormat=Color
 /build:Char01.png
 
+#begin chicken.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:chicken.png
+
 #begin ChinBox_Happy.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -289,6 +313,30 @@
 /processorParam:TextureFormat=Color
 /build:Cowboy.png
 
+#begin Dee_buhhhh.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Dee_buhhhh.wav
+
+#begin Dee_Ekarmohkanad.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Dee_Ekarmohkanad.wav
+
+#begin Dee_Finally.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Dee_Finally.wav
+
+#begin Dee_I don't know how many hours I slept.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Dee_I don't know how many hours I slept.wav
+
 #begin Dee_knock.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -300,6 +348,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Dee_knock.png
+
+#begin Dee_What time is it now.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Dee_What time is it now.wav
 
 #begin DeeBox_faint.png
 /importer:TextureImporter
@@ -391,6 +445,18 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:Font.spritefont
+
+#begin fontaine.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:fontaine.png
 
 #begin game-cabinet.png
 /importer:TextureImporter
@@ -500,6 +566,18 @@
 /processorParam:TextureFormat=Color
 /build:House3 (1).png
 
+#begin House3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:House3.png
+
 #begin House4.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -559,6 +637,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Kid1Box_Sad.png
+
+#begin Kid2_Heartless.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Kid2_Heartless.wav
+
+#begin Kid2_My friend's stuff was stolen by a stranger.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Kid2_My friend's stuff was stolen by a stranger.wav
+
+#begin Kid2_Thanks.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Kid2_Thanks.wav
+
+#begin Kid2_Will you help my friend.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Kid2_Will you help my friend.wav
 
 #begin Kid2.png
 /importer:TextureImporter
@@ -891,6 +993,42 @@
 /processorParam:TextureFormat=Color
 /build:shop1.png
 
+#begin shop2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:shop2.png
+
+#begin shop3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:shop3.png
+
+#begin slider.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:slider.png
+
 #begin slingshot.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -951,6 +1089,18 @@
 /processorParam:TextureFormat=Color
 /build:StartLuwing.png
 
+#begin Swing.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Swing.png
+
 #begin TAE.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -998,6 +1148,456 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:TaeBox.png
+
+#begin Voice/Born/Born_Bezier.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Born/Born_Bezier.wav
+
+#begin Voice/Born/Born_But if its wrong.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Born/Born_But if its wrong.wav
+
+#begin Voice/Born/Born_Dont forget to lock your door tonight.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Born/Born_Dont forget to lock your door tonight.wav
+
+#begin Voice/Born/Born_Guessed the correct answer again.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Born/Born_Guessed the correct answer again.wav
+
+#begin Voice/Born/Born_Im Born,Mathematician Olympiad.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Born/Born_Im Born,Mathematician Olympiad.wav
+
+#begin Voice/Born/Born_Last Question.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Born/Born_Last Question.wav
+
+#begin Voice/Born/Born_Please answer these questions.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Born/Born_Please answer these questions.wav
+
+#begin Voice/Born/Born_Pythagorus.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Born/Born_Pythagorus.wav
+
+#begin Voice/Born/Born_Thats right.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Born/Born_Thats right.wav
+
+#begin Voice/Born/Born_These are the glasses you want.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Born/Born_These are the glasses you want.wav
+
+#begin Voice/Born/Born_Why dont you take a math class.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Born/Born_Why dont you take a math class.wav
+
+#begin Voice/Born/Born_You want my glasses.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Born/Born_You want my glasses.wav
+
+#begin Voice/Born/Born_Your mother almost met me.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Born/Born_Your mother almost met me.wav
+
+#begin Voice/Born/Born_Your mother survived.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Born/Born_Your mother survived.wav
+
+#begin Voice/Chin/Chin_Did you answer correctly again.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Chin/Chin_Did you answer correctly again.wav
+
+#begin Voice/Chin/Chin_Did you randomly answer correctly again.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Chin/Chin_Did you randomly answer correctly again.wav
+
+#begin Voice/Chin/Chin_Do you have something with me.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Chin/Chin_Do you have something with me.wav
+
+#begin Voice/Chin/Chin_How about this question.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Chin/Chin_How about this question.wav
+
+#begin Voice/Chin/Chin_So answer the question correctly.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Chin/Chin_So answer the question correctly.wav
+
+#begin Voice/Chin/Chin_The answer to this question is still simple.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Chin/Chin_The answer to this question is still simple.wav
+
+#begin Voice/Chin/Chin_This guy is really stupid. Go find a new answer.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Chin/Chin_This guy is really stupid. Go find a new answer.wav
+
+#begin Voice/Chin/Chin_What is the shape of the Chiangmai moat.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Chin/Chin_What is the shape of the Chiangmai moat.wav
+
+#begin Voice/Chin/Chin_Which province are we in now.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Chin/Chin_Which province are we in now.wav
+
+#begin Voice/Chin/Chin_Who teaches the subject 958221.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Chin/Chin_Who teaches the subject 958221.wav
+
+#begin Voice/Chin/Chin_You said I stole panties.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Chin/Chin_You said I stole panties.wav
+
+#begin Voice/Chin/Chin_You're really talented.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Chin/Chin_You're really talented.wav
+
+#begin Voice/Dee/Dee_buhhhh.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Voice/Dee/Dee_buhhhh.mp3
+
+#begin Voice/Dee/Dee_Ekarmohkanad.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Voice/Dee/Dee_Ekarmohkanad.mp3
+
+#begin Voice/Dee/Dee_Finally.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Voice/Dee/Dee_Finally.mp3
+
+#begin Voice/Dee/Dee_I don't know how many hours I slept.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Voice/Dee/Dee_I don't know how many hours I slept.mp3
+
+#begin Voice/Dee/Dee_What time is it now.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Voice/Dee/Dee_What time is it now.mp3
+
+#begin Voice/Dog.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Voice/Dog.mp3
+
+#begin Voice/Kid1/Kid1_I had my pantie stolen by a stranger.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Kid1/Kid1_I had my pantie stolen by a stranger.wav
+
+#begin Voice/Kid1/Kid1_Tall, wearing a purple shirt.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Kid1/Kid1_Tall, wearing a purple shirt.wav
+
+#begin Voice/Kid1/Kid1_Thank you very much, Uncle.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Kid1/Kid1_Thank you very much, Uncle.wav
+
+#begin Voice/Kid1/Kid1_you really got it back.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Kid1/Kid1_you really got it back.wav
+
+#begin Voice/Kid2/Kid1_I had my pantie stolen by a stranger.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Kid2/Kid1_I had my pantie stolen by a stranger.wav
+
+#begin Voice/Kid2/Kid1_Tall, wearing a purple shirt.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Kid2/Kid1_Tall, wearing a purple shirt.wav
+
+#begin Voice/Kid2/Kid1_Thank you very much, Uncle.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Kid2/Kid1_Thank you very much, Uncle.wav
+
+#begin Voice/Kid2/Kid1_you really got it back.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Kid2/Kid1_you really got it back.wav
+
+#begin Voice/Maelek/MaeLek_ I've got the pork.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Maelek/MaeLek_ I've got the pork.wav
+
+#begin Voice/Maelek/MaeLek_Cooked Laap  is finished cooking.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Maelek/MaeLek_Cooked Laap  is finished cooking.wav
+
+#begin Voice/Maelek/MaeLek_Could you please help me buy.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Maelek/MaeLek_Could you please help me buy.wav
+
+#begin Voice/Maelek/MaeLek_I think I'll make him some cooked laab.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Maelek/MaeLek_I think I'll make him some cooked laab.wav
+
+#begin Voice/Maelek/MaeLek_It looks like he passed out.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Maelek/MaeLek_It looks like he passed out.wav
+
+#begin Voice/Maelek/MaeLek_It seemed like it was definitely because of the raw laab.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Maelek/MaeLek_It seemed like it was definitely because of the raw laab.wav
+
+#begin Voice/Maelek/MaeLek_Of course I will do it for you in return for helping.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Maelek/MaeLek_Of course I will do it for you in return for helping.wav
+
+#begin Voice/Maelek/MaeLek_Thank you for bringing my son here.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Maelek/MaeLek_Thank you for bringing my son here.wav
+
+#begin Voice/Maelek/MaeLek_The minced pork at the bottom.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Maelek/MaeLek_The minced pork at the bottom.wav
+
+#begin Voice/Mixer/Mixer_I'm Mixer.Horse power athlete.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Mixer/Mixer_I'm Mixer.Horse power athlete.wav
+
+#begin Voice/Mixer/Mixer_If you can beat me in a race.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Mixer/Mixer_If you can beat me in a race.wav
+
+#begin Voice/Mixer/Mixer_It's so hot, take my shirt.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Mixer/Mixer_It's so hot, take my shirt.wav
+
+#begin Voice/Tae/Tae_but I have to go on a mission.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Tae/Tae_but I have to go on a mission.wav
+
+#begin Voice/Tae/Tae_Fine, but you'll have to get me a weapon.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Tae/Tae_Fine, but you'll have to get me a weapon.wav
+
+#begin Voice/Tae/Tae_I'm TAE the gangster of chiangmai moat.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Tae/Tae_I'm TAE the gangster of chiangmai moat.wav
+
+#begin Voice/Tae/Tae_If you want to talk to me, go get me a watermelon.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Tae/Tae_If you want to talk to me, go get me a watermelon.wav
+
+#begin Voice/Tae/Tae_Is this a weapon.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Tae/Tae_Is this a weapon.wav
+
+#begin Voice/Tae/Tae_Look This.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Tae/Tae_Look This.wav
+
+#begin Voice/Tae/Tae_Ok.What do you want me to help you with.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Tae/Tae_Ok.What do you want me to help you with.wav
+
+#begin Voice/Tae/Tae_Really brought watermelon.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Tae/Tae_Really brought watermelon.wav
+
+#begin Voice/Tae/Tae_What do you want I'm a gangster in this area.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Tae/Tae_What do you want I'm a gangster in this area.wav
+
+#begin Voice/Wizard/Wizard_Actually.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Wizard/Wizard_Actually.wav
+
+#begin Voice/Wizard/Wizard_But I don't really like it. It's both spicy and smelly.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Wizard/Wizard_But I don't really like it. It's both spicy and smelly.wav
+
+#begin Voice/Wizard/Wizard_But I keep my promise.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Wizard/Wizard_But I keep my promise.wav
+
+#begin Voice/Wizard/Wizard_I have to use it to do magic.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Wizard/Wizard_I have to use it to do magic.wav
+
+#begin Voice/Wizard/Wizard_I want a white sweater.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Wizard/Wizard_I want a white sweater.wav
+
+#begin Voice/Wizard/Wizard_I'm just a guy who cosplays.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Wizard/Wizard_I'm just a guy who cosplays.wav
+
+#begin Voice/Wizard/Wizard_Of course.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Wizard/Wizard_Of course.wav
+
+#begin Voice/Wizard/Wizard_Thanks.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Wizard/Wizard_Thanks.wav
+
+#begin Voice/Wizard/Wizard_This guy is really crazy.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Wizard/Wizard_This guy is really crazy.wav
+
+#begin Voice/Wizard/Wizard_This guy is really stupid and easy to trick.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Wizard/Wizard_This guy is really stupid and easy to trick.wav
+
+#begin Voice/Wizard/Wizard_This guy really likes laab.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Wizard/Wizard_This guy really likes laab.wav
+
+#begin Voice/Wizard/Wizard_What do you want me to help with.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Wizard/Wizard_What do you want me to help with.wav
+
+#begin Voice/Wizard/Wizard_What is your name, young man.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Wizard/Wizard_What is your name, young man.wav
+
+#begin Voice/Wizard/Wizard_Yes, but there is a condition.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Voice/Wizard/Wizard_Yes, but there is a condition.wav
 
 #begin watermelon.png
 /importer:TextureImporter

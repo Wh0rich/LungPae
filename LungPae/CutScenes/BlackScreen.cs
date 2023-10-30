@@ -1,6 +1,7 @@
 ﻿using LungPae.Core;
 using LungPae.Model;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -16,6 +17,9 @@ namespace LungPae.CutScenes
     {
         Texture2D bg;
         Dialog dialog,maelek,deehappy;
+        List<SoundEffect> soundEffects;
+        List<SoundEffect> instance;
+
 
         float temp;
         bool Add = false;
@@ -25,7 +29,9 @@ namespace LungPae.CutScenes
         float i = 0.1f;
         
         public BlackScreen() 
-        { 
+        {
+            soundEffects = new List<SoundEffect>();
+            instance = new List<SoundEffect>();
             dialog = new Dialog();
             maelek = new Dialog();
             deehappy = new Dialog();
@@ -35,6 +41,15 @@ namespace LungPae.CutScenes
             bg = Content.Load<Texture2D>("Blackbg");
             maelek.LoadContent(Content, "MaeLekBox");
             deehappy.LoadContent(Content, "DeeBox_Happy");
+
+            soundEffects.Add(Content.Load<SoundEffect>("Dee_Ekarmohkanad"));
+            soundEffects.Add(Content.Load<SoundEffect>("Dee_Finally"));
+
+            for (int i = 0; i < 2; i++)
+            {
+                instance.Add(soundEffects[i]);
+                instance[i].CreateInstance();
+            }
             dialog.LoadContent(Content);
         }
 
@@ -116,6 +131,7 @@ namespace LungPae.CutScenes
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(maelek.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                            instance[1].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -136,6 +152,7 @@ namespace LungPae.CutScenes
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                            instance[0].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;

@@ -10,11 +10,15 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using LungPae.Core;
 using System.Runtime.CompilerServices;
+using Microsoft.Xna.Framework.Audio;
 
 namespace LungPae.Model
 {
     internal class Born
     {
+        List<SoundEffect> soundEffects;
+        List<SoundEffect> instance;
+
         AnimatedTexture born;
         Dialog dialog,smile, noglasses;
         public Rectangle bornTalkRec, bornRec, bornRecTop;
@@ -27,6 +31,7 @@ namespace LungPae.Model
         bool give = false;
         int prvrow;
 
+        bool sound;
         public Born()
         {
             born = new AnimatedTexture(Vector2.Zero,0,Scale,0.4f);
@@ -34,6 +39,9 @@ namespace LungPae.Model
             smile = new Dialog();
             noglasses = new Dialog();
             Scale *= 100;
+
+            soundEffects = new List<SoundEffect>();
+            instance = new List<SoundEffect>();
         }
 
         internal void Load(ContentManager Content)
@@ -45,6 +53,27 @@ namespace LungPae.Model
             noglasses.LoadContent(Content, "BornBox_noglasses");
             bornpos = new Vector2(140, 200);
             speed = 1;
+
+            soundEffects.Add(Content.Load<SoundEffect>("Born_Bezier")); //0
+            soundEffects.Add(Content.Load<SoundEffect>("Born_But if its wrong"));//1
+            soundEffects.Add(Content.Load<SoundEffect>("Born_Dont forget to lock your door tonight"));//2
+            soundEffects.Add(Content.Load<SoundEffect>("Born_Last Question"));//3
+            soundEffects.Add(Content.Load<SoundEffect>("Born_Please answer these questions"));//4
+            soundEffects.Add(Content.Load<SoundEffect>("Born_Pythagorus"));//5
+            soundEffects.Add(Content.Load<SoundEffect>("Born_Thats right"));//6
+            soundEffects.Add(Content.Load<SoundEffect>("Born_These are the glasses you want"));//7
+            soundEffects.Add(Content.Load<SoundEffect>("Born_Why dont you take a math class"));//8
+            soundEffects.Add(Content.Load<SoundEffect>("Born_You want my glasses"));//9
+            soundEffects.Add(Content.Load<SoundEffect>("Born_Your mother almost met me"));
+            soundEffects.Add(Content.Load<SoundEffect>("Born_Your mother survived"));
+            soundEffects.Add(Content.Load<SoundEffect>("Born_Guessed the correct answer again"));
+
+
+            for (int i = 0; i < 13; i++)
+            {
+                instance.Add(soundEffects[i]);
+                instance[i].CreateInstance();
+            }
         }
         internal void Update(GameTime gameTime)
         {
@@ -178,6 +207,7 @@ namespace LungPae.Model
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                            instance[9].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -187,6 +217,7 @@ namespace LungPae.Model
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                            instance[4].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -197,6 +228,7 @@ namespace LungPae.Model
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                            instance[1].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -206,6 +238,7 @@ namespace LungPae.Model
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(smile.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                            instance[5].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -219,14 +252,18 @@ namespace LungPae.Model
                         {
 
                             Data.DialogCount++;
+                            instance[6].Play();
                         }
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.Ans2Rec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount = 14;
+                            instance[2].Play();
+
                         }
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.Ans3Rec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount = 14;
+                            instance[2].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -236,6 +273,7 @@ namespace LungPae.Model
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(smile.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                           
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -245,6 +283,7 @@ namespace LungPae.Model
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                            instance[0].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -258,14 +297,18 @@ namespace LungPae.Model
                         {
 
                             Data.DialogCount =14;
+                            instance[2].Play();
+
                         }
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.Ans2Rec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount ++;
+                            instance[12].Play();
                         }
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.Ans3Rec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount = 14;
+                            instance[2].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -275,6 +318,7 @@ namespace LungPae.Model
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(smile.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                            instance[8].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -288,14 +332,17 @@ namespace LungPae.Model
                         {
 
                             Data.DialogCount = 14;
+                            instance[2].Play();
                         }
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.Ans2Rec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount = 14;
+                            instance[2].Play();
                         }
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.Ans3Rec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount ++;
+                            instance[10].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -305,6 +352,7 @@ namespace LungPae.Model
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(smile.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                            instance[3].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -318,14 +366,17 @@ namespace LungPae.Model
                         {
 
                             Data.DialogCount ++;
+                            instance[11].Play();
                         }
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.Ans2Rec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount ++;
+                            instance[11].Play();
                         }
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.Ans3Rec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                            instance[11].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -335,6 +386,7 @@ namespace LungPae.Model
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                            instance[7].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -347,7 +399,7 @@ namespace LungPae.Model
                             Data.CanControl = true;
                             Data.inv.AddItem(Data.Glasses);
                             Data.Glasses.pickup = true;
-                            Data.Joy.pickup = true;
+                            
                             give = true;
                             Data.DialogCount = 0;
                             row = prvrow;

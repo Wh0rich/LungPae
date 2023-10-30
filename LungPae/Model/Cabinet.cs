@@ -21,7 +21,7 @@ namespace LungPae.Model
         public Rectangle cabinetRec, cabinetRecTop, cabinetRecTalk;
         bool checkCollision = false;
         public bool Talk = false;
-        float Depth = 0.3f;
+        float Depth = 0.1f;
         float scale = 0.7f;
         public Cabinet(Vector2 pos)
         {
@@ -49,7 +49,7 @@ namespace LungPae.Model
             }
             else
             {
-                Depth = 0.3f;
+                Depth = 0.1f;
             }
 
         }
@@ -66,12 +66,13 @@ namespace LungPae.Model
                 dialog.ChangeDialog("Welcome to Northern Cowboy.\nOnly one winner will receive the prize.");
                 if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                 {
-                    Data.Oldms = Data.ms;
+                    
                     Data.CurrentState = Data.Scenes.Cowboy;
 
                 }
                
             }
+            Data.Oldms = Data.ms;
         }
         internal void Gamecheck(Player player)
         {

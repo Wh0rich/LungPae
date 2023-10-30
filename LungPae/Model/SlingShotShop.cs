@@ -18,13 +18,13 @@ namespace LungPae.Model
         Building slingshop;
         Dialog dialog;
 
-        Vector2 pos = new Vector2(900, 20);
-        float Scale = 1;
+        Vector2 pos = new Vector2(800, 0-30);
+        float Scale = 0.25f;
         public Rectangle TalkRec;
         public bool Talk = false;
         public SlingShotShop()
         {
-            slingshop = new Building(pos, 1);
+            slingshop = new Building(pos, Scale);
             dialog = new Dialog();
             Scale *= 100;
         }
@@ -33,7 +33,7 @@ namespace LungPae.Model
             slingshop.Load(Content, "SlingShotShop");
             Data.Slingshot.Load(Content, "slingshot");
             dialog.LoadContent(Content);
-            TalkRec = new Rectangle((int)pos.X + 200, (int)pos.Y + (slingshop.obj.Height * (int)Scale / 100) / 2 +55, 45, 90);
+            TalkRec = new Rectangle((int)pos.X + 200, (int)pos.Y + (slingshop.obj.Height * (int)Scale / 100) / 2 +65, 45, 90);
         }
         public void Update(GameTime gameTime)
         {

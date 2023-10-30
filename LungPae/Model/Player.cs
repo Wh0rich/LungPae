@@ -28,7 +28,7 @@ namespace LungPae.Model
         
         public Rectangle PlayerRec;
        
-        public int speed = 10,  row = 1;
+        public int speed = 5,  row = 1;
 
         public Player(float rotation, float scale, float depth)
         {

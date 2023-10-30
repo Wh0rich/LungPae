@@ -18,7 +18,7 @@ namespace LungPae.Model
 
         AnimatedTexture wizard;
         Dialog dialog,box,smile;
-        Vector2 pos = new Vector2(100,150);
+        Vector2 pos = new Vector2(100,300);
         public Rectangle wiTalkRec, wiRec, wiRecTop;
         float scale = 0.6f;
         public bool Talk = false;

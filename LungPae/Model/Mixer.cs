@@ -22,11 +22,11 @@ namespace LungPae.Model
         Vector2 mixPos;
 
 
-       public Rectangle mixRec, mixRecTop, mixRecTalk;
-        public bool Talk = false , checkCollision = false;
+        public Rectangle mixRec, mixRecTop, mixRecTalk;
+        public bool Talk = false, checkCollision = false;
         public int row = 1;
         float Scale = 0.6f;
-        public Mixer(float rotation, float scale, float depth) 
+        public Mixer(float rotation, float scale, float depth)
         {
             mixer = new AnimatedTexture(Vector2.Zero, rotation, scale, depth);
             Mixani = new AnimatedTexture(Vector2.Zero, rotation, scale, depth);
@@ -44,12 +44,12 @@ namespace LungPae.Model
         {
             mixer.Load(content, "MixerReal", 1, 4, 10);
             Mixani.Load(content, "MixerAni", 6, 1, 18);
-            dialog.LoadContent(content,"MixerBox");
+            dialog.LoadContent(content, "MixerBox");
             Data.Sweater.Load(content, "MixerHood");
         }
         internal void Update(GameTime gameTime)
         {
-            if(Data.Minigame1Finish == false)
+            if (Data.Minigame1Finish == false)
             {
                 mixRec = new Rectangle((int)mixPos.X, (int)mixPos.Y + 30, mixer.FrameWidth * (int)Scale / 100, mixer.FrameHeight * (int)Scale / 100 + 10);
                 mixRecTop = new Rectangle((int)mixPos.X, (int)mixPos.Y, mixer.FrameWidth * (int)Scale / 100, (mixer.FrameHeight * (int)Scale / 100) - 40);
@@ -57,7 +57,7 @@ namespace LungPae.Model
             }
             if (Data.Minigame1Finish == true)
             {
-                mixRec = new Rectangle(-20000,1,1,1);
+                mixRec = new Rectangle(-20000, 1, 1, 1);
                 mixRecTop = new Rectangle(-20000, 1, 1, 1);
                 mixRecTalk = new Rectangle(-20000, 1, 1, 1);
             }
@@ -79,7 +79,7 @@ namespace LungPae.Model
         }
         internal void Draw(SpriteBatch batch)
         {
-           
+
 
             if (Talk == true && Data.Minigame1Finish == false)
             {
@@ -130,15 +130,15 @@ namespace LungPae.Model
             }
             mixer.DrawFrame(batch, mixPos, row);
         }
-           
 
-        internal void Drawmini(SpriteBatch batch,Vector2 Posmix) // Drawสำหรับminigame
+
+        internal void Drawmini(SpriteBatch batch, Vector2 Posmix) // Drawสำหรับminigame
         {
             Mixani.DrawFrame(batch, Posmix);
         }
 
-            
-            internal void mixCheck(Player player)
+
+        internal void mixCheck(Player player)
         {
             if (mixRecTop.Intersects(player.PlayerRec))
             {

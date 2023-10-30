@@ -47,6 +47,24 @@ namespace LungPae.Model
                     player.player.Depth = 0.2f;
                 }
             }
+           
+        }
+        internal void CheckCollision2(Player player)
+        {
+            if (ObjRecTop.Intersects(player.PlayerRec))
+            {
+                Depth = 0.6f;
+            }
+            if (ObjRecDown.Intersects(player.PlayerRec))
+            {
+                player.player.Depth = 0.5f;
+
+                if (player.PlayerRec.Intersects(ObjRecDown) && player.PlayerRec.Top < ObjRecDown.Top)
+                {
+                    player.player.Depth = 0.2f;
+                }
+            }
+
         }
         internal void Draw(SpriteBatch _spriteBatch)
         {

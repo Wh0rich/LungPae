@@ -17,7 +17,7 @@ namespace LungPae.Scenes
         Texture2D Floor;
         Texture2D grass;
         Player player;
-        Building house;
+        Building house,building, h7, h8, h9, h10, h11, h12;
         MaeLek lek;
         public Scene11()
         {
@@ -27,6 +27,13 @@ namespace LungPae.Scenes
             lek = new MaeLek();
             player = new Player();
             player.row = 4;
+            h7 = new Building(new Vector2(740, 0), 0.3f);
+            h8 = new Building(new Vector2(740, 240), 0.3f);
+            h9 = new Building(new Vector2(740, 480), 0.3f);
+            h10 = new Building(new Vector2(1000, 0), 0.3f);
+            h11 = new Building(new Vector2(1000, 240), 0.3f);
+            h12 = new Building(new Vector2(1000, 480), 0.3f);
+            building = new Building(new Vector2(420, 20), 0.2f);
         }
         internal override void LoadContent(ContentManager Content)
         {
@@ -35,6 +42,14 @@ namespace LungPae.Scenes
             Floor = Content.Load<Texture2D>("Floor");
             grass = Content.Load<Texture2D>("grass");
             player.LoadContent(Content);
+            h7.Load(Content, "House1");
+            h8.Load(Content, "House3");
+            h9.Load(Content, "House1");
+            h10.Load(Content, "House3");
+            h11.Load(Content, "House1");
+            h12.Load(Content, "House3");
+            building.Load(Content, "buliding");
+
         }
         internal override void Update(GameTime gameTime)
         {
@@ -42,6 +57,20 @@ namespace LungPae.Scenes
             player.Update(gameTime);
             Data.MRec = new Rectangle(Data.ms.X, Data.ms.Y, 1, 1);
             Data.ms = Mouse.GetState();
+            h7.CheckCollision(player);
+            player.Collision(h7.ObjRecDown);
+            h8.CheckCollision(player);
+            player.Collision(h8.ObjRecDown);
+            h9.CheckCollision(player);
+            player.Collision(h9.ObjRecDown);
+            h10.CheckCollision(player);
+            player.Collision(h10.ObjRecDown);
+            h11.CheckCollision(player);
+            player.Collision(h11.ObjRecDown);
+            h12.CheckCollision(player);
+            player.Collision(h12.ObjRecDown);
+            building.CheckCollision(player);
+            player.Collision(building.ObjRecDown); 
 
             if (player.PlayerRec.Intersects(lek.lekTalkRec) && Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(lek.lekTalkRec))
             {
@@ -63,10 +92,29 @@ namespace LungPae.Scenes
             Data.inv.Draw(_spriteBatch);
             Data.TpRec = new Rectangle(0,Data.ScreenH / 2, 40, 5);
             Data.TpRec2 = new Rectangle(Data.ScreenW / 2, Data.ScreenH - 5, 40, 15);
+            h7.Draw(_spriteBatch);
 
-            _spriteBatch.Draw(Floor, new Vector2(Data.ScreenW / 2, Data.ScreenH - Floor.Height), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
-            _spriteBatch.Draw(Floor, new Vector2(0,Data.ScreenH / 2), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
+            h9.Draw(_spriteBatch);
 
+            h8.Draw(_spriteBatch);
+
+            h12.Draw(_spriteBatch);
+
+            h11.Draw(_spriteBatch);
+            h10.Draw(_spriteBatch);
+            building.Draw(_spriteBatch);
+            for (int i = 0; i < 9; i++)
+            {
+                _spriteBatch.Draw(Floor, new Vector2(Data.ScreenW / 2-80, Data.ScreenH - Floor.Height) - Data.PosTileY * i, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
+                _spriteBatch.Draw(Floor, new Vector2(Data.ScreenW / 2-40, Data.ScreenH - Floor.Height) - Data.PosTileY * i, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
+                _spriteBatch.Draw(Floor, new Vector2(Data.ScreenW / 2, Data.ScreenH - Floor.Height) - Data.PosTileY * i, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
+            }
+            for (int i = 0; i < 16; i++)
+            {
+                _spriteBatch.Draw(Floor, new Vector2(0, Data.ScreenH / 2+40) + Data.PosTileX * i, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
+                _spriteBatch.Draw(Floor, new Vector2(0, Data.ScreenH / 2+80) + Data.PosTileX * i, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
+                _spriteBatch.Draw(Floor, new Vector2(0, Data.ScreenH / 2) + Data.PosTileX * i, null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
+            }
            
             for (int i = 0; i < Data.ScreenW / grass.Width; i++)
             {

@@ -1,6 +1,7 @@
 ﻿using lungpae;
 using LungPae.Core;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -16,6 +17,9 @@ namespace LungPae.Model
 {
     internal class AyDee
     {
+        List<SoundEffect> soundEffects;
+        List<SoundEffect> instance;
+
         AnimatedTexture Dee;
         Texture2D sleep;
         Dialog dialog,faint;
@@ -32,7 +36,8 @@ namespace LungPae.Model
             Dee = new AnimatedTexture(Vector2.Zero,0,Scale,0.4f);
             dialog = new Dialog();
             faint = new Dialog();
-            
+            soundEffects = new List<SoundEffect>();
+            instance = new List<SoundEffect>();
             Scale *= 100;
         }
 
@@ -41,8 +46,19 @@ namespace LungPae.Model
             Dee.Load(Content,"AyDee",1,4,0);
             sleep = Content.Load<Texture2D>("Dee_knock");
             faint.LoadContent(Content, "DeeBox_faint");
+
+            soundEffects.Add(Content.Load<SoundEffect>("Dee_buhhhh"));
+            soundEffects.Add(Content.Load<SoundEffect>("Dee_I don't know how many hours I slept"));
+            soundEffects.Add(Content.Load<SoundEffect>("Dee_What time is it now"));
+
+            for(int i = 0;i<3;i++)
+            {
+                instance.Add(soundEffects[i]);
+                instance[i].CreateInstance();
+            }
+
             dialog.LoadContent(Content);
-            Deepos = new Vector2(100,50);
+            Deepos = new Vector2(640,540);
         }
         internal void Update(GameTime gameTime) 
         {
@@ -75,6 +91,7 @@ namespace LungPae.Model
                         {
 
                             Data.DialogCount++;
+                            instance[2].Play();
                         }
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(dialog.Ans2Rec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
@@ -88,9 +105,11 @@ namespace LungPae.Model
 
                         faint.DrawPerson(Batch,"Dee");
                         faint.ChangeDialog("What time is it now?");
+                        
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(faint.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                            instance[1].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -98,9 +117,11 @@ namespace LungPae.Model
 
                         faint.DrawPerson(Batch, "Dee");
                         faint.ChangeDialog("I don't know how many hours I slept");
+                        
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(faint.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;
+                            instance[0].Play();
                         }
                         Data.Oldms = Data.ms;
                         break;
@@ -108,6 +129,7 @@ namespace LungPae.Model
 
                         faint.DrawPerson(Batch, "Dee");
                         faint.ChangeDialog("bruhhhh");
+                        
                         if (Data.ms.LeftButton == ButtonState.Pressed && Data.MRec.Intersects(faint.DialogRec) && Data.Oldms.LeftButton == ButtonState.Released)
                         {
                             Data.DialogCount++;

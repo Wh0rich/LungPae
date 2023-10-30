@@ -23,7 +23,7 @@ namespace LungPae.Scenes
         public Scene15()
         {
             player = new Player();
-            cabinet = new Cabinet(new Vector2(500, 250));
+            
         }
 
         internal override void LoadContent(ContentManager Content)
@@ -31,7 +31,7 @@ namespace LungPae.Scenes
             player.LoadContent(Content);
             Floor = Content.Load<Texture2D>("Floor");
             grass = Content.Load<Texture2D>("grass");
-            cabinet.Load(Content);
+            
         }
 
         internal override void Update(GameTime gameTime)
@@ -48,8 +48,7 @@ namespace LungPae.Scenes
             }
 
 
-                cabinet.Update(gameTime);
-            cabinet.Gamecheck(player);
+               
         }
 
         internal override void Draw(SpriteBatch Batch)
@@ -57,8 +56,9 @@ namespace LungPae.Scenes
             Data.inv.Draw(Batch);
             
             Data.TpRec2 = new Rectangle(Data.ScreenW / 2, Data.ScreenH - 5, 40, 15);
+           
 
-            Batch.Draw(Floor, new Vector2(Data.ScreenW / 2, Data.ScreenH - Floor.Height), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
+           // Batch.Draw(Floor, new Vector2(Data.ScreenW / 2, Data.ScreenH - Floor.Height), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
             
 
             for (int i = 0; i < Data.ScreenW / grass.Width; i++)

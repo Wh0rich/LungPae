@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
+
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,6 +20,7 @@ namespace LungPae.CutScenes
 
         Texture2D Floor;
         Texture2D grass;
+        Building h1, h2, h3, h4, h5, h6, h7, h8, h9, h10, h11, h12;
         AnimatedTexture dog;
         AnimatedTexture dog2;
         AnimatedTexture dog3;
@@ -43,6 +45,18 @@ namespace LungPae.CutScenes
             tae = new TAE();
             dialog = new Dialog();
             box = new Dialog();
+            h1 = new Building(new Vector2(0, 0), 0.3f);
+            h2 = new Building(new Vector2(0, 240), 0.3f);
+            h3 = new Building(new Vector2(0, 480), 0.3f);
+            h4 = new Building(new Vector2(300, 0), 0.3f);
+            h5 = new Building(new Vector2(300, 240), 0.3f);
+            h6 = new Building(new Vector2(300, 480), 0.3f);
+            h7 = new Building(new Vector2(740, 0), 0.3f);
+            h8 = new Building(new Vector2(740, 240), 0.3f);
+            h9 = new Building(new Vector2(740, 480), 0.3f);
+            h10 = new Building(new Vector2(1000, 0), 0.3f);
+            h11 = new Building(new Vector2(1000, 240), 0.3f);
+            h12 = new Building(new Vector2(1000, 480), 0.3f);
         }
         internal override void LoadContent(ContentManager Content)
         {
@@ -54,6 +68,18 @@ namespace LungPae.CutScenes
             grass = Content.Load<Texture2D>("grass");
             dialog.LoadContent(Content, "TaeBox");
             box.LoadContent(Content, "TaeBox_Angry");
+            h1.Load(Content, "House1");
+            h2.Load(Content, "House3");
+            h3.Load(Content, "House1");
+            h4.Load(Content, "House3");
+            h5.Load(Content, "House1");
+            h6.Load(Content, "House3");
+            h7.Load(Content, "House1");
+            h8.Load(Content, "House3");
+            h9.Load(Content, "House1");
+            h10.Load(Content, "House3");
+            h11.Load(Content, "House1");
+            h12.Load(Content, "House3");
 
         }
 
@@ -75,13 +101,25 @@ namespace LungPae.CutScenes
                 dogpos3.Y -= 2;
                 dog.UpdateFrame(elapsed);
             }
-            
+         
         }
         internal override void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(Floor, new Vector2(Data.ScreenW / 2, Data.ScreenH - Floor.Height), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
             spriteBatch.Draw(Floor, new Vector2(Data.ScreenW / 2, 0), null, Color.White, 0, Vector2.Zero, 1, SpriteEffects.None, 0.1f);
 
+            h3.Draw(spriteBatch);
+            h2.Draw(spriteBatch);
+            h1.Draw(spriteBatch);
+            h6.Draw(spriteBatch);
+            h5.Draw(spriteBatch);
+            h4.Draw(spriteBatch);
+            h9.Draw(spriteBatch);
+            h8.Draw(spriteBatch);
+            h7.Draw(spriteBatch);
+            h12.Draw(spriteBatch);
+            h11.Draw(spriteBatch);
+            h10.Draw(spriteBatch);
             if (talk1 == true)
             {
                 tae.tae.DrawFrame(spriteBatch, taepos, 3);

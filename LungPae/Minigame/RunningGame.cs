@@ -181,9 +181,9 @@ namespace LungPae.Minigame
                 if  (Keyboard.GetState().IsKeyDown(Keys.Enter))
                 {
                     Data.CurrentState = Data.Scenes.scene14;
-                    Data.CanControl = true;
                     Data.Minigame1Finish = true;
-                    
+                    mixer.Talk = true;
+                    Data.Oldms = Data.ms;
                 } 
             }
            if(Mixpos.X > Finish.X)
@@ -198,7 +198,7 @@ namespace LungPae.Minigame
                 {
                     Data.CurrentState = Data.Scenes.scene14;
                     Data.CanControl = true;
-                    
+                    Data.Oldms = Data.ms;
                 }
             }
             mixer.Drawmini(Batch,Mixpos - cameraPos);

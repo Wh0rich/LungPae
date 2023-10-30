@@ -13,11 +13,16 @@ using System.Threading.Tasks;
 using LungPae.Core;
 using System.Runtime.CompilerServices;
 using LungPae.Model;
+using Microsoft.Xna.Framework.Audio;
+
 
 namespace LungPae.Model
 {
     internal class Chin 
     {
+        List<SoundEffect> soundEffects = new List<SoundEffect>() ;
+        List<SoundEffect> instance = new List<SoundEffect>();
+
         AnimatedTexture chin;
         Dialog dialog,dialoghappy,dialogBox;
         
@@ -59,6 +64,9 @@ namespace LungPae.Model
             dialoghappy.LoadContent(content, "ChinBox_Happy");
             dialogBox.LoadContent(content, "ChinBox");
             dialog.LoadContent(content);
+
+            
+            
             speed = 1;
             
         }

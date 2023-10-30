@@ -18,13 +18,13 @@ namespace LungPae.Model
         Building melonShop;
         Dialog dialog;
 
-        Vector2 pos = new Vector2(800, 100);
-        float Scale = 1;
+        Vector2 pos = new Vector2(800, -35);
+        float Scale = 0.3f;
         public Rectangle TalkRec;
         public bool Talk = false;
         public WatermelonShop()
         {
-            melonShop = new Building(pos, 1);
+            melonShop = new Building(pos, Scale);
             dialog = new Dialog();
             Scale *= 100;
         }
@@ -33,7 +33,7 @@ namespace LungPae.Model
             melonShop.Load(Content, "WatermelonShop");
             Data.Watermelon.Load(Content,"watermelon");
             dialog.LoadContent(Content);
-            TalkRec = new Rectangle((int)pos.X + 145, (int)pos.Y + (melonShop.obj.Height * (int)Scale / 100) / 2 +80, 58, 70);
+            TalkRec = new Rectangle((int)pos.X + 175, (int)pos.Y + (melonShop.obj.Height * (int)Scale / 100) / 2 +80, 58, 70);
         }
         public void Update(GameTime gameTime)
         {
